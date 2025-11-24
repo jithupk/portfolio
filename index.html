@@ -15,7 +15,7 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-md-3 d-flex align-items-center">
+                <div class="col-6 col-md-3 d-flex align-items-center">
                     <a href="" class="brand-logo">Jithu.</a>
                 </div>
                 <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center">
@@ -27,15 +27,15 @@
                         <li><a href="">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 d-flex align-items-center justify-content-end">
+                <div class="col-6 col-md-3 d-flex align-items-center justify-content-end">
                     <div class="dark-toggle">
-                        <a href=""><img src="" alt=""></a>
+                        <a href=""><img src="images/darkMode-icon.svg" alt=""></a>
                     </div>
                     <div class="btn-wrap d-none d-md-block">
                         <a href="" class="btn-primary">Start a project</a>
                     </div>
                     <div class="nav-toggle-wrap d-md-none">
-                        <a href="" id="navToggle"><img src="" alt=""></a>
+                        <a href="" id="navToggle"><img src="images/icon-bars.svg" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -45,22 +45,170 @@
         <div>
             <main>
                 <section class="home-banner">
-                    <div class="container">
+                    <div class="bg-img">
+                        <img src="images/new-bg-blue.png" alt="">
+                    </div>
+                    <div class="bg-vid">
+                        <video src="videos/bg-video.mp4" autoplay muted playsinline loop></video>
+                    </div>
+                    <div class="container position-relative z-2">
                         <div class="row">
                             <div class="col-12">
                                 <div class="user-info">
-                                    <div class="user-img"><img src="" alt=""></div>
+                                    <div class="user-img"><img src="images/user-img.png" alt=""></div>
                                     <div class="user-desc">
                                         <span class="active-dot"></span>
                                         <p>Available for new projects</p>
                                     </div>
-                                    <h1>Interfaces that feel natural, fast and quietly powerful</h1>
-                                    <p>Clean code, smooth interactions, and thoughtful UI crafted to make every click feel meaningful.</p>
-                                    <div class="btn-row">
-                                        <a href="" class="btn btn-primary">Get in touch</a>
-                                        <a href="" class="btn btn-secondary">View works</a>
+                                </div>
+                                <h1>Interfaces that feel natural, fast and quietly powerful</h1>
+                                <p>Clean code, smooth interactions, and thoughtful UI crafted to make every click feel meaningful.</p>
+                                <div class="btn-row">
+                                    <a href="" class="btn btn-primary">Get in touch</a>
+                                    <a href="" class="btn btn-secondary">View works</a>
+                                </div>
+                                <div class="service-marquee">
+                                    <div class="service-marquee__item">
+                                        <p>Website Design</p>
+                                    </div>
+                                    <div class="service-marquee__item">
+                                        <p>Branding</p>
+                                    </div>
+                                    <div class="service-marquee__item">
+                                        <p>Website Development</p>
                                     </div>
                                 </div>
+                                <script>
+/*
+ Back-and-forth vertical marquee using the user's .service-marquee markup.
+ - Waits for DOMContentLoaded
+ - Guards against missing elements
+ - Uses time-based animation (px/sec)
+ - Pauses on hover / focus
+*/
+document.addEventListener('DOMContentLoaded', () => {
+  const marquee = document.getElementById('serviceMarquee');           // moving content
+  const wrapper = document.getElementById('serviceMarqueeWrap');      // visible viewport
+  const toggleBtn = document.getElementById('toggleBtn');
+  const speedRange = document.getElementById('speedRange');
+
+  if (!marquee || !wrapper) {
+    console.warn('service-marquee or wrapper not found — marquee disabled.');
+    return;
+  }
+
+  // state
+  let speed = Number(speedRange?.value || 80); // px/sec
+  let direction = -1;    // -1 = up, +1 = down
+  let offset = 0;        // current translateY (px)
+  let paused = false;
+  let lastTs = null;
+  let running = false;
+
+  function computeMaxScroll() {
+    const wrapH = wrapper.clientHeight;
+    const contentH = marquee.scrollHeight;
+    // maxScroll is the negative number we can translate to (wrapH - contentH) or 0 if content fits
+    return Math.min(0, wrapH - contentH);
+  }
+
+  let maxScroll = computeMaxScroll();
+
+  function isScrollable() {
+    maxScroll = computeMaxScroll();
+    return maxScroll < 0;
+  }
+
+  // Pause on hover/focus
+  wrapper.addEventListener('mouseenter', () => paused = true);
+  wrapper.addEventListener('mouseleave', () => paused = false);
+  wrapper.addEventListener('focusin', () => paused = true);
+  wrapper.addEventListener('focusout', () => paused = false);
+
+  // Toggle button
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      paused = !paused;
+      toggleBtn.textContent = paused ? 'Play' : 'Pause';
+    });
+  }
+
+  // Speed control
+  if (speedRange) {
+    speedRange.addEventListener('input', (e) => {
+      const v = Number(e.target.value);
+      if (!Number.isNaN(v) && v > 0) speed = v;
+    });
+  }
+
+  // ResizeObserver to recompute bounds
+  const ro = new ResizeObserver(() => {
+    clearTimeout(ro._t);
+    ro._t = setTimeout(() => {
+      const canScroll = isScrollable();
+      if (!canScroll) {
+        // content fits — reset
+        offset = 0;
+        direction = -1;
+        marquee.style.transform = '';
+        running = false;
+      } else {
+        // ensure animation is running
+        if (!running) start();
+      }
+    }, 80);
+  });
+  ro.observe(wrapper);
+  ro.observe(marquee);
+
+  // Animation loop (time based)
+  function step(ts) {
+    if (lastTs === null) lastTs = ts;
+    const dt = (ts - lastTs) / 1000;
+    lastTs = ts;
+
+    if (!paused && maxScroll < 0) {
+      offset += direction * speed * dt;
+
+      // clamp & reverse
+      if (offset <= maxScroll) {
+        offset = maxScroll;
+        direction = 1;
+      } else if (offset >= 0) {
+        offset = 0;
+        direction = -1;
+      }
+
+      // safe apply transform
+      if (marquee && marquee.style) {
+        marquee.style.transform = `translateY(${offset}px)`;
+      }
+    }
+
+    if (running) requestAnimationFrame(step);
+  }
+
+  function start() {
+    if (running) return;
+    if (!isScrollable()) return;
+    running = true;
+    lastTs = null;
+    requestAnimationFrame(step);
+  }
+
+  // start if needed
+  if (isScrollable()) start();
+
+  // expose small API for debugging
+  window._serviceMarquee = {
+    get paused(){ return paused; },
+    set paused(v){ paused = !!v; },
+    get speed(){ return speed; },
+    set speed(v){ speed = Number(v); speedRange.value = speed; },
+    recompute(){ maxScroll = computeMaxScroll(); }
+  };
+});
+</script>
                             </div>
                         </div>
                     </div>
@@ -107,7 +255,7 @@
                             <div class="col-md-6">
                                 <div class="recent-projects-card">
                                     <div class="card-img">
-                                        <img src="" alt="">
+                                        <img src="images/MacBook Air (2022).png" alt="">
                                     </div>
                                     <div class="card-body">
                                         <div class="title">
@@ -121,7 +269,7 @@
                             <div class="col-md-6">
                                 <div class="recent-projects-card">
                                     <div class="card-img">
-                                        <img src="" alt="">
+                                        <img src="images/mockuuups-macbook-pro-mockup-floating-in-the-air 1.png" alt="">
                                     </div>
                                     <div class="card-body">
                                         <div class="title">
@@ -135,7 +283,7 @@
                             <div class="col-md-6">
                                 <div class="recent-projects-card">
                                     <div class="card-img">
-                                        <img src="" alt="">
+                                        <img src="images/mockuuups-ipad-pro-129-inch-mockup-on-a-modern-desk 1.png" alt="">
                                     </div>
                                     <div class="card-body">
                                         <div class="title">
@@ -149,7 +297,7 @@
                             <div class="col-md-6">
                                 <div class="recent-projects-card">
                                     <div class="card-img">
-                                        <img src="" alt="">
+                                        <img src="images/Mockup 17.png" alt="">
                                     </div>
                                     <div class="card-body">
                                         <div class="title">
