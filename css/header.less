@@ -1,0 +1,32 @@
+header{
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    background: #fff;
+    width: 100%;
+    .brand-logo{
+        font-family: 'Inter Display';
+        font-size: 24px;
+        color: #000;
+        font-weight: 500;
+    }
+    .nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        li{
+            &+li{
+                margin-left: 15px;
+            }
+            a{
+                font-size: 16px;
+                line-height: 1;
+                color: #000;
+                display: block;
+                padding: 20px 0;
+            }
+        }
+    }
+}
