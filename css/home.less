@@ -2,6 +2,8 @@
   padding-top: 150px;
   position: relative;
   overflow: hidden;
+  height: 100vh;
+  min-height: 812px;
   &::before {
     content: "";
     position: absolute;
@@ -102,16 +104,35 @@
   .service-marquee {
     margin-top: 50px;
     display: flex;
-    flex-flow: column;height: 2rem;
-    padding-top: .675rem;
+    flex-flow: column;
+    height: 2rem;
+    padding-top: 0.675rem;
     mask: linear-gradient(#0000, #000 50%, #0000);
     .service-marquee__item {
-        
+      transition: transform 0.3s linear;
       p {
         max-width: 100%;
         margin: 0;
         font-size: 16px;
         text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.trusted-partners {
+  background: #fff;
+  .partners-slider {
+    .swiper-wrapper {
+      transition-timing-function: linear;
+      transition-duration: 8000ms;
+      .swiper-slide {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        img {
+          height: 40px;
+        }
       }
     }
   }

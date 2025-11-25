@@ -1,17 +1,29 @@
 header {
   position: fixed;
-  top: 20px;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   z-index: 999;
   background: #fff;
   width: 100%;
+  padding: 10px 0;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 1400px) {
+  header {
+    max-width: 1320px;
+    top: 25px;
+    border-radius: 10px;
+  }
 }
 header .brand-logo {
   font-family: 'Inter Display';
   font-size: 24px;
   color: #000;
   font-weight: 500;
+  display: block;
 }
 header .nav {
   display: flex;
@@ -27,4 +39,7 @@ header .nav li a {
   color: #000;
   display: block;
   padding: 20px 0;
+}
+header .dark-toggle {
+  margin-right: 15px;
 }

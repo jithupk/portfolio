@@ -1,121 +1,303 @@
 @font-face {
-  font-family: 'Geist';
-  src: url('../fonts/Geist-Bold.woff2') format('woff2'), url('../fonts/Geist-Bold.woff') format('woff');
+  font-family: "Geist";
+  src: url("../fonts/Geist-Bold.woff2") format("woff2"), url("../fonts/Geist-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Geist';
-  src: url('../fonts/Geist-ExtraBold.woff2') format('woff2'), url('../fonts/Geist-ExtraBold.woff') format('woff');
+  font-family: "Geist";
+  src: url("../fonts/Geist-ExtraBold.woff2") format("woff2"), url("../fonts/Geist-ExtraBold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Geist';
-  src: url('../fonts/Geist-Black.woff2') format('woff2'), url('../fonts/Geist-Black.woff') format('woff');
+  font-family: "Geist";
+  src: url("../fonts/Geist-Black.woff2") format("woff2"), url("../fonts/Geist-Black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Geist';
-  src: url('../fonts/Geist-Thin.woff2') format('woff2'), url('../fonts/Geist-Thin.woff') format('woff');
+  font-family: "Geist";
+  src: url("../fonts/Geist-Thin.woff2") format("woff2"), url("../fonts/Geist-Thin.woff") format("woff");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Geist';
-  src: url('../fonts/Geist-Medium.woff2') format('woff2'), url('../fonts/Geist-Medium.woff') format('woff');
+  font-family: "Geist";
+  src: url("../fonts/Geist-Medium.woff2") format("woff2"), url("../fonts/Geist-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Geist';
-  src: url('../fonts/Geist-Regular.woff2') format('woff2'), url('../fonts/Geist-Regular.woff') format('woff');
+  font-family: "Geist";
+  src: url("../fonts/Geist-Regular.woff2") format("woff2"), url("../fonts/Geist-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Geist';
-  src: url('../fonts/Geist-SemiBold.woff2') format('woff2'), url('../fonts/Geist-SemiBold.woff') format('woff');
+  font-family: "Geist";
+  src: url("../fonts/Geist-SemiBold.woff2") format("woff2"), url("../fonts/Geist-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Geist';
-  src: url('../fonts/Geist-Light.woff2') format('woff2'), url('../fonts/Geist-Light.woff') format('woff');
+  font-family: "Geist";
+  src: url("../fonts/Geist-Light.woff2") format("woff2"), url("../fonts/Geist-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Inter Display';
-  src: url('../fonts/InterDisplay-Black.woff2') format('woff2'), url('../fonts/InterDisplay-Black.woff') format('woff');
+  font-family: "Inter Display";
+  src: url("../fonts/InterDisplay-Black.woff2") format("woff2"), url("../fonts/InterDisplay-Black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Inter Display';
-  src: url('../fonts/InterDisplay-Bold.woff2') format('woff2'), url('../fonts/InterDisplay-Bold.woff') format('woff');
+  font-family: "Inter Display";
+  src: url("../fonts/InterDisplay-Bold.woff2") format("woff2"), url("../fonts/InterDisplay-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Inter Display';
-  src: url('../fonts/InterDisplay-Medium.woff2') format('woff2'), url('../fonts/InterDisplay-Medium.woff') format('woff');
+  font-family: "Inter Display";
+  src: url("../fonts/InterDisplay-Medium.woff2") format("woff2"), url("../fonts/InterDisplay-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Inter Display';
-  src: url('../fonts/InterDisplay-ExtraBold.woff2') format('woff2'), url('../fonts/InterDisplay-ExtraBold.woff') format('woff');
+  font-family: "Inter Display";
+  src: url("../fonts/InterDisplay-ExtraBold.woff2") format("woff2"), url("../fonts/InterDisplay-ExtraBold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Inter Display';
-  src: url('../fonts/InterDisplay-SemiBold.woff2') format('woff2'), url('../fonts/InterDisplay-SemiBold.woff') format('woff');
+  font-family: "Inter Display";
+  src: url("../fonts/InterDisplay-SemiBold.woff2") format("woff2"), url("../fonts/InterDisplay-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Inter Display';
-  src: url('../fonts/InterDisplay-Thin.woff2') format('woff2'), url('../fonts/InterDisplay-Thin.woff') format('woff');
+  font-family: "Inter Display";
+  src: url("../fonts/InterDisplay-Thin.woff2") format("woff2"), url("../fonts/InterDisplay-Thin.woff") format("woff");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Inter Display';
-  src: url('../fonts/InterDisplay-Regular.woff2') format('woff2'), url('../fonts/InterDisplay-Regular.woff') format('woff');
+  font-family: "Inter Display";
+  src: url("../fonts/InterDisplay-Regular.woff2") format("woff2"), url("../fonts/InterDisplay-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
+p {
+  font-size: 18px;
+  line-height: 1;
+}
+h1 {
+  font-size: 38px;
+  line-height: 1.15;
+}
+@media (min-width: 576px) {
+  h1 {
+    font-size: 48px;
+  }
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 56px;
+  }
+}
+@media (min-width: 992px) {
+  h1 {
+    font-size: 64px;
+  }
+}
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 72px;
+  }
+}
+@media (min-width: 1400px) {
+  h1 {
+    font-size: 80px;
+  }
+}
+h2 {
+  font-size: 32px;
+  line-height: 1.2;
+}
+@media (min-width: 576px) {
+  h2 {
+    font-size: 36px;
+  }
+}
+@media (min-width: 768px) {
+  h2 {
+    font-size: 40px;
+  }
+}
+@media (min-width: 992px) {
+  h2 {
+    font-size: 46px;
+  }
+}
+@media (min-width: 1200px) {
+  h2 {
+    font-size: 52px;
+  }
+}
+@media (min-width: 1400px) {
+  h2 {
+    font-size: 58px;
+  }
+}
+h3 {
+  font-size: 26px;
+  line-height: 1.3;
+}
+@media (min-width: 576px) {
+  h3 {
+    font-size: 28px;
+  }
+}
+@media (min-width: 768px) {
+  h3 {
+    font-size: 30px;
+  }
+}
+@media (min-width: 992px) {
+  h3 {
+    font-size: 34px;
+  }
+}
+@media (min-width: 1200px) {
+  h3 {
+    font-size: 38px;
+  }
+}
+@media (min-width: 1400px) {
+  h3 {
+    font-size: 42px;
+  }
+}
+h4 {
+  font-size: 22px;
+}
+@media (min-width: 576px) {
+  h4 {
+    font-size: 24px;
+  }
+}
+@media (min-width: 768px) {
+  h4 {
+    font-size: 26px;
+  }
+}
+@media (min-width: 992px) {
+  h4 {
+    font-size: 28px;
+  }
+}
+@media (min-width: 1200px) {
+  h4 {
+    font-size: 30px;
+  }
+}
+@media (min-width: 1400px) {
+  h4 {
+    font-size: 32px;
+  }
+}
+h5 {
+  font-size: 18px;
+}
+@media (min-width: 576px) {
+  h5 {
+    font-size: 18px;
+  }
+}
+@media (min-width: 768px) {
+  h5 {
+    font-size: 20px;
+  }
+}
+@media (min-width: 992px) {
+  h5 {
+    font-size: 22px;
+  }
+}
+@media (min-width: 1200px) {
+  h5 {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1400px) {
+  h5 {
+    font-size: 26px;
+  }
+}
+h6 {
+  font-size: 18px;
+}
+p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+@media (min-width: 768px) {
+  p {
+    font-size: 18px;
+  }
+}
+.btn {
+  font-size: 16px;
+  line-height: 1;
+  padding: 10px 20px;
+  border: 0;
+}
+.btn-primary {
+  background: #A0E146;
+  color: #000;
+}
+.btn-secondary {
+  background: #334BD3;
+  color: #fff;
+}
+section {
+  padding: 50px 0;
+}
 header {
   position: fixed;
-  top: 20px;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   z-index: 999;
   background: #fff;
   width: 100%;
+  padding: 10px 0;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 header .brand-logo {
+  font-family: 'Inter Display';
   font-size: 24px;
-  font-family: 500;
   color: #000;
+  font-weight: 500;
+  display: block;
 }
 header .nav {
   display: flex;
@@ -132,6 +314,140 @@ header .nav li a {
   display: block;
   padding: 20px 0;
 }
+header .dark-toggle {
+  margin-right: 15px;
+}
+.home-banner {
+  padding-top: 150px;
+  position: relative;
+  overflow: hidden;
+}
+.home-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000085;
+  z-index: 1;
+  opacity: 0.3;
+}
+.home-banner .bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.home-banner .bg-img img {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+.home-banner .bg-vid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  z-index: 0;
+  opacity: 0;
+}
+.home-banner .bg-vid video {
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
+  display: block;
+  object-fit: cover;
+  background-color: rgba(0, 0, 0, 0);
+  object-position: 50% 50%;
+}
+.home-banner .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.home-banner .user-info .user-img {
+  background: #d9dde2;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: -10px;
+}
+.home-banner .user-info .user-desc {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+.home-banner .user-info .user-desc .active-dot {
+  width: 10px;
+  height: 10px;
+  background: #14b442;
+  border-radius: 50%;
+}
+.home-banner .user-info .user-desc p {
+  font-size: 12px;
+  line-height: 1;
+  margin: 0;
+  color: #000;
+}
+.home-banner h1 {
+  text-align: center;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+.home-banner p {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+  max-width: 320px;
+}
+.home-banner .btn-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.home-banner .service-marquee {
+  margin-top: 50px;
+  display: flex;
+  flex-flow: column;
+  height: 2rem;
+  padding-top: 0.675rem;
+  mask: linear-gradient(#0000, #000 50%, #0000);
+}
+.home-banner .service-marquee .service-marquee__item {
+  transition: transform 0.3s linear;
+}
+.home-banner .service-marquee .service-marquee__item p {
+  max-width: 100%;
+  margin: 0;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.trusted-partners {
+  background: #fff;
+}
+.trusted-partners .partners-slider .swiper-wrapper {
+  transition-timing-function: linear;
+  transition-duration: 8000ms;
+  display: flex;
+}
+.trusted-partners .partners-slider .swiper-wrapper .swiper-slide {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
 body {
   margin: 0;
   padding: 0;
@@ -141,4 +457,9 @@ body {
 }
 a {
   text-decoration: none;
+}
+img,
+video {
+  max-width: 100%;
+  height: auto;
 }

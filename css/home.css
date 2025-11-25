@@ -1,0 +1,135 @@
+.home-banner {
+  padding-top: 150px;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  min-height: 812px;
+}
+.home-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000085;
+  z-index: 1;
+  opacity: 0.3;
+}
+.home-banner .bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.home-banner .bg-img img {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+.home-banner .bg-vid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  z-index: 0;
+  opacity: 0;
+}
+.home-banner .bg-vid video {
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
+  display: block;
+  object-fit: cover;
+  background-color: rgba(0, 0, 0, 0);
+  object-position: 50% 50%;
+}
+.home-banner .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.home-banner .user-info .user-img {
+  background: #d9dde2;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: -10px;
+}
+.home-banner .user-info .user-desc {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+.home-banner .user-info .user-desc .active-dot {
+  width: 10px;
+  height: 10px;
+  background: #14b442;
+  border-radius: 50%;
+}
+.home-banner .user-info .user-desc p {
+  font-size: 12px;
+  line-height: 1;
+  margin: 0;
+  color: #000;
+}
+.home-banner h1 {
+  text-align: center;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+.home-banner p {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+  max-width: 320px;
+}
+.home-banner .btn-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.home-banner .service-marquee {
+  margin-top: 50px;
+  display: flex;
+  flex-flow: column;
+  height: 2rem;
+  padding-top: 0.675rem;
+  mask: linear-gradient(#0000, #000 50%, #0000);
+}
+.home-banner .service-marquee .service-marquee__item {
+  transition: transform 0.3s linear;
+}
+.home-banner .service-marquee .service-marquee__item p {
+  max-width: 100%;
+  margin: 0;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.trusted-partners {
+  background: #fff;
+}
+.trusted-partners .partners-slider .swiper-wrapper {
+  transition-timing-function: linear;
+  transition-duration: 8000ms;
+}
+.trusted-partners .partners-slider .swiper-wrapper .swiper-slide {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.trusted-partners .partners-slider .swiper-wrapper .swiper-slide img {
+  height: 40px;
+}
