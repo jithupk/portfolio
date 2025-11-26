@@ -137,3 +137,52 @@
     }
   }
 }
+
+.recent-projects {
+  .recent-projects-card {
+    border-radius: 15px;
+    background: #fff;
+    .card-img {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: 0.1;
+      }
+    }
+    .card-body {
+      padding: 10px;
+      span {
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        img {
+          width: 24px;
+        }
+        h3 {
+          margin: 0;
+        }
+      }
+      p{
+        color: #00000060;
+      }
+    }
+  }
+  .btn-primary{
+    margin-top: 30px;
+  }
+  .projects-row{
+      --bs-gutter-y: 30px;
+  }
+}
