@@ -1,0 +1,101 @@
+footer{
+    background: #000000;
+    padding: 50px 0 0 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    .footer-top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .footer-logo{
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            font-family: 'Geist-Bold', sans-serif;
+        }
+        .social-links{
+            display: flex;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            li{
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+    .get-in-touch{
+        padding: 40px 20px;
+        .get-in-touch-content{
+            h2{
+                color: #fff;
+                font-size: 40px;
+                font-weight: 600;
+                margin: 0;
+            }
+            .cta-btn-wrap{
+                display: flex;
+                justify-content: flex-end;
+                position: relative;
+                margin-top: -50px;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 0;
+                    width: 100%;
+                    height: 1px;
+                    background: #ffffff20;
+                }
+                .cta-btn{
+                    display: block;
+                    width: 140px;
+                    height: 140px;
+                    border-radius: 50%;
+                    background: #A0E146;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #000000;
+                    position: relative;
+                }
+            }
+        }
+    }
+    .footer-nav{
+        padding: 15px 0;
+        ul{
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            li{
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                a{
+                    color: #fff;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    .row.privacy{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        padding: 15px 0 15px 0;
+        border-top: 1px solid #FFFFFF20;
+        p{
+            font-size: 12px;
+            color: #FFFFFF80;
+            margin: 0;
+            width: fit-content;
+        }
+    }
+}

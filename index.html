@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <title>Jithu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -18,7 +19,8 @@
 
 <body>
     <header>
-        <div class="container">
+        <div class="header-wrapper">
+            <div class="container">
             <div class="row">
                 <div class="col-6 col-md-3 d-flex align-items-center">
                     <a href="" class="brand-logo">Jithu.</a>
@@ -45,13 +47,15 @@
                 </div>
             </div>
         </div>
+        </div>
+        
     </header>
     <div>
         <div>
             <main>
                 <section class="home-banner">
                     <div class="bg-img">
-                        <img src="images/new-bg-blue.png" alt="">
+                        <img src="images/home-banner-img.jpg" alt="">
                     </div>
                     <div class="bg-vid">
                         <video src="videos/bg-video.mp4" autoplay muted playsinline loop></video>
@@ -88,7 +92,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="trusted-partners d-none">
+                <section class="trusted-partners">
                     <div class="container">
                         <div class="row">
                             <div class="col-12">
@@ -114,7 +118,7 @@
                                 <video src="videos/promo-video.mp4" autoplay muted playsinline loop></video>
                             </div>
                             <div class="col-md-4">
-                                <h6>About</h6>
+                                <h6 class="subtitle">About</h6>
                             </div>
                             <div class="col-md-8">
                                 <h2>We’re in business to beat boring, because boring is bad for business</h2>
@@ -131,7 +135,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12">
-                                <h6>Our works</h6>
+                                <h6 class="subtitle">Our works</h6>
                                 <h2>Take a look at our projects</h2>
                                 <p>A selection of our most passionately
                                     crafted works with forward-thinking
@@ -214,17 +218,41 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="service-content">
-                                    <h6>Services</h6>
+                                    <h6 class="subtitle">Services</h6>
                                     <h2>Services that supercharge your business.</h2>
                                     <p>My tech stack</p>
                                     <div class="tech-stack">
-                                        <div class="tech-item">
-                                            <img src="images/figma-svgrepo-rgb.svg" alt="">
-                                            <img src="images/framer-svgrepo-rgb.svg" alt="">
-                                            <img src="images/sketch-svgrepo-rgb.svg" alt="">
-                                            <img src="images/react-svgrepo-rgb.svg" alt="">
-                                            <img src="images/notion-svgrepo-rgb.svg" alt="">
-                                            <img src="images/blender-svgrepo-rgb.svg" alt="">
+                                        <div class="swiper tech-slider">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <img src="images/figma-svgrepo-rgb.svg" alt="">
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <img src="images/framer-svgrepo-rgb.svg" alt="">
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <img src="images/webflow.svg" alt="">
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <img src="images/sketch-svgrepo-rgb.svg" alt="">
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <img src="images/react-svgrepo-rgb.svg" alt="">
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <img src="images/blender-svgrepo-rgb.svg" alt="">
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <img src="images/trello-svgrepo-rgb.svg" alt="">
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <img src="images/claude-rgb.svg" alt="">
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <img src="images/notion-svgrepo-rgb.svg" alt="">
+                                                </div>
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -252,7 +280,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12">
-                                <h6>Services</h6>
+                                <h6 class="subtitle">Services</h6>
                                 <h2>Services and solutions we offer.</h2>
                             </div>
                             
@@ -363,27 +391,32 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4">
-                                <h6></h6>
-                                <h2></h2>
-                                <div class="faq-user-card">
-                                    <div class="card-top">
-                                        <img src="images/user-img.png" alt="">
-                                        <p></p>
+                                <h6 class="subtitle">FAQ</h6>
+                                <h2>Your Questions, Answered</h2>
+                                <div class="faq-card-wrapper">
+                                    <div class="faq-user-card">
+                                        <div class="card-top">
+                                            <div class="card-img">
+                                                <img src="images/user-img.png" alt="">
+                                            </div>
+                                            <p>Have more questions?<br>Book a free discovery call</p>
+                                        </div>
+                                        <a href="" class="btn btn-secondary">Book a call</a>
+                                        <p class="email">Or, email me at <a href="">jithupk95@gmail.com</a></p>
                                     </div>
-                                    <a href="" class="btn btn-secondary">Book a call</a>
-                                    <p>Or, email me at<a href="">jithupk95@gmail.com</a></p>
                                 </div>
                             </div>
                             <div class="col-md-8">
                                 <div class="accordion" id="accordionExample">
                                     <div class="accordion-item">
-                                        <h2 class="accordion-header">
+                                        <h3 class="accordion-header">
                                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#collapseOne" aria-expanded="true"
                                                 aria-controls="collapseOne">
-                                                How long does a typical project take to complete?
+                                                <div class="acc-no">01</div>
+                                                <div class="acc-text">How long does a typical project take to complete?</div>
                                             </button>
-                                        </h2>
+                                        </h3>
                                         <div id="collapseOne" class="accordion-collapse collapse show"
                                             data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
@@ -395,13 +428,14 @@
                                         </div>
                                     </div>
                                     <div class="accordion-item">
-                                        <h2 class="accordion-header">
+                                        <h3 class="accordion-header">
                                             <button class="accordion-button collapsed" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#collapseTwo"
                                                 aria-expanded="false" aria-controls="collapseTwo">
-                                                02 Can you work with my existing brand and designs?
+                                                <div class="acc-no">01</div>
+                                                <div class="acc-text">How long does a typical project take to complete?</div>
                                             </button>
-                                        </h2>
+                                        </h3>
                                         <div id="collapseTwo" class="accordion-collapse collapse"
                                             data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
@@ -413,13 +447,14 @@
                                         </div>
                                     </div>
                                     <div class="accordion-item">
-                                        <h2 class="accordion-header">
+                                        <h3 class="accordion-header">
                                             <button class="accordion-button collapsed" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#collapseThree"
                                                 aria-expanded="false" aria-controls="collapseThree">
-                                                03 — What makes your design process unique?
+                                                <div class="acc-no">01</div>
+                                                <div class="acc-text">How long does a typical project take to complete?</div>
                                             </button>
-                                        </h2>
+                                        </h3>
                                         <div id="collapseThree" class="accordion-collapse collapse"
                                             data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
@@ -439,72 +474,74 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12">
-                                <h6>FAQ</h6>
+                                <h6 class="subtitle">Testimonial</h6>
                                 <h2>Hear from what my clients have to say.</h2>
                             </div>
-                            <div class="co-12">
+                            <div class="co-12 p-0">
                                 <div class="swiper testimonial-slider">
-                                    <div class="swiper-wrapper">
+                                    <div class="swiper-wrapper"> 
                                         <div class="swiper-slide">
                                             <div class="testimonial-card">
-                                                <div class="qoute-icon">
+                                                <div class="testimonial-card__content">
+                                                    <img src="images/quote-icon.svg" alt="">
                                                     <p>Lorian doesn't just design websites, he builds experiences. He
                                                         understood our brand from day one and translated it perfectly
-                                                        into a modern, intuitive interface. </p>
-                                                    <div class="auther-info">
-                                                        <div class="auther-img"><img src="" alt=""></div>
-                                                        <div class="auther-name">
-                                                            <p>Daniel R.</p>
-                                                            <span>Creative Director</span>
-                                                        </div>
+                                                        into a modern, intuitive interface. 
+                                                    </p>
+                                                </div>
+                                                <div class="auther-info">
+                                                    <div class="auther-img"><img src="images/user-img.png" alt=""></div>
+                                                    <div class="auther-name">
+                                                        <p>Daniel R.</p>
+                                                        <span>Creative Director</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="testimonial-card">
-                                                <div class="qoute-icon">
-                                                    <p>Lorian doesn't just design websites, he builds experiences. He
+                                                <img src="images/quote-icon.png" alt="">
+                                                <p>Lorian doesn't just design websites, he builds experiences. He
                                                         understood our brand from day one and translated it perfectly
-                                                        into a modern, intuitive interface. </p>
-                                                    <div class="auther-info">
-                                                        <div class="auther-img"><img src="" alt=""></div>
-                                                        <div class="auther-name">
-                                                            <p>Daniel R.</p>
-                                                            <span>Creative Director</span>
-                                                        </div>
+                                                        into a modern, intuitive interface. 
+                                                </p>
+                                                <div class="auther-info">
+                                                    <div class="auther-img"><img src="images/user-img.png" alt=""></div>
+                                                    <div class="auther-name">
+                                                        <p>Daniel R.</p>
+                                                        <span>Creative Director</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="testimonial-card">
-                                                <div class="qoute-icon">
-                                                    <p>Lorian doesn't just design websites, he builds experiences. He
+                                                <img src="images/quote-icon.png" alt="">
+                                                <p>Lorian doesn't just design websites, he builds experiences. He
                                                         understood our brand from day one and translated it perfectly
-                                                        into a modern, intuitive interface. </p>
-                                                    <div class="auther-info">
-                                                        <div class="auther-img"><img src="" alt=""></div>
-                                                        <div class="auther-name">
-                                                            <p>Daniel R.</p>
-                                                            <span>Creative Director</span>
-                                                        </div>
+                                                        into a modern, intuitive interface. 
+                                                </p>
+                                                <div class="auther-info">
+                                                    <div class="auther-img"><img src="images/user-img.png" alt=""></div>
+                                                    <div class="auther-name">
+                                                        <p>Daniel R.</p>
+                                                        <span>Creative Director</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="testimonial-card">
-                                                <div class="qoute-icon">
-                                                    <p>Lorian doesn't just design websites, he builds experiences. He
+                                                <img src="images/quote-icon.png" alt="">
+                                                <p>Lorian doesn't just design websites, he builds experiences. He
                                                         understood our brand from day one and translated it perfectly
-                                                        into a modern, intuitive interface. </p>
-                                                    <div class="auther-info">
-                                                        <div class="auther-img"><img src="" alt=""></div>
-                                                        <div class="auther-name">
-                                                            <p>Daniel R.</p>
-                                                            <span>Creative Director</span>
-                                                        </div>
+                                                        into a modern, intuitive interface. 
+                                                </p>
+                                                <div class="auther-info">
+                                                    <div class="auther-img"><img src="images/user-img.png" alt=""></div>
+                                                    <div class="auther-name">
+                                                        <p>Daniel R.</p>
+                                                        <span>Creative Director</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -523,15 +560,15 @@
                             <div class="footer-top">
                                 <a href="" class="footer-logo">Jithu.</a>
                                 <ul class="social-links">
-                                    <li><a href=""><img src="" alt=""></a></li>
-                                    <li><a href=""><img src="" alt=""></a></li>
-                                    <li><a href=""><img src="" alt=""></a></li>
-                                    <li><a href=""><img src="" alt=""></a></li>
+                                    <li><a href=""><img src="images/instagram-brands-solid-full 1.svg" alt=""></a></li>
+                                    <li><a href=""><img src="images/whatsapp-brands-solid-full 1.svg" alt=""></a></li>
+                                    <li><a href=""><img src="images/github-brands-solid-full 1.svg" alt=""></a></li>
+                                    <li><a href=""><img src="images/linkedin-in-brands-solid-full 1.svg" alt=""></a></li>
                                 </ul>
                             </div>
                             <div class="get-in-touch">
-                                <div>
-                                    <h2>Let’s worktogether</h2>
+                                <div class="get-in-touch-content">
+                                    <h2>Let’s work<br>together</h2>
                                     <div class="cta-btn-wrap">
                                         <a href="" class="cta-btn">Get in tocuh</a>
                                     </div>

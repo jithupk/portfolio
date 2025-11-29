@@ -1,47 +1,80 @@
 @import "variables.less";
 
-header{
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 999;
+header.hidden {
+  transform: translateY(-120%);
+
+  .header-wrapper {
+    width: 200px;
+    border-radius: 15px;
+  }
+}
+
+header.visible {
+  transform: translateY(10px);
+
+  .header-wrapper {
+    width: 200px;
+    border-radius: 15px;
+  }
+}
+
+header {
+  position: fixed;
+  top: 0;
+  // left: 50%;
+  // transform: translate(-50%, 0);
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.135, 0.9, 0.15, 1);
+  transition-duration: 1s;
+  display: flex;
+  justify-content: center;
+  .header-wrapper {
+    background: #ffffff90;
     background: #fff;
+    // border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     width: 100%;
     padding: 10px 0;
-    backdrop-filter: blur(5px);
-    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    // background-color: rgba(255, 255, 255, 0.5);
     border: 1px solid rgba(0, 0, 0, 10%);
-    @media @xxl {
-        max-width: 1320px;
-        top: 25px;
-        border-radius: 10px;
-    }
-    .brand-logo{
-        font-family: 'Inter Display';
-        font-size: 24px;
+    transition-property: width;
+    transition-timing-function: cubic-bezier(0.135, 0.9, 0.15, 1);
+    transition-duration: 1s;
+  }
+  @media @xxl {
+    max-width: 1320px;
+    top: 25px;
+    border-radius: 10px;
+  }
+  .brand-logo {
+    font-family: "Inter Display";
+    font-size: 24px;
+    color: #000;
+    font-weight: 500;
+    display: block;
+  }
+  .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    li {
+      & + li {
+        margin-left: 15px;
+      }
+      a {
+        font-size: 16px;
+        line-height: 1;
         color: #000;
-        font-weight: 500;
         display: block;
+        padding: 20px 0;
+      }
     }
-    .nav{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        li{
-            &+li{
-                margin-left: 15px;
-            }
-            a{
-                font-size: 16px;
-                line-height: 1;
-                color: #000;
-                display: block;
-                padding: 20px 0;
-            }
-        }
-    }
-    .dark-toggle{
-        margin-right: 15px;
-    }
+  }
+  .dark-toggle {
+    margin-right: 15px;
+  }
 }

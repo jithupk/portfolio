@@ -1,3 +1,21 @@
 section{
     padding: 50px 0;
 }
+
+h6.subtitle{
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    line-height: 18px;
+    &::before{
+        content: "";
+        position: relative;
+        width: 13px;
+        height: 14px;
+        display: block;
+        background: url(../images/icon-star.svg);
+        margin-right: 5px;
+        top: -1px;
+    }
+}

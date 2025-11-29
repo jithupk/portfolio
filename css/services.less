@@ -1,63 +1,124 @@
-.services{
+.services-stack {
+  border-top: 1px solid #00000020;
+  .service-content {
+    .tech-stack {
+      margin-bottom: 30px;
+      .tech-slider {
+        .swiper-wrapper {
+          transition-timing-function: linear;
+          transition-duration: 9000ms;
+        }
+        .swiper-slide {
+          img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+    }
+  }
+  .service-card {
+    border-radius: 15px;
+    overflow: hidden;
     background: #fff;
-    .service-card{
-        background: #f9f9f9;
-        border-radius: 15px;
-        border: 1px solid #00000015;
-        overflow: hidden;
-        position: relative;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    .service-card__img {
+      // padding: 8px;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: 0.3;
+      }
+      img {
+        // border-radius: 15px;
+      }
+    }
+    .service-card__body {
+      padding: 20px 20px 30px 20px;
+      .service-card__tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        span {
+          font-size: 14px;
+          line-height: 14px;
+          font-weight: 500;
+          padding: 8px 12px;
+          background: #fff;
+          border-radius: 5px;
+          border: 1px solid #00000015;
+          box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+      }
+    }
+  }
+}
+
+.services {
+  background: #fff;
+  .service-card {
+    background: #f9f9f9;
+    border-radius: 15px;
+    border: 1px solid #00000015;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    .service-card__content {
+      @media @lg {
+        width: 50%;
+      }
+      h3 {
+      }
+      padding: 30px 20px;
+
+      .features {
+      }
+      .feature-tags {
         display: flex;
         flex-wrap: wrap;
-        .service-card__content{
-            @media @lg {
-                width: 50%;
-            }
-            h3{
-                
-            }
-            padding: 30px 20px;
-            
-            .features{
-
-            }
-            .feature-tags{
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-                span{
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    gap: 5px;
-                    background: #eef0f6;
-                    border: 1px solid #00000010;
-                    color: #4f4f4f;
-                    font-size: 15px;
-                    line-height: 15px;
-                    font-weight: 600;
-                    padding: 8px;
-                    border-radius: 5px;
-                    img{
-                        width: 20px;
-                        height: 20px;
-                    }
-                }
-            }
+        gap: 10px;
+        span {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 5px;
+          background: #eef0f6;
+          border: 1px solid #00000010;
+          color: #4f4f4f;
+          font-size: 15px;
+          line-height: 15px;
+          font-weight: 600;
+          padding: 8px;
+          border-radius: 5px;
+          img {
+            width: 20px;
+            height: 20px;
+          }
         }
-        .service-card__img{
-            position: relative;
-            &::before{
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                width: 150px;
-                background-image: linear-gradient(90deg, #0c0c0c, #0c0c0c00);
-            }
-            @media @lg {
-                width: 50%;
-            }
-        }
+      }
     }
+    .service-card__img {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 150px;
+        background-image: linear-gradient(90deg, #0c0c0c, #0c0c0c00);
+      }
+      @media @lg {
+        width: 50%;
+      }
+    }
+  }
 }
