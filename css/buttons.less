@@ -1,16 +1,91 @@
-.btn{
-    font-size: 16px;
-    line-height: 1;
-    padding: 10px 20px;
-    border: 0;
+.btn {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  padding: 16px 24px 15px 24px;
+  border: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  .button_text-wrapper {
+    overflow: hidden;
+    .button_text {
+      text-shadow: 0 1em 0 #000000;
+      position: relative;
+      transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg)
+        rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+      transform-style: preserve-3d;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+  }
+  svg {
+    position: relative;
+    top: 1px;
+    width: 15px;
+    height: 15px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  &:hover {
+    transform: translateY(-2px);
+    .button_text-wrapper {
+      .button_text {
+        transform: translate3d(0px, -100%, 0px) scale3d(1, 1, 1) rotateX(0deg)
+          rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        transform-style: preserve-3d;
+        will-change: transform;
+      }
+    }
+    svg {
+      width: 15px;
+      height: 15px;
+      transform: translate3d(5px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+        rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg) !important;
+    }
+  }
 }
 
-.btn-primary{
-    background: #A0E146;
+.btn-primary {
+  background: #a0e146;
+  color: #000;
+  svg {
     color: #000;
+  }
+  &:hover,
+  &:active {
+    background: #a0e146;
+    background-color: #a0e146 !important;
+    color: #000;
+  }
 }
 
-.btn-secondary{
-    background: #334BD3;
+.btn-secondary {
+  background: #334bd3;
+  color: #fff;
+  &:hover,
+  &:active {
+    background: #334bd3;
+    background-color: #334bd3 !important;
     color: #fff;
+    .button_text {
+      text-shadow: 0 1em 0 #ffffff;
+    }
+  }
+}
+
+.btn-dark {
+  background: #000;
+  color: #fff;
+  &:hover,
+  &:active {
+    background: #000;
+    background-color: #000 !important;
+    color: #fff;
+    .button_text {
+      text-shadow: 0 1em 0 #ffffff;
+    }
+  }
 }

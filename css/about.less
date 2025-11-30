@@ -1,3 +1,76 @@
-.about{
-    background: #fff;
+.about {
+  background: #fff;
+  .profile-row {
+    // max-width: 800px;
+    // margin: 0 auto;
+    .user-img-wrapper {
+      position: relative;
+      margin-bottom: 10px;
+      .user-img {
+        border-radius: 15px;
+        overflow: hidden;
+        background: #d9dde2;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+        &:hover {
+          img {
+            filter: grayscale(0%);
+            transition: filter 0.5s ease-in-out;
+          }
+        }
+        img {
+          width: 100%;
+          height: auto;
+          filter: grayscale(100%);
+        }
+      }
+      .social-links {
+        display: flex;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        padding: 0;
+        margin: 0;
+        gap: 10px;
+        transform: translateX(-50%);
+        li {
+          list-style: none;
+          a {
+            background: #ffffff10;
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            img {
+              // filter: invert(1);
+            }
+          }
+        }
+      }
+    }
+    .user-info {
+      text-align: center;
+      h3 {
+        text-align: center;
+        margin: 0;
+      }
+      h6 {
+        color: #545454;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      p {
+        text-align: center;
+        font-size: 18px;
+      }
+      .btn{
+        width: fit-content;
+        margin: 0 auto;
+      }
+    }
+  }
 }
