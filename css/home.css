@@ -1,9 +1,9 @@
 .home-banner {
-  padding-top: 150px;
+  padding-top: 100px;
   position: relative;
   overflow: hidden;
   height: 100vh;
-  min-height: 812px;
+  min-height: 500px;
 }
 .home-banner::before {
   content: "";
@@ -93,7 +93,7 @@
 .home-banner p {
   color: #fff;
   text-align: center;
-  margin-bottom: 30px;
+  margin: 0 auto 30px auto;
   max-width: 320px;
 }
 .home-banner .btn-row {
@@ -102,7 +102,10 @@
   gap: 20px;
 }
 .home-banner .service-marquee {
-  margin-top: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-flow: column;
   height: 2rem;
@@ -119,19 +122,179 @@
   text-transform: uppercase;
 }
 .trusted-partners {
+  padding: 0;
+  border: 0;
   background: #fff;
 }
-.trusted-partners .partners-slider .swiper-wrapper {
-  transition-timing-function: linear;
-  transition-duration: 8000ms;
+.trusted-partners .client-logo-row-wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
 }
-.trusted-partners .partners-slider .swiper-wrapper .swiper-slide {
-  height: 100%;
+.trusted-partners .client-logo-row-wrap .client-logo-row {
   display: flex;
   align-items: center;
+  justify-content: center;
+  transition: transform 0.3s linear;
+  animation: marquee-scroll 30s linear infinite;
 }
-.trusted-partners .partners-slider .swiper-wrapper .swiper-slide img {
+.trusted-partners .client-logo-row-wrap .client-logo-row .client-logo-wrap {
+  width: 200px;
+  max-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #00000010;
+  padding: 30px;
+}
+.trusted-partners .client-logo-row-wrap .client-logo-row .client-logo-wrap img {
   height: 40px;
 }
-
-
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.faq .faq-card-wrapper {
+  background: #fff;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.faq .faq-card-wrapper .faq-user-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.faq .faq-card-wrapper .faq-user-card .card-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.faq .faq-card-wrapper .faq-user-card .card-top .card-img {
+  background: #d9dde2;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.faq .faq-card-wrapper .faq-user-card .card-top p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 18px;
+  width: calc(100% - 66px);
+  padding-left: 20px;
+}
+.faq .faq-card-wrapper .faq-user-card .btn {
+  min-width: 200px;
+  text-align: center;
+  margin: 0 auto;
+}
+.faq .faq-card-wrapper .faq-user-card .email {
+  margin-top: 30px;
+}
+.accordion {
+  padding: 20px 0;
+}
+.accordion .accordion-item {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  margin-top: 10px;
+}
+.accordion .accordion-item + .accordion-item {
+  margin-top: 10px;
+}
+.accordion .accordion-item .accordion-header .accordion-button {
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+  transition: transform 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+}
+.accordion .accordion-item .accordion-header .accordion-button .acc-no {
+  transition: all 0.3s ease;
+  opacity: 1;
+  transform: 0;
+  transform-origin: 50% 50% 0px;
+  will-change: transform;
+}
+.accordion .accordion-item .accordion-header .accordion-button .acc-text {
+  transition: all 0.3s ease;
+  transform: translateX(15px);
+  position: relative;
+  padding-right: 15px;
+}
+.accordion .accordion-item .accordion-header .accordion-button::after {
+  background-image: url(../images/icon-plus-new.svg);
+  margin-left: 15px;
+}
+.accordion .accordion-item .accordion-header .accordion-button:not(.collapsed) {
+  border-bottom: 1px solid #00000020;
+}
+.accordion .accordion-item .accordion-header .accordion-button:not(.collapsed)::after {
+  transform: rotate(45deg);
+}
+.accordion .accordion-item .accordion-header .accordion-button:not(.collapsed) .acc-no {
+  transform: translateX(-50%);
+  transform-origin: 50% 50% 0px;
+  will-change: transform;
+  position: absolute;
+  opacity: 0;
+}
+.accordion .accordion-item .accordion-header .accordion-button:not(.collapsed) .acc-text {
+  transform: translateX(0);
+}
+.testimonials .testimonial-slider {
+  padding-bottom: 15px;
+}
+.testimonials .testimonial-slider .swiper-wrapper .swiper-slide .testimonial-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: 15px;
+}
+.testimonials .testimonial-slider .swiper-wrapper .swiper-slide .testimonial-card .testimonial-card__content {
+  padding: 20px 20px;
+  border-bottom: 1px solid #00000020;
+}
+.testimonials .testimonial-slider .swiper-wrapper .swiper-slide .testimonial-card .testimonial-card__content img {
+  margin-bottom: 15px;
+}
+.testimonials .testimonial-slider .swiper-wrapper .swiper-slide .testimonial-card .testimonial-card__content p {
+  margin: 0;
+}
+.testimonials .testimonial-slider .swiper-wrapper .swiper-slide .testimonial-card .auther-info {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px;
+}
+.testimonials .testimonial-slider .swiper-wrapper .swiper-slide .testimonial-card .auther-info .auther-img {
+  background: #d9dde2;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.testimonials .testimonial-slider .swiper-wrapper .swiper-slide .testimonial-card .auther-info .auther-name {
+  width: calc(100% - 66px);
+  padding-left: 15px;
+}
+.testimonials .testimonial-slider .swiper-wrapper .swiper-slide .testimonial-card .auther-info .auther-name p {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 500;
+  margin: 0;
+}

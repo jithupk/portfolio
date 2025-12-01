@@ -1,30 +1,69 @@
 .services-stack {
-  border-top: 1px solid #00000020;
   .service-content {
+    h2 {
+      margin: 0 0 5px 0;
+    }
+    p {
+      margin: 0;
+    }
     .tech-stack {
       margin-bottom: 30px;
       .tech-slider {
-        .swiper-wrapper {
-          transition-timing-function: linear;
-          transition-duration: 9000ms;
-        }
-        .swiper-slide {
-          img {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        padding-top: 30px;
+        .tech-logo-row {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          animation: marquee-scroll-logos 20s linear infinite;
+          .tech-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 20px;
             width: 50px;
             height: 50px;
+            cursor: pointer;
+            position: relative;
+            img {
+              width: 50px;
+              height: 50px;
+            }
+            .name-tag {
+              position: absolute;
+              left: 50%;
+              transform: translate(-50%, -30px);
+              background: #a0e146;
+              padding: 2px 8px 2px 8px;
+              border-radius: 5px;
+              opacity: 0;
+              transition: transform 0.3s ease, opacity 0.3s ease;
+              overflow: visible;
+              p {
+                margin: 0;
+                font-size: 14px;
+              }
+            }
+            &:hover {
+              .name-tag {
+                transform: translate(-50%, -40px);
+                opacity: 1;
+              }
+            }
           }
         }
       }
     }
   }
+
   .service-card {
     border-radius: 15px;
     overflow: hidden;
     background: #fff;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
     .service-card__img {
-      // padding: 8px;
       position: relative;
       &::before {
         content: "";
@@ -36,12 +75,15 @@
         background: #000;
         opacity: 0.3;
       }
-      img {
-        // border-radius: 15px;
-      }
     }
     .service-card__body {
       padding: 20px 20px 30px 20px;
+      h3{
+        margin: 0 0 15px 0;
+      }
+      p{
+        margin-bottom: 0 0 15px 0;
+      }
       .service-card__tags {
         display: flex;
         gap: 8px;
@@ -120,5 +162,14 @@
         width: 50%;
       }
     }
+  }
+}
+
+@keyframes marquee-scroll-logos {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
   }
 }

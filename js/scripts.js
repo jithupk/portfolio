@@ -20,26 +20,33 @@ function animate() {
 }
 animate();
 
-
 $(document).ready(function () {
   var logosSwiper = new Swiper(".partners-slider", {
-    slidesPerView: 2,
-    spaceBetween: 30,
     loop: true,
-    speed: 7000,
-    grabCursor: true,
+    slidesPerView: "auto",
+    spaceBetween: 24,
+    centeredSlides: false,
+    speed: 6000,
     autoplay: {
       delay: 0,
       disableOnInteraction: false,
+      pauseOnMouseEnter: false,
     },
-    freeMode: true, // linear, smooth scrolling
-    freeModeMomentum: false, // remove easing/momentum
-    breakpoints: {
-      480: {
-        slidesPerView: 4,
-        spaceBetween: 20,
+    freeMode: false,
+    allowTouchMove: true,
+    loopedSlides: 3,
+    slidesPerGroup: 1,
+    on: {
+      init() {
+        // force linear CSS (some builds override)
+        this.wrapperEl.style.transitionTimingFunction = "linear";
       },
     },
+    // breakpoints: {
+    //   480: {
+    //     slidesPerView: 'auto',
+    //   },
+    // },
   });
 });
 
@@ -64,8 +71,6 @@ $(document).ready(function () {
     },
   });
 });
-
-
 
 let lastScroll = 0;
 
@@ -95,9 +100,6 @@ function handleHeaderScroll() {
 
 window.addEventListener("scroll", handleHeaderScroll);
 
-
-
-
 // let lastScroll = 0;
 // let ticking = false;
 
@@ -126,12 +128,11 @@ window.addEventListener("scroll", handleHeaderScroll);
 //   }
 // });
 
-
 // let lastScroll = 0;
 // let ticking = false;
 
 // const EXPANDED_WIDTH = "100%";
-// const SHRINK_WIDTH = "200px"; 
+// const SHRINK_WIDTH = "200px";
 // const ANIM_DURATION = 360;
 
 // $(window).on('scroll', function () {
@@ -157,8 +158,7 @@ window.addEventListener("scroll", handleHeaderScroll);
 //     });
 //     ticking = true;
 //   }
-// }); 
-
+// });
 
 $(document).ready(function () {
   $(".btn-primary, .btn-secondary, .btn-dark").each(function () {
@@ -170,4 +170,3 @@ $(document).ready(function () {
     );
   });
 });
-
