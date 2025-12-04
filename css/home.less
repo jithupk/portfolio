@@ -1,5 +1,5 @@
 .home-banner {
-  padding-top: 100px;
+  padding: 100px 0 0 0;
   position: relative;
   overflow: hidden;
   height: 100vh;
@@ -101,10 +101,7 @@
     gap: 20px;
   }
   .service-marquee {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 50px auto 20px auto;
     display: flex;
     flex-flow: column;
     height: 2rem;
@@ -166,7 +163,7 @@
   .faq-card-wrapper {
     background: #fff;
     border-radius: 15px;
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     .faq-user-card {
       background: #fff;
@@ -226,6 +223,7 @@
         transition: transform 0.3s ease;
         font-size: 16px;
         font-weight: 500;
+        padding-right: 50px;
         color: #000;
         .acc-no {
           transition: all 0.3s ease;
@@ -241,6 +239,8 @@
           padding-right: 15px;
         }
         &::after {
+          position: absolute;
+          right: 20px;
           background-image: url(../images/icon-plus-new.svg);
           margin-left: 15px;
         }
@@ -259,6 +259,17 @@
           .acc-text {
             transform: translateX(0);
           }
+        }
+      }
+    }
+    .accordion-collapse{
+      .accordion-body{
+        padding-bottom: 20px;
+        p{
+          margin: 20px 0 0 0;
+        }
+        p:nth-child(1){
+          margin: 0;
         }
       }
     }
