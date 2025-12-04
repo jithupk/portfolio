@@ -1,5 +1,5 @@
 .home-banner {
-  padding-top: 100px;
+  padding: 100px 0 0 0;
   position: relative;
   overflow: hidden;
   height: 100vh;
@@ -102,10 +102,7 @@
   gap: 20px;
 }
 .home-banner .service-marquee {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 50px auto 20px auto;
   display: flex;
   flex-flow: column;
   height: 2rem;
@@ -162,7 +159,6 @@
 .faq .faq-card-wrapper {
   background: #fff;
   border-radius: 15px;
-  margin-bottom: 30px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .faq .faq-card-wrapper .faq-user-card {
@@ -205,56 +201,68 @@
 .accordion {
   padding: 20px 0;
 }
-.accordion .accordion-item {
+@medi .accordion-item {
   background: #fff;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   margin-top: 10px;
-}
-.accordion .accordion-item + .accordion-item {
-  margin-top: 10px;
-}
-.accordion .accordion-item .accordion-header .accordion-button {
-  background-color: transparent;
-  outline: none;
-  box-shadow: none;
-  transition: transform 0.3s ease;
-  font-size: 16px;
-  font-weight: 500;
-  color: #000;
-}
-.accordion .accordion-item .accordion-header .accordion-button .acc-no {
-  transition: all 0.3s ease;
-  opacity: 1;
-  transform: 0;
-  transform-origin: 50% 50% 0px;
-  will-change: transform;
-}
-.accordion .accordion-item .accordion-header .accordion-button .acc-text {
-  transition: all 0.3s ease;
-  transform: translateX(15px);
-  position: relative;
-  padding-right: 15px;
-}
-.accordion .accordion-item .accordion-header .accordion-button::after {
-  background-image: url(../images/icon-plus-new.svg);
-  margin-left: 15px;
-}
-.accordion .accordion-item .accordion-header .accordion-button:not(.collapsed) {
-  border-bottom: 1px solid #00000020;
-}
-.accordion .accordion-item .accordion-header .accordion-button:not(.collapsed)::after {
-  transform: rotate(45deg);
-}
-.accordion .accordion-item .accordion-header .accordion-button:not(.collapsed) .acc-no {
-  transform: translateX(-50%);
-  transform-origin: 50% 50% 0px;
-  will-change: transform;
-  position: absolute;
-  opacity: 0;
-}
-.accordion .accordion-item .accordion-header .accordion-button:not(.collapsed) .acc-text {
-  transform: translateX(0);
+   + .accordion-item {
+    margin-top: 10px;
+  }
+  .accordion-header .accordion-button {
+    background-color: transparent;
+    outline: none;
+    box-shadow: none;
+    transition: transform 0.3s ease;
+    font-size: 16px;
+    font-weight: 500;
+    padding-right: 50px;
+    color: #000;
+  }
+  .accordion-header .accordion-button .acc-no {
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: 0;
+    transform-origin: 50% 50% 0px;
+    will-change: transform;
+  }
+  .accordion-header .accordion-button .acc-text {
+    transition: all 0.3s ease;
+    transform: translateX(15px);
+    position: relative;
+    padding-right: 15px;
+  }
+  .accordion-header .accordion-button::after {
+    position: absolute;
+    right: 20px;
+    background-image: url(../images/icon-plus-new.svg);
+    margin-left: 15px;
+  }
+  .accordion-header .accordion-button:not(.collapsed) {
+    border-bottom: 1px solid #00000020;
+  }
+  .accordion-header .accordion-button:not(.collapsed)::after {
+    transform: rotate(45deg);
+  }
+  .accordion-header .accordion-button:not(.collapsed) .acc-no {
+    transform: translateX(-50%);
+    transform-origin: 50% 50% 0px;
+    will-change: transform;
+    position: absolute;
+    opacity: 0;
+  }
+  .accordion-header .accordion-button:not(.collapsed) .acc-text {
+    transform: translateX(0);
+  }
+  .accordion-collapse .accordion-body {
+    padding-bottom: 20px;
+  }
+  .accordion-collapse .accordion-body p {
+    margin: 20px 0 0 0;
+  }
+  .accordion-collapse .accordion-body p:nth-child(1) {
+    margin: 0;
+  }
 }
 .testimonials .testimonial-slider {
   padding-bottom: 15px;

@@ -163,7 +163,6 @@
   .faq-card-wrapper {
     background: #fff;
     border-radius: 15px;
-    // margin-bottom: 30px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     .faq-user-card {
       background: #fff;
@@ -191,6 +190,7 @@
           line-height: 18px;
           width: calc(100% - 66px);
           padding-left: 20px;
+          
         }
       }
       .btn {
@@ -200,6 +200,7 @@
       }
       .email {
         margin-top: 30px;
+        text-align: center;
       }
     }
   }
@@ -207,11 +208,14 @@
 
 .accordion {
   padding: 20px 0;
+  @media @sm{
+    padding: 0;
+  }
   .accordion-item {
     background: #fff;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-    margin-top: 10px;
+    // margin-top: 10px;
     & + .accordion-item {
       margin-top: 10px;
     }

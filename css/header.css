@@ -1,25 +1,70 @@
+header.hidden {
+  transform: translateY(-120%);
+}
+header.hidden .header-wrapper {
+  width: 200px;
+  border-radius: 15px;
+}
+@media (min-width: 768px) {
+  header.hidden .header-wrapper {
+    width: 500px;
+  }
+}
+@media (min-width: 992px) {
+  header.hidden .header-wrapper {
+    width: 100%;
+    border-radius: 0;
+  }
+}
+header.visible {
+  transform: translateY(10px);
+}
+@media (min-width: 992px) {
+  header.visible {
+    transform: translateY(0);
+  }
+}
+header.visible .header-wrapper {
+  width: 200px;
+  border-radius: 15px;
+}
+@media (min-width: 768px) {
+  header.visible .header-wrapper {
+    width: 500px;
+  }
+}
+@media (min-width: 992px) {
+  header.visible .header-wrapper {
+    width: 100%;
+    border-radius: 0;
+  }
+}
 header {
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  width: 100%;
   z-index: 999;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.135, 0.9, 0.15, 1);
+  transition-duration: 1s;
+  display: flex;
+  justify-content: center;
+}
+header .header-wrapper {
+  background: #ffffff90;
   background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   width: 100%;
   padding: 10px 0;
-  backdrop-filter: blur(5px);
-  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
   border: 1px solid rgba(0, 0, 0, 0.1);
-}
-@media (min-width: 1400px) {
-  header {
-    max-width: 1320px;
-    top: 25px;
-    border-radius: 10px;
-  }
+  transition-property: width;
+  transition-timing-function: cubic-bezier(0.135, 0.9, 0.15, 1);
+  transition-duration: 1s;
 }
 header .brand-logo {
-  font-family: 'Inter Display';
+  font-family: "Inter Display";
   font-size: 24px;
   color: #000;
   font-weight: 500;
@@ -42,4 +87,21 @@ header .nav li a {
 }
 header .dark-toggle {
   margin-right: 15px;
+}
+@media (min-width: 768px) {
+  header .dark-toggle {
+    order: 2;
+    margin: 0 0 0 15px;
+  }
+}
+@media (min-width: 768px) {
+  header .btn-wrap {
+    order: 1;
+  }
+}
+@media (min-width: 768px) {
+  header .nav-toggle-wrap {
+    margin-left: 15px;
+    order: 3;
+  }
 }
