@@ -158,7 +158,6 @@
   }
 }
 
-
 .faq {
   .faq-card-wrapper {
     background: #fff;
@@ -168,39 +167,52 @@
       background: #fff;
       padding: 30px;
       border-radius: 15px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      .card-top {
-        display: flex;
-        align-items: center;
-        margin-bottom: 30px;
-        .card-img {
-          background: #d9dde2;
-          width: 66px;
-          height: 66px;
-          border-radius: 50%;
-          overflow: hidden;
-          border: 1px solid rgba(0, 0, 0, 0.1);
+      @media @sm {
+        padding: 30px 20px;
+      }
+      .card-img {
+        background: #d9dde2;
+        width: 66px;
+        height: 66px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin: 0 auto 15px auto;
+        @media @sm {
+          margin: 0 0 15px;
         }
-        p {
-          margin: 0;
-          font-size: 18px;
-          line-height: 18px;
-          width: calc(100% - 66px);
-          padding-left: 20px;
-          
+      }
+      .card-title {
+        font-size: 22px;
+        line-height: 26px;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 15px;
+        @media @sm {
+          text-align: left;
+        }
+        @media @md {
+          font-size: 24px;
+          line-height: 32px;
         }
       }
       .btn {
-        min-width: 200px;
-        text-align: center;
+        max-width: 200px;
         margin: 0 auto;
+        @media @sm {
+          margin: 0;
+        }
       }
       .email {
-        margin-top: 30px;
+        margin: 30px 0 0 0;
         text-align: center;
+        font-size: 16px;
+        font-weight: 400;
+        @media @sm {
+          margin: 15px 0 0 0;
+          text-align: left;
+        }
       }
     }
   }
@@ -208,14 +220,13 @@
 
 .accordion {
   padding: 20px 0;
-  @media @sm{
+  @media @sm {
     padding: 0;
   }
   .accordion-item {
     background: #fff;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-    // margin-top: 10px;
     & + .accordion-item {
       margin-top: 10px;
     }
@@ -266,13 +277,13 @@
         }
       }
     }
-    .accordion-collapse{
-      .accordion-body{
+    .accordion-collapse {
+      .accordion-body {
         padding-bottom: 20px;
-        p{
+        p {
           margin: 20px 0 0 0;
         }
-        p:nth-child(1){
+        p:nth-child(1) {
           margin: 0;
         }
       }
@@ -331,6 +342,3 @@
     }
   }
 }
-
-
-

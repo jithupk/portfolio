@@ -387,12 +387,39 @@ header.hidden .header-wrapper {
   width: 200px;
   border-radius: 15px;
 }
+@media (min-width: 768px) {
+  header.hidden .header-wrapper {
+    width: 500px;
+  }
+}
+@media (min-width: 992px) {
+  header.hidden .header-wrapper {
+    width: 100%;
+    border-radius: 0;
+  }
+}
 header.visible {
   transform: translateY(10px);
+}
+@media (min-width: 992px) {
+  header.visible {
+    transform: translateY(0);
+  }
 }
 header.visible .header-wrapper {
   width: 200px;
   border-radius: 15px;
+}
+@media (min-width: 768px) {
+  header.visible .header-wrapper {
+    width: 500px;
+  }
+}
+@media (min-width: 992px) {
+  header.visible .header-wrapper {
+    width: 100%;
+    border-radius: 0;
+  }
 }
 header {
   position: fixed;
@@ -418,13 +445,6 @@ header .header-wrapper {
   transition-timing-function: cubic-bezier(0.135, 0.9, 0.15, 1);
   transition-duration: 1s;
 }
-@media (min-width: 1681px) {
-  header {
-    max-width: 1320px;
-    top: 25px;
-    border-radius: 10px;
-  }
-}
 header .brand-logo {
   font-family: "Inter Display";
   font-size: 24px;
@@ -449,6 +469,23 @@ header .nav li a {
 }
 header .dark-toggle {
   margin-right: 15px;
+}
+@media (min-width: 768px) {
+  header .dark-toggle {
+    order: 2;
+    margin: 0 0 0 15px;
+  }
+}
+@media (min-width: 768px) {
+  header .btn-wrap {
+    order: 1;
+  }
+}
+@media (min-width: 768px) {
+  header .nav-toggle-wrap {
+    margin-left: 15px;
+    order: 3;
+  }
 }
 .home-banner {
   padding: 100px 0 0 0;
@@ -769,26 +806,34 @@ header .dark-toggle {
 .about h2 {
   margin: 0 0 30px 0;
 }
-.about .profile-row .user-img-wrapper {
+.about .profile-row .user-img-col {
+  order: 2;
+}
+@media (min-width: 768px) {
+  .about .profile-row .user-img-col {
+    order: 1;
+  }
+}
+.about .profile-row .user-img-col .user-img-wrapper {
   position: relative;
   margin-bottom: 20px;
 }
-.about .profile-row .user-img-wrapper .user-img {
+.about .profile-row .user-img-col .user-img-wrapper .user-img {
   border-radius: 15px;
   overflow: hidden;
   background: #d9dde2;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-.about .profile-row .user-img-wrapper .user-img:hover img {
+.about .profile-row .user-img-col .user-img-wrapper .user-img:hover img {
   filter: grayscale(0%);
   transition: filter 0.5s ease-in-out;
 }
-.about .profile-row .user-img-wrapper .user-img img {
+.about .profile-row .user-img-col .user-img-wrapper .user-img img {
   width: 100%;
   height: auto;
   filter: grayscale(100%);
 }
-.about .profile-row .user-img-wrapper .social-links {
+.about .profile-row .user-img-col .user-img-wrapper .social-links {
   display: flex;
   position: absolute;
   bottom: 20px;
@@ -798,10 +843,10 @@ header .dark-toggle {
   gap: 10px;
   transform: translateX(-50%);
 }
-.about .profile-row .user-img-wrapper .social-links li {
+.about .profile-row .user-img-col .user-img-wrapper .social-links li {
   list-style: none;
 }
-.about .profile-row .user-img-wrapper .social-links li a {
+.about .profile-row .user-img-col .user-img-wrapper .social-links li a {
   background: #ffffff10;
   backdrop-filter: blur(5px);
   border-radius: 50%;
@@ -812,16 +857,29 @@ header .dark-toggle {
   width: 40px;
   height: 40px;
 }
-.about .profile-row .user-info-col {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.about .profile-row .user-info-col .user-info {
+.about .profile-row .user-img-col h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
   text-align: center;
 }
-.about .profile-row .user-info-col .user-info h3 {
-  text-transform: uppercase;
+.about .profile-row .user-img-col p {
+  font-size: 16px;
+  color: #545454;
+  margin: 0;
+  text-align: center;
+  margin: 0 0 30px 0;
+}
+.about .profile-row .user-img-col .btn {
+  width: fit-content;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .about .profile-row .user-img-col .btn {
+    margin: 0;
+  }
+}
+.about .profile-row .user-info-col .user-info h2 {
   font-weight: 600;
   margin: 0;
 }
@@ -835,9 +893,65 @@ header .dark-toggle {
 .about .profile-row .user-info-col .user-info p {
   font-size: 18px;
 }
-.about .profile-row .user-info-col .user-info .btn {
+.about .profile-row .user-info-col .contact-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+@media (min-width: 768px) {
+  .about .profile-row .user-info-col .contact-wrap {
+    justify-content: flex-start;
+  }
+}
+.about .profile-row .user-info-col .contact-wrap .contact-box {
+  display: flex;
+  justify-content: center;
+}
+.about .profile-row .user-info-col .contact-wrap .contact-box .contact-icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #00000050;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about .profile-row .user-info-col .contact-wrap .contact-box .contact-icon img {
+  width: 100%;
+  height: 24px;
+  width: 24px;
+}
+.about .profile-row .user-info-col .contact-wrap .contact-number {
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about .profile-row .user-info-col .contact-wrap .contact-number p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 14px;
+}
+.about .profile-row .user-info-col .contact-wrap .contact-number a {
+  color: #000;
+  font-size: 14px;
+  display: none;
+}
+@media (min-width: 768px) {
+  .about .profile-row .user-info-col .contact-wrap .contact-number a {
+    display: block;
+  }
+}
+.about .profile-row .user-info-col .btn {
   width: fit-content;
   margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .about .profile-row .user-info-col .btn {
+    margin: 0;
+  }
 }
 .recent-projects {
   background: #eef0f6;
@@ -1206,8 +1320,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: #EEF0F6;
-  font-family: 'Geist', sans-serif;
+  background: #eef0f6;
+  font-family: "Geist", sans-serif;
 }
 a {
   text-decoration: none;
@@ -1216,4 +1330,27 @@ img,
 video {
   max-width: 100%;
   height: auto;
+}
+.container {
+  max-width: 100%;
+}
+@media (min-width: 480px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+@media (min-width: 1367px) {
+  .container {
+    max-width: 1680px;
+  }
 }

@@ -11,25 +11,39 @@
 
 @import "dev.less";
 
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background: #EEF0F6;
-    font-family: 'Geist', sans-serif;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #eef0f6;
+  font-family: "Geist", sans-serif;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
-img, video{
-    max-width: 100%;
-    height: auto;
+img,
+video {
+  max-width: 100%;
+  height: auto;
 }
 
-// .container{
-//     @media @sm {
-//         max-width: 100%;
-//         padding: 0 50px;
-//     }
-// }
+.container {
+  max-width: 100%;
+  @media @xs {
+    padding: 0 20px;
+  }
+  @media @sm {
+    padding: 0 30px;
+  }
+  @media @md {
+    padding: 0 40px;
+    // max-width: 1440px;
+  }
+  @media @xl {
+    max-width: 1680px;
+  }
+  @media @xxl {
+    // padding: 0 100px;
+  }
+}
