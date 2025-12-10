@@ -20,58 +20,6 @@ function animate() {
 }
 animate();
 
-$(document).ready(function () {
-  var logosSwiper = new Swiper(".partners-slider", {
-    loop: true,
-    slidesPerView: "auto",
-    spaceBetween: 24,
-    centeredSlides: false,
-    speed: 6000,
-    autoplay: {
-      delay: 0,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: false,
-    },
-    freeMode: false,
-    allowTouchMove: true,
-    loopedSlides: 3,
-    slidesPerGroup: 1,
-    on: {
-      init() {
-        // force linear CSS (some builds override)
-        this.wrapperEl.style.transitionTimingFunction = "linear";
-      },
-    },
-    // breakpoints: {
-    //   480: {
-    //     slidesPerView: 'auto',
-    //   },
-    // },
-  });
-});
-
-$(document).ready(function () {
-  var techSwiper = new Swiper(".tech-slider", {
-    slidesPerView: 5,
-    spaceBetween: 30,
-    loop: true,
-    speed: 9000,
-    grabCursor: true,
-    autoplay: {
-      delay: 0,
-      disableOnInteraction: false,
-    },
-    freeMode: true, // linear, smooth scrolling
-    freeModeMomentum: false, // remove easing/momentum
-    breakpoints: {
-      480: {
-        slidesPerView: 4,
-        spaceBetween: 20,
-      },
-    },
-  });
-});
-
 let lastScroll = 0;
 
 function handleHeaderScroll() {
@@ -169,4 +117,13 @@ $(document).ready(function () {
       `
     );
   });
+});
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+ScrollSmoother.create({
+  smooth: 0.8,
+  effects: true,
+  smoothTouch: 0.5,
+  normalizeScroll: false,
 });

@@ -128,6 +128,7 @@
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
+    mask: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%);
     .client-logo-row {
       display: flex;
       align-items: center;
@@ -345,6 +346,9 @@
           border-radius: 15px;
           box-shadow: @box-shadow-1;
           margin: 15px;
+          @media @sm {
+            margin: 0 15px;
+          }
           .testimonial-card__content {
             padding: 20px 20px;
             border-bottom: 1px solid #00000020;
