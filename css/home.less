@@ -128,7 +128,14 @@
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
-    mask: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%);
+    mask: linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgb(0, 0, 0) 10%,
+      rgb(0, 0, 0) 50%,
+      rgb(0, 0, 0) 90%,
+      rgba(0, 0, 0, 0) 100%
+    );
     .client-logo-row {
       display: flex;
       align-items: center;
@@ -159,148 +166,6 @@
   }
 }
 
-.faq {
-  .faq-card-wrapper {
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: @box-shadow-1;
-    .faq-user-card {
-      background: #fff;
-      padding: 30px;
-      border-radius: 15px;
-      align-items: center;
-      @media @sm {
-        padding: 30px 20px;
-      }
-      .card-img {
-        background: #d9dde2;
-        width: 66px;
-        height: 66px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        margin: 0 auto 15px auto;
-        @media @sm {
-          margin: 0 0 15px;
-        }
-        img {
-          // filter: grayscale(100%);
-        }
-      }
-      .card-title {
-        font-size: 22px;
-        line-height: 28px;
-        font-weight: 500;
-        text-align: center;
-        margin-bottom: 15px;
-        @media @sm {
-          text-align: left;
-        }
-        @media @md {
-          font-size: 24px;
-          line-height: 32px;
-        }
-      }
-      .card-text {
-        text-align: center;
-        @media @sm {
-          text-align: left;
-        }
-      }
-      .btn {
-        max-width: 200px;
-        margin: 0 auto;
-        @media @sm {
-          margin: 0;
-        }
-      }
-      .email {
-        margin: 30px 0 0 0;
-        text-align: center;
-        font-size: 16px;
-        font-weight: 400;
-        @media @sm {
-          margin: 15px 0 0 0;
-          text-align: left;
-        }
-      }
-    }
-  }
-}
-
-.accordion {
-  padding: 20px 0;
-  @media @sm {
-    padding: 0;
-  }
-  .accordion-item {
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: @box-shadow-1;
-    & + .accordion-item {
-      margin-top: 10px;
-    }
-    .accordion-header {
-      .accordion-button {
-        background-color: transparent;
-        outline: none;
-        box-shadow: none;
-        transition: transform 0.3s ease;
-        font-size: 16px;
-        font-weight: 500;
-        padding-right: 50px;
-        color: #000;
-        .acc-no {
-          transition: all 0.3s ease;
-          opacity: 1;
-          transform: 0;
-          transform-origin: 50% 50% 0px;
-          will-change: transform;
-        }
-        .acc-text {
-          transition: all 0.3s ease;
-          transform: translateX(15px);
-          position: relative;
-          padding-right: 15px;
-        }
-        &::after {
-          position: absolute;
-          right: 20px;
-          background-image: url(../images/icon-plus-new.svg);
-          margin-left: 15px;
-        }
-        &:not(.collapsed) {
-          border-bottom: 1px solid #00000020;
-          &::after {
-            transform: rotate(45deg);
-          }
-          .acc-no {
-            transform: translateX(-50%);
-            transform-origin: 50% 50% 0px;
-            will-change: transform;
-            position: absolute;
-            opacity: 0;
-          }
-          .acc-text {
-            transform: translateX(0);
-          }
-        }
-      }
-    }
-    .accordion-collapse {
-      .accordion-body {
-        padding-bottom: 20px;
-        p {
-          margin: 20px 0 0 0;
-        }
-        p:nth-child(1) {
-          margin: 0;
-        }
-      }
-    }
-  }
-}
-
 .testimonials {
   .rating-box {
     background: #fff;
@@ -308,6 +173,18 @@
     box-shadow: @box-shadow-1;
     padding: 20px 20px;
     border-radius: 15px;
+    @media (max-width: 767px) {
+      margin-bottom: 30px;
+    }
+    @media @sm {
+      height: 100%;
+    }
+    @media @xl {
+      padding: 30px;
+    }
+    @media @xxl {
+      padding: 40px 30px;
+    }
     .rating-text {
       font-size: 50px;
       line-height: 50px;
@@ -335,53 +212,110 @@
       font-size: 22px;
       line-height: 28px;
       font-weight: 500;
+      @media @xl {
+        font-size: 24px;
+        line-height: 32px;
+      }
+      @media @xxl {
+        font-size: 28px;
+        line-height: 36px;
+      }
     }
   }
   .testimonial-slider {
-    padding-bottom: 15px;
+    // padding-bottom: 15px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: @box-shadow-1;
+    @media @sm {
+      height: 100%;
+    }
     .swiper-wrapper {
       .swiper-slide {
+        border-right: 1px solid #00000020;
         .testimonial-card {
           background: #fff;
-          border-radius: 15px;
-          box-shadow: @box-shadow-1;
-          margin: 15px;
+          // border-radius: 15px;
+          // box-shadow: @box-shadow-1;
+          // margin: 15px;
+          // @media @sm {
+          //   margin: 0 15px;
+          // }
+          padding: 20px;
           @media @sm {
-            margin: 0 15px;
+            padding: 30px 40px;
+          }
+          @media @md {
+            padding: 20px;
+          }
+          @media @xl {
+            padding: 30px;
           }
           .testimonial-card__content {
-            padding: 20px 20px;
-            border-bottom: 1px solid #00000020;
+            // padding: 20px 20px;
+            // border-bottom: 1px solid #00000020;
+
             img {
               margin-bottom: 15px;
+              width: 30px;
+              height: 30px;
+              @media @md {
+                float: left;
+                margin: 0 15px 0 0;
+                width: 25px;
+                height: 25px;
+              }
+              @media @xl {
+                float: none;
+                margin: 0 0 15px 0;
+                width: 30px;
+                height: 30px;
+              }
             }
             p {
-              margin: 0;
+              margin: 0 0 20px 0;
+              @media @sm {
+                margin: 0 0 25px 0;
+              }
+              @media @md {
+                margin: 0 0 20px 0;
+              }
+              @media @xxl {
+                margin: 0 0 25px 0;
+              }
             }
           }
 
           .auther-info {
             display: flex;
             align-items: center;
-            padding: 20px 20px;
+            // padding: 20px 20px;
             .auther-img {
               background: #d9dde2;
-              width: 66px;
-              height: 66px;
+              width: 50px;
+              height: 50px;
               border-radius: 50%;
               overflow: hidden;
               border: 1px solid rgba(0, 0, 0, 0.1);
+              @media @md {
+                width: 38px;
+                height: 38px;
+              }
             }
             .auther-name {
               width: calc(100% - 66px);
-              padding-left: 15px;
+              padding-left: 10px;
+              // @media @md {
+              //   padding-left: 10px;
+              // }
               p {
-                font-size: 18px;
-                line-height: 18px;
+                font-size: 16px;
+                line-height: 16px;
                 font-weight: 500;
                 margin: 0;
               }
               span {
+                color: #00000080;
               }
             }
           }

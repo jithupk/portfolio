@@ -3,12 +3,18 @@ section {
   @media @sm {
     padding: 60px 0;
   }
+  @media @md {
+    padding: 70px 0;
+  }
+  @media @xxl {
+    padding: 80px 0;
+  }
   &:not(.banner) {
     border-bottom: 1px solid #00000020;
   }
 }
 
-h6.subtitle {
+.section-subtitle {
   position: relative;
   display: flex;
   align-items: center;
@@ -24,5 +30,15 @@ h6.subtitle {
     background: url(../images/icon-star.svg);
     margin-right: 5px;
     top: -1px;
+  }
+}
+
+.section-title {
+  margin: 0 0 30px 0;
+  @media @xl {
+    margin: 0 0 40px 0;
+  }
+  @media @xxl {
+    margin: 0 0 50px 0;
   }
 }
