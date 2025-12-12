@@ -4,20 +4,20 @@ $(document).ready(function () {
     spaceBetween: 20,
     loop: true,
     speed: 600,
-    autoplay: {
-      delay: 2000,
-      disableOnInteraction: false,
-    },
+    // autoplay: {
+    //   delay: 2000,
+    //   disableOnInteraction: false,
+    // },
 
     // pagination: {
     //   el: '.swiper-pagination',
     //   clickable: true,
     // },
 
-    // navigation: {
-    //   nextEl: '.swiper-button-next',
-    //   prevEl: '.swiper-button-prev',
-    // },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
 
     breakpoints: {
       768: {
@@ -25,7 +25,7 @@ $(document).ready(function () {
         spaceBetween: 0,
       },
       992: {
-        slidesPerView: 2,
+        slidesPerView: 1,
         spaceBetween: 0,
       },
     //   1200: {

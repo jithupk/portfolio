@@ -79,3 +79,14 @@ $(window).on("scroll load", function () {
     header.classList.add("glass");
   }
 });
+
+
+$(document).ready(function () {
+    const $track = $('.brand-marquee__track');
+    const $wrap = $('.brand-marquee__track-wrap');
+    // Duplicate the track 2 times
+    for (let i = 0; i < 2; i++) {
+        const $clone = $track.clone();
+        $wrap.append($clone);
+    }
+});
