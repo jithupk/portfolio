@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  const testimonialSwiper = new Swiper('.testimonial-slider', {
+  const testimonialSwiper = new Swiper(".testimonial-slider", {
     slidesPerView: 1,
     spaceBetween: 20,
     loop: true,
@@ -15,8 +15,8 @@ $(document).ready(function () {
     // },
 
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
 
     breakpoints: {
@@ -28,10 +28,11 @@ $(document).ready(function () {
         slidesPerView: 1,
         spaceBetween: 0,
       },
-    //   1200: {
-    //     slidesPerView: 3,
-    //     spaceBetween: 30,
-    //   }
-    }
+      //   1200: {
+      //     slidesPerView: 3,
+      //     spaceBetween: 30,
+      //   }
+    },
   });
 });
+

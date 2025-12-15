@@ -90,3 +90,28 @@ $(document).ready(function () {
         $wrap.append($clone);
     }
 });
+
+
+
+
+
+// function createDivFromH2Words() {
+//   const $h2 = $('.zoom-title-h2')
+//   const text = $h2.text().trim()
+//   const words = text.split(/\s+/)
+
+//   let html = '<div class="title t-h1">'
+
+//   words.forEach((word, index) => {
+//     html += `<span class="word">${word}</span>`
+
+//     if (index !== words.length - 1) {
+//       html += `<span>&nbsp;</span>`
+//     }
+//   })
+//   html += '</div>'
+//   $h2.after(html)
+// }
+// $(document).ready(function () {
+//   createDivFromH2Words()
+// })

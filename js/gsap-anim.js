@@ -7,45 +7,6 @@ ScrollSmoother.create({
   normalizeScroll: false,
 });
 
-
-// gsap.set(".is-hsc", {
-//   scale: 0,
-// });
-
-// gsap.to(".is-hsc", {
-//   scale: 10,
-//   ease: "none",
-//   scrollTrigger: {
-//     trigger: ".gtn",
-//     start: "top 50%",
-//     end: "+=200%",
-//     scrub: 0.8,
-//   },
-// });
-
-// gsap.to(".hsc-rotate", {
-//   rotate: 90,
-//   ease: "none",
-//   scrollTrigger: {
-//     trigger: ".gtn",
-//     start: "top 50%",
-//     end: "+=200%",
-//     scrub: 0.8,
-//   },
-// });
-
-// gsap.to(".hsc-img-w", {
-//   width: 300,
-//   height: 300,
-//   ease: "none",
-//   scrollTrigger: {
-//     trigger: ".gtn",
-//     start: "top 50%",
-//     end: "+=200%",
-//     scrub: 0.8,
-//   },
-// });
-
 // function increaseSizePerScroll({
 //   section,
 //   element,
@@ -262,9 +223,8 @@ ScrollTrigger.create({
   start: "top top",
   end: "bottom top",
   pin: ".hsc-overlay-w",
-  pinSpacing: false, 
+  pinSpacing: false,
 });
-
 
 gsap.fromTo(
   ".hsc-btn",
@@ -283,3 +243,42 @@ gsap.fromTo(
     },
   }
 );
+
+gsap.fromTo(
+  ".zoom-img",
+  {
+    scale: 0,
+    x: "1.5rem",
+    xPercent: -50,
+    yPercent: -50,
+  },
+  {
+    scale: 1,
+    x: 0,
+    scrollTrigger: {
+      trigger: ".video-hl",
+      scrub: true,
+      start: "top top",
+      end: "bottom bottom",
+    },
+  }
+);
+
+ScrollTrigger.create({
+  trigger: ".video-hl",
+  start: "top top",
+  end: "bottom top",
+  pin: ".sticky-elem",
+  pinSpacing: false,
+});
+
+
+gsap.to(".video-hl", {
+  '--p2': 1,
+  scrollTrigger: {
+    trigger: ".video-hl",
+    scrub: true,
+    start: "top top",
+    end: "bottom top",
+  },
+});
