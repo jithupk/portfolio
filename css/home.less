@@ -47,7 +47,7 @@
       object-position: 50% 50%;
     }
   }
-  .container{
+  .container {
     position: relative;
     z-index: 2;
     height: 100%;
@@ -66,7 +66,7 @@
     color: #fff;
     max-width: 400px;
   }
-  a.btn-link{
+  a.btn-link {
     font-size: 30px;
     color: #fff;
     font-weight: 600;
@@ -76,7 +76,7 @@
     padding-bottom: 6px;
     width: fit-content;
     text-decoration: none;
-    &::before{
+    &::before {
       content: "";
       position: absolute;
       bottom: 0;
@@ -86,7 +86,7 @@
       background: #fff;
       opacity: 0.2;
     }
-    &::after{
+    &::after {
       content: "";
       position: absolute;
       bottom: 0;
@@ -97,16 +97,16 @@
       opacity: 0.5;
       transition: all 0.4s;
     }
-    span{
+    span {
       display: block;
       text-wrap-mode: nowrap;
     }
-    img{
+    img {
       filter: invert(1);
       width: 30px;
     }
-    &:hover{
-      &::after{
+    &:hover {
+      &::after {
         width: 100%;
       }
     }
@@ -133,14 +133,12 @@
       }
     }
   }
-  .social-links{
+  .social-links {
     position: absolute;
     bottom: 90px;
     right: 50px;
   }
 }
-
-
 
 @keyframes marquee-scroll {
   from {
@@ -152,10 +150,10 @@
 }
 
 .testimonials {
-  // background: #d8e9e4;
+  background: #f9f3ee;
   z-index: 4;
   .rating-box {
-    // background: #fff;
+    background: #fff;
     color: #000;
     // box-shadow: @box-shadow-1;
     padding: 20px 20px;
@@ -197,11 +195,11 @@
     .desc {
       text-align: center;
       font-size: 22px;
-      line-height: 28px;
+      // line-height: 28px;
       font-weight: 500;
       @media @xl {
-        font-size: 24px;
-        line-height: 32px;
+        font-size: 40px;
+        // line-height: 32px;
       }
       @media @xxl {
         font-size: 30px;
@@ -209,19 +207,25 @@
       }
     }
   }
+  .col-slider {
+    padding: 0 40px;
+    position: relative;
+  }
   .testimonial-slider {
     // padding-bottom: 15px;
     // background: #fff;
     border-radius: 15px;
     box-shadow: @box-shadow-1;
+    // padding: 0 50px;
+
     @media @sm {
       height: 100%;
     }
     .swiper-wrapper {
       .swiper-slide {
-        border-right: 1px solid #00000020;
+        // border-right: 1px solid #00000020;
         .testimonial-card {
-          // background: #fff;
+          background: #fff;
           // border-radius: 15px;
           // box-shadow: @box-shadow-1;
           // margin: 15px;
@@ -229,19 +233,19 @@
           //   margin: 0 15px;
           // }
           padding: 20px;
-          
+
           @media @sm {
             padding: 30px 40px;
           }
           @media @md {
-            padding: 20px;
+            padding: 80px 100px;
           }
           @media @xxl {
             padding: 100px 80px;
           }
           .testimonial-card__content {
             // padding: 20px 20px;
-            // border-bottom: 1px solid #00000020;
+            border-bottom: 1px solid #00000020;
 
             img {
               margin-bottom: 15px;
@@ -262,6 +266,7 @@
             }
             p {
               margin: 0 0 20px 0;
+              font-size: 24px;
               @media @sm {
                 margin: 0 0 25px 0;
               }
@@ -277,7 +282,7 @@
           .auther-info {
             display: flex;
             align-items: center;
-            // padding: 20px 20px;
+            padding: 20px 0 0 0;
             .auther-img {
               background: #d9dde2;
               width: 50px;
@@ -304,20 +309,37 @@
               }
               span {
                 color: #00000080;
-                
               }
             }
           }
         }
       }
     }
-    .swiper-nav{
-      svg{
-        fill: #000;
-        path{
-          fill: #000;
-        }
-      }
+  }
+  .swiper-nav {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    // border: 1px solid #00000020;
+    background-image: url(../images/arrow-right.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-color: #a0e146;
+    transition: all 0.3s;
+    &:hover{
+      background-color: #334bd3;
+      // border-color: #a0e146;
+      backdrop-filter: invert(1);
     }
+    svg {
+      display: none;
+    }
+  }
+  .swiper-button-prev {
+    transform: rotate(180deg);
+  }
+  .brandmarquee{
+    margin-top: 100px;
   }
 }

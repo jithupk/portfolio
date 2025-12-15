@@ -24,3 +24,144 @@
 // .testimonials  {
 //   display: none;
 // }
+
+// html.dark .s.is-hsc {
+//   mix-blend-mode: lighten;
+// }
+// html.dark .hsc-track .h-c {
+//   color: #1d1d1d;
+// }
+// html.dark .c.is-hsc {
+//     background: black;
+//     mix-blend-mode: multiply;
+// }
+// html.dark .hsc-img-path {
+//     fill: white;
+// }
+svg:not(:root) {
+  overflow: hidden;
+}
+
+.s.is-hsc,
+.c.is-hsc,
+.hsc-rotate {
+  will-change: transform;
+}
+.s.is-hsc {
+  overflow: clip;
+  mix-blend-mode: multiply;
+  border-radius: 2em;
+  box-shadow: 0 0 0 1px #0000;
+  mix-blend-mode: lighten;
+}
+.hsc-track {
+  min-height: 300vh;
+  position: relative;
+}
+.hsc-overlay-w {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+.hsc-text-w {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  inset: 0%;
+}
+.hsc-text-oh {
+  overflow: hidden;
+}
+.h-c.is-anim {
+  font-size: 3em;
+  line-height: 1;
+}
+.h-c {
+  text-transform: uppercase;
+  font-size: 2.25em;
+  font-weight: 400;
+}
+.line {
+  white-space: nowrap;
+}
+.c.is-hsc {
+  z-index: 2;
+  mix-blend-mode: lighten;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+.c {
+  width: 100%;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25em;
+  padding-right: 1.25em;
+}
+[hsc-img] {
+  will-change: transform, height, width;
+  transform: translateZ(0);
+}
+.hsc-img-w {
+  width: 20em;
+  height: 20em;
+  position: relative;
+}
+.hsc-img {
+  width: 100%;
+  height: 100%;
+}
+
+.s.is-hsc {
+  mix-blend-mode: lighten;
+}
+.hsc-track .h-c {
+  h2 {
+    font-family: "Arkhip";
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    font-size: 130px;
+  }
+  a{
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    margin: 0 auto;
+  }
+}
+.c.is-hsc {
+  background: rgb(0, 0, 0);
+  mix-blend-mode: multiply;
+}
+.hsc-img-path {
+  fill: white;
+}
+.hs-track-ul {
+  z-index: -1;
+  background: #a0e146;
+  background: #334bd3;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  inset: 0%;
+}
+
+.new-t {
+  font-family: "Arkhip";
+  text-transform: uppercase;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  top: 100px;
+  color: #fff;
+  z-index: 3;
+}
