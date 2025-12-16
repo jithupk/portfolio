@@ -282,3 +282,93 @@ gsap.to(".video-hl", {
     end: "bottom top",
   },
 });
+
+
+// gsap.fromTo(
+//   ".home_photos_images-layout",
+//   {
+//     scale: 3.2,
+//   },
+//   {
+//     scale: 1,
+//     scrollTrigger: {
+//       trigger: ".section_home-photos",
+//       scrub: true,
+//       start: "top top",
+//       end: "bottom bottom",
+//     },
+//   }
+// );
+
+gsap.fromTo(
+  ".home_photos_images-layout",
+  {
+    scale: 3.2,
+    x: 0,
+    y: 0,
+    rotationX: 0,
+    rotationY: 0,
+    rotationZ: 0,
+    skewX: 0,
+    skewY: 0,
+    force3D: true,
+    willChange: "transform",
+    transformStyle: "preserve-3d"
+  },
+  {
+    scale: 1,
+    x: 0,
+    y: 0,
+    rotationX: 0,
+    rotationY: 0,
+    rotationZ: 0,
+    skewX: 0,
+    skewY: 0,
+    scrollTrigger: {
+      trigger: ".section_home-photos",
+      scrub: true,
+      start: "top top",
+      end: "bottom bottom"
+    }
+  }
+);
+
+
+ScrollTrigger.create({
+  trigger: ".section_home-photos",
+  start: "top top",
+  end: "bottom top",
+  pin: ".home_photos_content-wrapper",
+  pinSpacing: false,
+});
+
+gsap.timeline({
+  scrollTrigger: {
+    trigger: ".home-banner",
+    start: "top top",
+    end: "bottom top",
+    scrub: true,
+    pin: true,
+    pinSpacing: false
+  }
+})
+.to(".bg-img", {
+  scale: 1.1
+});
+
+
+gsap.fromTo(
+  ".image-overlay-layer",
+  {
+    opacity:1
+  },
+  {
+    opacity:0,
+    scrollTrigger: {
+      trigger: ".section_home-photos",
+      scrub: true,
+      start: "top top",
+      end: "bottom bottom"
+    }
+  }
+);
