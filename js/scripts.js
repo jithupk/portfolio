@@ -115,3 +115,134 @@ $(document).ready(function () {
 // $(document).ready(function () {
 //   createDivFromH2Words()
 // })
+
+
+
+// const cards = document.querySelectorAll('.services-row-2 .service-card');
+// cards.forEach(card => {
+//   card.addEventListener('mouseenter', () => {
+//     card.classList.add('active');
+//   });
+
+//   card.addEventListener('mouseleave', () => {
+//     card.classList.remove('active');
+//   });
+// });
+
+
+// const initServiceCardHover = () => {
+//   const cards = document.querySelectorAll(".service-card");
+
+//   cards.forEach(card => {
+//     const img = card.querySelector(".overlay-img img");
+//     const container = card; 
+
+//     if (!img) return;
+
+//     gsap.set(img, {
+//       autoAlpha: 0,
+//       scale: 0.9,
+//       position: "absolute",
+//       pointerEvents: "none",
+//       willChange: "transform"
+//     });
+
+//     container.addEventListener("mouseenter", () => {
+//       gsap.to(img, {
+//         autoAlpha: 1,
+//         scale: 1,
+//         duration: 0.3
+//       });
+//     });
+
+//     container.addEventListener("mouseleave", () => {
+//       gsap.to(img, {
+//         autoAlpha: 0,
+//         scale: 0.9,
+//         duration: 0.3
+//       });
+//     });
+
+//     container.addEventListener("mousemove", (e) => {
+//       const rect = container.getBoundingClientRect();
+
+//       gsap.to(img, {
+//         duration: 0.5,
+//         x: e.clientX - rect.left - img.clientWidth / 2,
+//         y: e.clientY - rect.top - img.clientHeight / 2,
+//         overwrite: "auto"
+//       });
+//     });
+
+//   });
+// };
+
+// initServiceCardHover();
+
+
+let lastX = 0;
+let lastY = 0;
+
+// Track mouse globally on window
+window.addEventListener("mousemove", (e) => {
+  lastX = e.clientX;
+  lastY = e.clientY;
+});
+
+const initServiceCardHover = () => {
+  const cards = document.querySelectorAll(".service-card");
+
+  cards.forEach(card => {
+    const img = card.querySelector(".overlay-img img");
+    const container = card;
+
+    if (!img) return;
+
+    gsap.set(img, {
+      autoAlpha: 0,
+      scale: 0.9,
+      position: "absolute",
+      pointerEvents: "none",
+      willChange: "transform"
+    });
+
+    // ENTER: position image from LAST global mouse position
+    container.addEventListener("mouseenter", () => {
+      const rect = container.getBoundingClientRect();
+
+      gsap.set(img, {
+        x: lastX - rect.left - img.clientWidth / 2,
+        y: lastY - rect.top - img.clientHeight / 2
+      });
+
+      gsap.to(img, {
+        autoAlpha: 1,
+        scale: 1,
+        duration: 0.25
+      });
+    });
+
+    // LEAVE
+    container.addEventListener("mouseleave", () => {
+      gsap.to(img, {
+        autoAlpha: 0,
+        scale: 0.9,
+        duration: 0.25
+      });
+    });
+
+    // MOVE inside card
+    container.addEventListener("mousemove", (e) => {
+      const rect = container.getBoundingClientRect();
+
+      gsap.to(img, {
+        duration: 0.5,
+        x: e.clientX - rect.left - img.clientWidth / 2,
+        y: e.clientY - rect.top - img.clientHeight / 2,
+        overwrite: "auto"
+      });
+    });
+  });
+};
+
+initServiceCardHover();

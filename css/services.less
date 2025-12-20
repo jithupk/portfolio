@@ -62,39 +62,101 @@
   }
 }
 
-
-.services-row{
-  .service-card{
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #0C0C0C60;
+.services-row {
+  background: #fff;
+  .service-card {
+    border-bottom: 1px solid #8f8f8f;
     padding: 30px 0;
-    .title{
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      gap: 5px;
+    align-items: center;
+    &.card-1 {
+      border-top: 1px solid #8f8f8f;
     }
-    .desc{
+    .title-col {
       display: flex;
-      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      .service-title {
+        display: flex;
+        align-items: stretch;
+        width: 50%;
+        gap: 10px;
+        .service-count {
+          font-size: 20px;
+          font-weight: 700;
+          display: block;
+        }
+        h3 {
+          font-size: 50px;
+          font-weight: 700;
+          text-transform: uppercase;
+          margin: 0;
+          mix-blend-mode: darken;
+          z-index: 2;
+        }
+      }
+      .overlay-img{
+        position: absolute;
+        width: 240px;
+        height: 240px;
+        
+        img{
+          border-radius: 15px;
+          aspect-ratio: 1 / 1;
+          object-fit: cover;        
+          object-position: center;
+        }
+      }
+      .service-pills {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        width: 50%;
+        span {
+          font-size: 16px;
+          line-height: 16px;
+          padding: 10px 12px;
+          border: 1px solid #8f8f8f;
+          border-radius: 20px;
+          color: #8f8f8f;
+        }
+      }
     }
-    div{
-      width: 50%;
-      span{
-        font-size: 20px;
-        font-weight: 700;
+    .content-col {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      .service-desc {
+        transition: all 0.3s;
+        transform: translateX(65px);
+        p {
+          margin: 0;
+        }
       }
-      h3{
-        font-size: 50px;
-        text-transform: uppercase;
-        font-weight: 800;
-        margin: 0;
+      .service-arrow {
+        transform: scale(0);
+        transition: all 0.3s;
+        .arrow {
+          width: 40px;
+          height: 40px;
+          padding: 10px;
+          border-radius: 50%;
+          background: #000000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          img {
+            filter: invert(1);
+          }
+        }
       }
-      p{
-        max-width: 320px;
-        margin: 0;
-        color: #0C0C0C90;
+    }
+    &:hover{
+      .service-desc{
+        transform: translateX(0);
+      }
+      .service-arrow {
+        transform: scale(1);
       }
     }
   }
