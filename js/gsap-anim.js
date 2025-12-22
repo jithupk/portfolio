@@ -244,6 +244,79 @@ gsap.fromTo(
   }
 );
 
+
+
+// =====================
+// ScrollTrigger.create({
+//   trigger: ".video-hl",
+//   start: "top top",
+//   end: "bottom top",
+//   pin: ".sticky-elem",
+//   pinSpacing: false,
+// });
+
+// gsap.fromTo(
+//   ".zoom-img",
+//   {
+//     scale: 0,
+//     x: "1.5rem",
+//     xPercent: -50,
+//     yPercent: -50,
+//   },
+//   {
+//     scale: 1,
+//     x: 0,
+//     scrollTrigger: {
+//       trigger: ".video-hl",
+//       scrub: true,
+//       start: "top top",
+//       end: "bottom bottom",
+//     },
+//   }
+// );
+
+// gsap.timeline({
+//   scrollTrigger: {
+//     trigger: ".video-hl",
+//     start: "top top",
+//     end: "bottom bottom",
+//     scrub: true,
+//     pin: ".sticky-elem",
+//     pinSpacing: false,
+//   }
+// })
+// gsap.fromTo(
+//   ".zoom-img",
+//   {
+//     scale: 0,
+//     x: "1.5rem",
+//     xPercent: -50,
+//     yPercent: -50,
+//   },
+//   {
+//     scale: 1,
+//     x: 0,
+//     scrollTrigger: {
+//       trigger: ".video-hl",
+//       scrub: true,
+//       start: "top top",
+//       end: "bottom bottom",
+//     },
+//   }
+// );
+
+gsap.timeline({
+  scrollTrigger: {
+    trigger: ".video-hl",
+    start: "top 0%",
+    end: "bottom 100%",
+    scrub: true,
+    pin: ".sticky-elem",
+    pinSpacing: false,
+  },
+});
+
+
 gsap.fromTo(
   ".zoom-img",
   {
@@ -264,14 +337,6 @@ gsap.fromTo(
   }
 );
 
-ScrollTrigger.create({
-  trigger: ".video-hl",
-  start: "top top",
-  end: "bottom top",
-  pin: ".sticky-elem",
-  pinSpacing: false,
-});
-
 gsap.to(".video-hl", {
   "--p2": 1,
   scrollTrigger: {
@@ -282,21 +347,25 @@ gsap.to(".video-hl", {
   },
 });
 
-// gsap.fromTo(
-//   ".home_photos_images-layout",
-//   {
-//     scale: 3.2,
-//   },
-//   {
-//     scale: 1,
-//     scrollTrigger: {
-//       trigger: ".section_home-photos",
-//       scrub: true,
-//       start: "top top",
-//       end: "bottom bottom",
-//     },
-//   }
-// );
+gsap.fromTo(
+  ".t-h1",
+  {
+    // x: "100%",
+    y: "-400px"
+  },
+  {
+    scale: 1,
+    x: 0,
+    y: 0,
+    scrollTrigger: {
+      trigger: ".video-hl",
+      scrub: true,
+      start: "top 80%",
+      end: "top top",
+    },
+  }
+);
+
 
 gsap.fromTo(
   ".home_photos_images-layout",
@@ -369,70 +438,3 @@ gsap.fromTo(
     },
   }
 );
-
-// const e = document.querySelector(".mwg_landing4 .text");
-// ((e) => {
-//   const t = e.textContent;
-//   e.innerHTML = t
-//     .split("")
-//     .map((e) =>
-//       " " === e ? "<span>&nbsp;</span>" : `<span class="letter">${e}</span>`
-//     )
-//     .join(" ");
-// })(e);
-
-
-// const e = document.querySelector(".new-t");
-// ((e) => {
-//   const t = e.textContent;
-//   e.innerHTML = t
-//     .split("")
-//     .map((e) =>
-//       " " === e ? "<span>&nbsp;</span>" : `<span class="letter">${e}</span>`
-//     )
-//     .join(" ");
-// })(e);
-
-
-// const t = document.querySelectorAll(".letter"),
-//   o = e.clientWidth - window.innerWidth,
-//   r = gsap.to(e, {
-//     x: -o + "px",
-//     ease: "none",
-//     scrollTrigger: {
-//       trigger: ".s.is-hsc.sec",
-//       // pin: !0,
-//       start: "top bottom",
-//       scrub: !0,
-//       end: "+=" + o,
-//     },
-//   });
-// t.forEach((e) => {
-//   const t = {
-//     y:
-//       (Math.floor(7 * Math.random()) + 10) *
-//       (20 * Math.round(Math.random()) - 10),
-//     rotation:
-//       (Math.floor(11 * Math.random()) + 10) *
-//       (2 * Math.round(Math.random()) - 1),
-//   };
-//   gsap.fromTo(
-//     e,
-//     {
-//       rotation: t.rotation,
-//       yPercent: t.y,
-//     },
-//     {
-//       rotation: 0,
-//       yPercent: 0,
-//       ease: "elastic.out(1.2, 1)",
-//       scrollTrigger: {
-//         trigger: e,
-//         containerAnimation: r,
-//         start: "left 100%",
-//         end: "left 0%",
-//         scrub: 0.5,
-//       },
-//     }
-//   );
-// });
