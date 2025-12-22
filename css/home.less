@@ -151,6 +151,7 @@
 
 .testimonials {
   background: #f9f3ee;
+  background: #fff;
   z-index: 4;
   .rating-box {
     background: #fff;
@@ -327,7 +328,7 @@
     background-size: 24px;
     background-color: #a0e146;
     transition: all 0.3s;
-    &:hover{
+    &:hover {
       background-color: #334bd3;
       // border-color: #a0e146;
       backdrop-filter: invert(1);
@@ -339,7 +340,50 @@
   .swiper-button-prev {
     transform: rotate(180deg);
   }
-  .brandmarquee{
+  .brandmarquee {
     margin-top: 100px;
+  }
+}
+
+.new-testimonials {
+  background: #fff;
+  .new-testimonial-slider {
+    .swiper-wrapper {
+      .swiper-slide {
+        // width: 50%;
+        .testimonial-card {
+          padding: 40px;
+          border-radius: 15px;
+          box-shadow: @box-shadow-1;
+          .testimonial-card_icon {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            img {
+              width: 42px;
+              height: 42px;
+            }
+          }
+          .testimonial-card_content {
+            margin: 48px 0;
+            p{
+              margin: 0;
+            }
+          }
+          .auther-info{
+            p{
+              font-size: 24px;
+            }
+            span{
+              font-size: 18px;
+              color: #4f4f4f;
+            }
+          }
+        }
+        &:not(.swiper-slide-next){
+          opacity: 0.5;
+        }
+      }
+    }
   }
 }

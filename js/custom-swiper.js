@@ -36,3 +36,11 @@ $(document).ready(function () {
   });
 });
 
+const newTestimonialSlider = new Swiper(".new-testimonial-slider", {
+  slidesPerView: 3,
+  //  slidesPerView: "auto",
+  // centeredSlides: true,
+  spaceBetween: 24,
+  loop: true,
+  grabCursor: true,
+});
