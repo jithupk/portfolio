@@ -246,3 +246,45 @@ const initServiceCardHover = () => {
 };
 
 initServiceCardHover();
+
+
+// const card = document.querySelector('.recent-projects-card');
+// const image = card.querySelector('.card-img');
+
+// card.addEventListener('mousemove', (e) => {
+//   const rect = card.getBoundingClientRect();
+//   const x = e.clientX - rect.left;
+//   const y = e.clientY - rect.top;
+
+//   const rotateY = ((x / rect.width) - 0.5) * 20;
+//   const rotateX = ((y / rect.height) - 0.5) * -20;
+
+//   image.style.transform = `
+//     rotateX(${rotateX}deg)
+//     rotateY(${rotateY}deg)
+//     translateZ(40px)
+//   `;
+// });
+
+// card.addEventListener('mouseleave', () => {
+//   image.style.transform = 'rotateX(0) rotateY(0) translateZ(0)';
+// });
+
+const card = document.querySelector('.recent-projects-card');
+const img = card.querySelector('img');
+
+card.addEventListener('mousemove', (e) => {
+  const rect = card.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  const moveX = ((x / rect.width) - 0.5) * 20;
+  const moveY = ((y / rect.height) - 0.5) * 20;
+
+  // img.style.transform = `translate(${moveX}px, ${moveY}px)`;
+   img.style.transform = `translate(${moveX}px, ${moveY}px)scale(1.1)`;
+});
+
+card.addEventListener('mouseleave', () => {
+  img.style.transform = 'translate(0px, 0px)';
+});
