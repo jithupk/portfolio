@@ -270,21 +270,24 @@ initServiceCardHover();
 //   image.style.transform = 'rotateX(0) rotateY(0) translateZ(0)';
 // });
 
-const card = document.querySelector('.recent-projects-card');
-const img = card.querySelector('img');
 
-card.addEventListener('mousemove', (e) => {
-  const rect = card.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
 
-  const moveX = ((x / rect.width) - 0.5) * 20;
-  const moveY = ((y / rect.height) - 0.5) * 20;
+$('.recent-projects-card').each(function () {
+  const $card = $(this);
+  const $img = $card.find('.card-img img');
 
-  // img.style.transform = `translate(${moveX}px, ${moveY}px)`;
-   img.style.transform = `translate(${moveX}px, ${moveY}px)scale(1.1)`;
-});
+  $card.on('mousemove', function (e) {
+    const rect = this.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-card.addEventListener('mouseleave', () => {
-  img.style.transform = 'translate(0px, 0px)';
+    const moveX = ((x / rect.width) - 0.5) * 20;
+    const moveY = ((y / rect.height) - 0.5) * 20;
+
+    $img.css('transform', `translate(${moveX}px, ${moveY}px) scale(1.05)`);
+  });
+
+  $card.on('mouseleave', function () {
+    $img.css('transform', 'translate(0px, 0px) scale(1.05)');
+  });
 });

@@ -120,7 +120,7 @@ footer {
   }
   .row.privacy {
     padding: 15px 0;
-    border-top: 1px solid #ffffff20;
+    // border-top: 1px solid #ffffff20;
     .col-12 {
       display: flex;
       align-items: center;
@@ -133,5 +133,47 @@ footer {
       margin: 0;
       width: fit-content;
     }
+  }
+}
+
+
+footer.new {
+  padding: 100px 0 0 0;
+  .get-in-touch{
+    max-width: 100%;
+    h2{
+      text-align: center;
+      color: #fff9;
+      span{
+        color: #fff;
+      }
+    }
+  }
+  .footer-nav{
+    display: flex;
+    justify-content: space-between;
+    ul {
+      justify-content: flex-start;
+    }
+    .cta-links{
+      display: flex;
+      gap: 30px;
+      div{
+        span{
+          display: block;
+          color: #fff9;
+        }
+        a{
+          color: #fff;
+        }
+      }
+    }
+    
+  } 
+  .line{
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #ffffff20;
   }
 }
