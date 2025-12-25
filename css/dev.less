@@ -208,29 +208,27 @@ svg:not(:root) {
       top: 50%;
       width: 100vw;
       height: 100vh;
-      .img{
+      .img {
         width: 100%;
-        .bg{
+        .bg {
           position: relative;
-          img{
+          img {
             width: 100%;
           }
-          a.btn{
+          a.btn {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
           }
-          .user-link{
+          .user-link {
             position: absolute;
             top: 200px;
             left: 20px;
-            img{
+            img {
               max-width: 120px;
               filter: invert(1);
             }
-            
-
           }
         }
       }
@@ -460,11 +458,29 @@ svg:not(:root) {
   }
 }
 
-.promo-section{
+.promo-section {
   height: 100vh;
+  .col-12 {
+    .promo-video {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+  }
 }
-.promo-video {
-  width: 100%;
-  border-radius: 20px;
-  overflow: hidden;
+
+.controls {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  background-color: #0003;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1050;
+  opacity: 0;
+  will-change: transform;
 }

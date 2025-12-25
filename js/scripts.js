@@ -291,3 +291,81 @@ $('.recent-projects-card').each(function () {
     $img.css('transform', 'translate(0px, 0px) scale(1.05)');
   });
 });
+
+
+
+function initVideoCursor() {
+  const cursor = document.querySelector(".controls");
+  const video = document.querySelector(".promo-video video");
+
+  if (!cursor || !video || window.innerWidth <= 767) return;
+
+  /* ------------------
+     CURSOR FOLLOW
+  ------------------ */
+  gsap.set(cursor, {
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2
+  });
+
+  const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+  const mouse = { ...pos };
+
+  window.addEventListener("mousemove", (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+
+  gsap.ticker.add(() => {
+    pos.x += (mouse.x - pos.x) * 0.15;
+    pos.y += (mouse.y - pos.y) * 0.15;
+    gsap.set(cursor, pos);
+  });
+
+  /* ------------------
+     HOVER VISIBILITY
+  ------------------ */
+  video.addEventListener("mouseenter", () => {
+    gsap.to(cursor, { opacity: 1, duration: 0.3 });
+  });
+
+  video.addEventListener("mouseleave", () => {
+    gsap.to(cursor, { opacity: 0, duration: 0.3 });
+  });
+
+  /* ------------------
+     USER MUTE STATE
+  ------------------ */
+  let userMuted = video.muted;
+
+  function applyMuteState(muted) {
+    video.muted = muted;
+    cursor.classList.toggle("muted", muted);
+  }
+
+  // user click → store intent
+  video.addEventListener("click", () => {
+    userMuted = !video.muted;
+    applyMuteState(userMuted);
+  });
+
+  /* ------------------
+     VIEWPORT OBSERVER
+  ------------------ */
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) {
+        // force mute when offscreen
+        applyMuteState(true);
+      } else {
+        // restore user preference
+        applyMuteState(userMuted);
+      }
+    },
+    { threshold: 0.4 }
+  );
+
+  observer.observe(video);
+}
+
+initVideoCursor();

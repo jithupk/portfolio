@@ -56,6 +56,9 @@
             </div>
         </div>
     </header>
+    <div class="controls muted">
+                        <img src="images/volume-high-solid-full.svg" alt="">
+                    </div>
     <div id="smooth-wrapper">
         <div id="smooth-content">
             <main>
@@ -231,13 +234,17 @@
                 <section class="promo-section p-0">
                     <div class="container">
                         <div class="row">
-                            <div class="col-12 d-flex align-items-center justify-content-center">
-                                <div class="promo-video d-flex align-items-center justify-content-center">
-                                    <video src="videos/vid-p.mp4" autoplay muted loop></video>
+                            <div class="col-12">
+                                <div class="promo-video">
+                                    <video autoplay muted loop playsinline>
+                                        <source src="videos/promo-video.mp4">
+                                    </video>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                 </section>
                 <!-- <section class="video-hl p-0 my-0 d-none" style="--p2: 0; --p: 0; opacity: 1;">
                     <div class="container-fluid p-0 h-100">
