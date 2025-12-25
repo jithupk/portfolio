@@ -244,8 +244,6 @@ gsap.fromTo(
   }
 );
 
-
-
 // =====================
 // ScrollTrigger.create({
 //   trigger: ".video-hl",
@@ -316,7 +314,6 @@ gsap.timeline({
   },
 });
 
-
 gsap.fromTo(
   ".zoom-img",
   {
@@ -351,7 +348,7 @@ gsap.fromTo(
   ".t-h1",
   {
     // x: "100%",
-    y: "-400px"
+    y: "-400px",
   },
   {
     scale: 1,
@@ -365,7 +362,6 @@ gsap.fromTo(
     },
   }
 );
-
 
 gsap.fromTo(
   ".home_photos_images-layout",
@@ -435,6 +431,35 @@ gsap.fromTo(
       scrub: true,
       start: "top top",
       end: "bottom bottom",
+    },
+  }
+);
+
+// gsap.timeline({
+//   scrollTrigger: {
+//     trigger: ".promo-section",
+//     start: "top top",
+//     end: "bottom top",
+//     scrub: true,
+//     pin: true,
+//     pinSpacing: false,
+//   },
+// });
+
+gsap.fromTo(
+  ".promo-video",
+  {
+    // scale: 0.5,
+    width: "50%",
+  },
+  {
+    // scale: 1,
+    width: "100%",
+    scrollTrigger: {
+      trigger: ".promo-section",
+      scrub: true,
+      start: "top bottom",
+      end: "top top",
     },
   }
 );
