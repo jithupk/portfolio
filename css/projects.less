@@ -62,12 +62,20 @@
         transition: transform 0.15s ease;
         transform-style: preserve-3d;
       }
+      &:hover {
+        img {
+          // transform: scale(1.1);
+          animation: blurReveal 0.4s ease-out forwards;
+        }
+      }
     }
     .card-body {
       padding: 20px 0;
       overflow: hidden;
       span {
-        font-size: 12px;
+        font-size: 16px;
+        font-weight: 400;
+        color: #000000;
         text-transform: uppercase;
         display: block;
         margin: 0 0 5px 0;
@@ -96,7 +104,7 @@
             font-size: 24px;
           }
           @media @xxl {
-            font-size: 30px;
+            font-size: 45px;
           }
         }
       }
@@ -107,12 +115,6 @@
       }
     }
     &:hover {
-      .card-img {
-        img {
-          // transform: scale(1.1);
-          animation: blurReveal 0.4s ease-out forwards;
-        }
-      }
       .title {
         img {
           transform: translateX(1.5em);
@@ -135,8 +137,8 @@
   0% {
     filter: blur(5);
   }
-  50%{
-     filter: blur(4px);
+  50% {
+    filter: blur(4px);
   }
   100% {
     filter: blur(0);

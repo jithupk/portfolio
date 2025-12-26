@@ -18,8 +18,8 @@ header.hidden {
 header.visible {
   transform: translateY(10px);
   @media @md {
-      transform: translateY(0);
-    }
+    transform: translateY(0);
+  }
   .header-wrapper {
     width: 200px;
     border-radius: 15px;
@@ -89,12 +89,12 @@ header {
       margin: 0 0 0 15px;
     }
   }
-  .btn-wrap{
+  .btn-wrap {
     @media @sm {
       order: 1;
     }
   }
-  .nav-toggle-wrap{
+  .nav-toggle-wrap {
     @media @sm {
       margin-left: 15px;
       order: 3;
@@ -103,13 +103,26 @@ header {
 }
 
 header.glass {
-  .header-wrapper{
-    background: rgb(0 0 0 / 50%);;
+  .header-wrapper {
+    background: rgb(0 0 0 / 50%);
   }
-   .nav li a {
+  .nav li a {
     color: #fff;
-   }
-   .brand-logo {
+  }
+  .brand-logo {
     color: #fff;
-   }
+  }
+}
+
+.new-header {
+  padding: 30px 0;
+  .nav-col {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    .btn-light{
+      border: 1px solid #0000002d;
+    }
+  }
 }

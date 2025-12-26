@@ -460,12 +460,20 @@ svg:not(:root) {
 
 .promo-section {
   height: 100vh;
+  background: #f0f1fa;
+  overflow: hidden;
   .col-12 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .promo-video {
       width: 100%;
       border-radius: 20px;
       overflow: hidden;
       position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
@@ -483,4 +491,38 @@ svg:not(:root) {
   z-index: 1050;
   opacity: 0;
   will-change: transform;
+}
+
+.sroll-content {
+  overflow: hidden;
+  padding-top: 0;
+  .marq-wrap {
+    display: flex;
+    align-items: center;
+    border: 1px solid #000;
+    border-left: 0;
+    border-right: 0;
+    padding: 20px 0;
+    ul {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      li {
+        display: flex;
+        align-items: center;
+        margin-right: 43px;
+        img {
+          margin-right: 20px;
+          width: 40px;
+          height: 40px;
+        }
+        span {
+          font-size: 50px;
+          font-weight: 500;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
 }
