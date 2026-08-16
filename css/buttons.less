@@ -1,0 +1,115 @@
+/* ================================================================
+   BUTTONS
+   ================================================================ */
+.btn {
+  min-height: 52px;
+  padding: 0 28px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: @font-family-base;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color .3s ease, background-color .3s ease, border-color .3s ease, transform .3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+
+  &-primary {
+    color: #ffffff;
+    background: #ef160f;
+    border-color: #ef160f;
+
+    &:hover {
+      color: #ffffff;
+      background: #111111;
+      border-color: #111111;
+    }
+  }
+
+  &-secondary {
+    color: #ffffff;
+    background: #111111;
+    border-color: #111111;
+
+    &:hover {
+      color: #ffffff;
+      background: #ef160f;
+      border-color: #ef160f;
+    }
+  }
+
+  &-light {
+    color: #111111;
+    background: #ffffff;
+    border-color: #ffffff;
+
+    &:hover {
+      color: #ffffff;
+      background: #ef160f;
+      border-color: #ef160f;
+    }
+  }
+
+  &-hover-light {
+    &:hover {
+      color: #111111;
+      background: #ffffff;
+      border-color: #ffffff;
+    }
+  }
+
+  &-outline-primary {
+    color: #ef160f;
+    background: transparent;
+    border-color: #ef160f;
+
+    &:hover {
+      color: #ffffff;
+      background: #ef160f;
+    }
+  }
+
+  &-outline-secondary {
+    color: #111111;
+    background: transparent;
+    border-color: #111111;
+
+    &:hover {
+      color: #ffffff;
+      background: #111111;
+    }
+  }
+
+  &-outline-light {
+    color: #ffffff;
+    background: transparent;
+    border-color: #ffffff;
+
+    &:hover {
+      color: #111111;
+      background: #ffffff;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .btn {
+    min-height: 48px;
+    padding: 0 22px;
+    font-size: 14px;
+  }
+}
