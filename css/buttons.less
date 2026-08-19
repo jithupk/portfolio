@@ -2,114 +2,128 @@
    BUTTONS
    ================================================================ */
 .btn {
-  min-height: 52px;
-  padding: 0 28px;
-  border: 2px solid transparent;
-  border-radius: 999px;
+  position: relative;
+  width: fit-content;
+  min-width: 190px;
+  padding: 0 24px;
+  height: 90px;
+  border: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  font-family: @font-family-base;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1;
-  text-align: center;
-  text-decoration: none;
+  color: #fff;
+  background: transparent;
   cursor: pointer;
-  transition: color .3s ease, background-color .3s ease, border-color .3s ease, transform .3s ease;
-
-  &:hover {
-    transform: translateY(-2px);
+  isolation: isolate;
+  -webkit-tap-highlight-color: transparent;
+  &:hover{
+    background: none;
   }
-
-  &:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 4px;
+  &:active{
+    color: inherit !important;
+    background-color: inherit !important;
+    border-color: inherit !important;
   }
-
-  &-primary {
-    color: #ffffff;
-    background: #ef160f;
-    border-color: #ef160f;
-
-    &:hover {
-      color: #ffffff;
-      background: #111111;
-      border-color: #111111;
+  &:focus-visible{
+    box-shadow: none !important;
+    background-color: inherit !important;
+    border-color: inherit !important;
+  }
+  .btn-label {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    overflow: hidden;
+    font-size: 17px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.4s cubic-bezier(0.55, 0, 0.1, 1);
+    .btn-char {
+      display: block;
+      white-space: pre;
+      transform: translateY(0);
     }
   }
-
-  &-secondary {
-    color: #ffffff;
-    background: #111111;
-    border-color: #111111;
-
-    &:hover {
-      color: #ffffff;
-      background: #ef160f;
-      border-color: #ef160f;
-    }
-  }
-
-  &-light {
-    color: #111111;
-    background: #ffffff;
-    border-color: #ffffff;
-
-    &:hover {
-      color: #ffffff;
-      background: #ef160f;
-      border-color: #ef160f;
-    }
-  }
-
-  &-hover-light {
-    &:hover {
-      color: #111111;
-      background: #ffffff;
-      border-color: #ffffff;
-    }
-  }
-
-  &-outline-primary {
-    color: #ef160f;
-    background: transparent;
-    border-color: #ef160f;
-
-    &:hover {
-      color: #ffffff;
-      background: #ef160f;
-    }
-  }
-
-  &-outline-secondary {
-    color: #111111;
-    background: transparent;
-    border-color: #111111;
-
-    &:hover {
-      color: #ffffff;
-      background: #111111;
-    }
-  }
-
-  &-outline-light {
-    color: #ffffff;
-    background: transparent;
-    border-color: #ffffff;
-
-    &:hover {
-      color: #111111;
-      background: #ffffff;
+  .btn-shape {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+    path {
+      fill:#ef160f;
+      transition: fill 0.4s cubic-bezier(0.55, 0, 0.1, 1);
     }
   }
 }
 
-@media (max-width: 575.98px) {
-  .btn {
-    min-height: 48px;
-    padding: 0 22px;
-    font-size: 14px;
+.btn:is(:hover, :focus-visible) {
+  color: #fff;
+  outline: none;
+}
+.btn.hov-white:is(:hover, :focus-visible) {
+  color: #000000;
+  outline: none;
+}
+.btn:is(:hover, :focus-visible) .btn-shape path {
+  fill: #1a1915;
+  animation: telescope-blob-in 0.52s cubic-bezier(0.55, 0, 0.1, 1) both;
+}
+.btn.hov-white:is(:hover, :focus-visible) .btn-shape path {
+  fill: #ffffff;
+  animation: telescope-blob-in 0.52s cubic-bezier(0.55, 0, 0.1, 1) both;
+}
+.btn:is(:hover, :focus-visible) .btn-char {
+  animation: telescope-letter-wave 0.28s cubic-bezier(0.55, 0, 0.1, 1) both;
+  animation-delay: calc(var(--index) * 16ms);
+}
+.btn:not(:hover):not(:focus-visible) .btn-shape path {
+  animation: telescope-blob-out 0.52s cubic-bezier(0.55, 0, 0.1, 1) both;
+}
+
+@keyframes telescope-letter-wave {
+  0%, 100% { transform: translateY(0); }
+  46% { transform: translateY(-7px); }
+}
+@keyframes telescope-blob-in {
+  0% {
+    d: path("M69,-0.001 C69,9.465 66.646,18.71 62.255,26.497 C62.255,26.497 32,27 -1.5,27 C-35,27 -62.255,26.497 -62.255,26.497 C-66.648,18.71 -69,9.467 -69,-0.001 C-69,-9.47 -66.648,-18.713 -62.255,-26.5 C-62.255,-26.5 -35,-26.5 -0.125,-26.5 C34.75,-26.5 62.255,-26.5 62.255,-26.5 C66.648,-18.713 69,-9.47 69,-0.001 Z");
+  }
+  22% {
+    d: path("M69,-0.001 C69,9.465 66.646,18.71 62.255,26.497 C62.255,26.497 32,38.038 -1.5,38.038 C-35,38.038 -62.255,26.497 -62.255,26.497 C-66.648,18.71 -69,9.467 -69,-0.001 C-69,-9.47 -66.648,-18.713 -62.255,-26.5 C-62.255,-26.5 -35,-37.539 -0.125,-37.539 C34.75,-37.539 62.255,-26.5 62.255,-26.5 C66.648,-18.713 69,-9.47 69,-0.001 Z");
+  }
+  42% {
+    d: path("M69,-0.001 C69,9.465 66.646,18.71 62.255,26.497 C62.255,26.497 32,32.705 -1.5,32.705 C-35,32.705 -62.255,26.497 -62.255,26.497 C-66.648,18.71 -69,9.467 -69,-0.001 C-69,-9.47 -66.648,-18.713 -62.255,-26.5 C-62.255,-26.5 -35,-32.206 -0.125,-32.206 C34.75,-32.206 62.255,-26.5 62.255,-26.5 C66.648,-18.713 69,-9.47 69,-0.001 Z");
+  }
+  64% {
+    d: path("M69,-0.001 C69,9.465 66.646,18.71 62.255,26.497 C62.255,26.497 32,22.011 -1.5,22.011 C-35,22.011 -62.255,26.497 -62.255,26.497 C-66.648,18.71 -69,9.467 -69,-0.001 C-69,-9.47 -66.648,-18.713 -62.255,-26.5 C-62.255,-26.5 -35,-21.512 -0.125,-21.512 C34.75,-21.512 62.255,-26.5 62.255,-26.5 C66.648,-18.713 69,-9.47 69,-0.001 Z");
+  }
+  82% {
+    d: path("M69,-0.001 C69,9.465 66.646,18.71 62.255,26.497 C62.255,26.497 32,28.998 -1.5,28.998 C-35,28.998 -62.255,26.497 -62.255,26.497 C-66.648,18.71 -69,9.467 -69,-0.001 C-69,-9.47 -66.648,-18.713 -62.255,-26.5 C-62.255,-26.5 -35,-28.499 -0.125,-28.499 C34.75,-28.499 62.255,-26.5 62.255,-26.5 C66.648,-18.713 69,-9.47 69,-0.001 Z");
+  }
+  100% {
+    d: path("M69,-0.001 C69,9.465 66.646,18.71 62.255,26.497 C62.255,26.497 32,27 -1.5,27 C-35,27 -62.255,26.497 -62.255,26.497 C-66.648,18.71 -69,9.467 -69,-0.001 C-69,-9.47 -66.648,-18.713 -62.255,-26.5 C-62.255,-26.5 -35,-26.5 -0.125,-26.5 C34.75,-26.5 62.255,-26.5 62.255,-26.5 C66.648,-18.713 69,-9.47 69,-0.001 Z");
+  }
+}
+
+@keyframes telescope-blob-out {
+  0%, 100% {
+    d: path("M69,-0.001 C69,9.465 66.646,18.71 62.255,26.497 C62.255,26.497 32,27 -1.5,27 C-35,27 -62.255,26.497 -62.255,26.497 C-66.648,18.71 -69,9.467 -69,-0.001 C-69,-9.47 -66.648,-18.713 -62.255,-26.5 C-62.255,-26.5 -35,-26.5 -0.125,-26.5 C34.75,-26.5 62.255,-26.5 62.255,-26.5 C66.648,-18.713 69,-9.47 69,-0.001 Z");
+  }
+  34% {
+    d: path("M69,-0.001 C69,9.465 66.646,18.71 62.255,26.497 C62.255,26.497 32,21.5 -1.5,21.5 C-35,21.5 -62.255,26.497 -62.255,26.497 C-66.648,18.71 -69,9.467 -69,-0.001 C-69,-9.47 -66.648,-18.713 -62.255,-26.5 C-62.255,-26.5 -35,-21 -0.125,-21 C34.75,-21 62.255,-26.5 62.255,-26.5 C66.648,-18.713 69,-9.47 69,-0.001 Z");
+  }
+  70% {
+    d: path("M69,-0.001 C69,9.465 66.646,18.71 62.255,26.497 C62.255,26.497 32,30 -1.5,30 C-35,30 -62.255,26.497 -62.255,26.497 C-66.648,18.71 -69,9.467 -69,-0.001 C-69,-9.47 -66.648,-18.713 -62.255,-26.5 C-62.255,-26.5 -35,-29.5 -0.125,-29.5 C34.75,-29.5 62.255,-26.5 62.255,-26.5 C66.648,-18.713 69,-9.47 69,-0.001 Z");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-shape path,
+  .btn-char {
+    animation: none !important;
   }
 }

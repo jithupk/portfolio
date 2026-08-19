@@ -5,6 +5,16 @@
   box-sizing: border-box;
 }
 
+html.is-file-preview {
+  .projects__card-fallback {
+    display: block !important;
+  }
+
+  .webgl-projects-canvas {
+    display: none !important;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   scrollbar-width: none;
@@ -21,11 +31,16 @@ body {
   background: #fbe7e4;
   font-family: @font-family-base;
   -webkit-font-smoothing: antialiased;
+  // display: block !important;
 }
 
-img{
+img {
   max-width: 100%;
   height: auto;
+}
+
+a{
+  outline: none;
 }
 
 .container {
@@ -48,15 +63,36 @@ img{
   });
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: @font-family-header;
-  font-weight: 700;
+section {
+  padding: 60px 0;
+  .md({
+    padding: 65px 0
+  });
+
+  .lg({
+    padding: 80px 0;
+  });
+
+  .xl({
+    padding: 100px 0;
+  });
+
+  .xxl({
+    padding: 120px 0;
+  });
+
+  .xxxl({
+    padding: 130px 0;
+  });
 }
+
+.section-title{
+  line-height: 1;
+  span{
+    color: #ef160f;
+  } 
+}
+
 
 a {
   color: inherit;
@@ -69,10 +105,14 @@ button {
 
 .eyebrow {
   color: #55534f;
-  font-size: clamp(12px, .85vw, 15px);
+  font-size: clamp(12px, 0.85vw, 15px);
   font-weight: 600;
-  letter-spacing: .16em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
+  margin: 0 0 10px;
+  .md({
+    margin: 0 0 20px;
+  })
 }
 
 @media (max-width: 700px) {
@@ -93,11 +133,15 @@ button {
     align-items: center;
 
     &:not(:last-child) {
-      border-right: 1px solid rgba(249, 248, 246, 0.20);
+      border-right: 1px solid rgba(249, 248, 246, 0.2);
     }
 
-    &:first-child a { padding-left: 0; }
-    &:last-child a { padding-right: 0; }
+    &:first-child a {
+      padding-left: 0;
+    }
+    &:last-child a {
+      padding-right: 0;
+    }
   }
 
   a {
@@ -107,10 +151,12 @@ button {
     color: #8a8988;
     font-size: 16px;
     line-height: 1;
-    transition: color .25s ease;
+    transition: color 0.25s ease;
 
     &:hover,
-    &:focus-visible { color: #ef160f; }
+    &:focus-visible {
+      color: #ef160f;
+    }
 
     &:focus-visible {
       outline: 2px solid #b69269;

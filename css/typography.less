@@ -1,0 +1,273 @@
+/* ================================================================
+   TYPOGRAPHY
+   ================================================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 .45em;
+  font-family: @font-family-header;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  line-height: 1.05;
+}
+
+h1 {
+  font-size: 50px;
+
+  .sm({ font-size: 66px; });
+  .md({ font-size: 72px; });
+  .lg({ font-size: 84px; });
+  .xl({ font-size: 84px; });
+  .xxl({ font-size: 90px; });
+  .xxxl({ font-size: 103px; });
+}
+
+h2 {
+  font-size: 42px;
+
+  .sm({ font-size: 55px; });
+  .md({ font-size: 60px; });
+  .lg({ font-size: 70px; });
+  .xl({ font-size: 70px; });
+  .xxl({ font-size: 75px; });
+  .xxxl({ font-size: 86px; });
+}
+
+h3 {
+  font-size: 35px;
+
+  .sm({ font-size: 46px; });
+  .md({ font-size: 50px; });
+  .lg({ font-size: 58px; });
+  .xl({ font-size: 58px; });
+  .xxl({ font-size: 63px; });
+  .xxxl({ font-size: 72px; });
+}
+
+h4 {
+  font-size: 29px;
+
+  .sm({ font-size: 38px; });
+  .md({ font-size: 42px; });
+  .lg({ font-size: 49px; });
+  .xl({ font-size: 49px; });
+  .xxl({ font-size: 52px; });
+  .xxxl({ font-size: 60px; });
+}
+
+h5 {
+  font-size: 24px;
+
+  .sm({ font-size: 32px; });
+  .md({ font-size: 35px; });
+  .lg({ font-size: 41px; });
+  .xl({ font-size: 41px; });
+  .xxl({ font-size: 43px; });
+  .xxxl({ font-size: 50px; });
+}
+
+h6 {
+  font-size: 20px;
+
+  .sm({ font-size: 27px; });
+  .md({ font-size: 29px; });
+  .lg({ font-size: 34px; });
+  .xl({ font-size: 34px; });
+  .xxl({ font-size: 36px; });
+  .xxxl({ font-size: 41px; });
+}
+
+p {
+  margin: 0 0 1em;
+  font-size: 16px;
+  line-height: 1.4;
+
+  .md({ font-size: 17px; });
+  .xl({ font-size: 18px; });
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: .18em;
+
+  &:focus-visible {
+    outline: 2px solid #ef160f;
+    outline-offset: 4px;
+  }
+}
+
+small {
+  font-size: 13px;
+  line-height: 1.5;
+
+  .md({ font-size: 14px; });
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+mark {
+  padding: .08em .22em;
+  color: #08080a;
+  background: rgba(239, 22, 15, .18);
+}
+
+del { opacity: .65; }
+
+ins {
+  text-decoration-color: #ef160f;
+  text-underline-offset: .18em;
+}
+
+blockquote {
+  margin: 0 0 1.25em;
+  padding-left: 1em;
+  border-left: 3px solid #ef160f;
+  font-family: @font-family-header;
+  font-size: 22px;
+  letter-spacing: -.015em;
+  line-height: 1.35;
+
+  .md({ font-size: 26px; });
+  .xl({ font-size: 30px; });
+
+  p:last-child { margin-bottom: 0; }
+
+  cite {
+    margin-top: .75em;
+    display: block;
+    font-family: @font-family-base;
+    font-size: 13px;
+    font-style: normal;
+    letter-spacing: 0;
+  }
+}
+
+q {
+  quotes: "“" "”" "‘" "’";
+
+  &::before { content: open-quote; }
+  &::after { content: close-quote; }
+}
+
+cite { font-style: italic; }
+
+ul:not([class]),
+ol:not([class]) {
+  margin: 0 0 1em;
+  padding-left: 1.25em;
+  font-size: 16px;
+  line-height: 1.6;
+
+  .md({ font-size: 17px; });
+  .xl({ font-size: 18px; });
+
+  li + li { margin-top: .35em; }
+}
+
+dl {
+  margin: 0 0 1em;
+
+  dt { font-weight: 700; }
+
+  dd {
+    margin: .25em 0 .75em;
+  }
+}
+
+address {
+  margin: 0 0 1em;
+  font-style: normal;
+  line-height: 1.6;
+}
+
+figcaption {
+  margin-top: .65em;
+  color: #55534f;
+  font-size: 13px;
+  line-height: 1.5;
+
+  .md({ font-size: 14px; });
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+code,
+kbd,
+samp {
+  font-size: .9em;
+}
+
+code {
+  padding: .12em .35em;
+  border-radius: 4px;
+  background: rgba(8, 8, 10, .08);
+}
+
+kbd {
+  padding: .15em .4em;
+  border: 1px solid rgba(8, 8, 10, .2);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+pre {
+  margin: 0 0 1.25em;
+  padding: 1em;
+  overflow-x: auto;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.55;
+  background: rgba(8, 8, 10, .08);
+
+  code {
+    padding: 0;
+    background: transparent;
+  }
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+  text-underline-offset: .18em;
+  cursor: help;
+}
+
+sub,
+sup {
+  position: relative;
+  font-size: .75em;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sup { top: -.5em; }
+sub { bottom: -.25em; }
+
+hr {
+  height: 1px;
+  margin: 2em 0;
+  border: 0;
+  background: rgba(8, 8, 10, .18);
+}
+
+::selection {
+  color: #fff;
+  background: #ef160f;
+}

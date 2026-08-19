@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="js/vendor/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./js/vendor/lenis/lenis.css">
     <link rel="stylesheet" href="./js/vendor/fontawesome/css/all.min.css">
-    <link rel="stylesheet/less" type="text/css" href="css/main.less?v=about-section-1" />
-    <link rel="stylesheet/less" type="text/css" href="css/footer.less?v=footer-red-reveal-1" />
-    <script src="js/vendor/less/less.js"></script>
+    <script>if (location.protocol === 'file:') document.documentElement.classList.add('is-file-preview');</script>
+    <link rel="stylesheet" href="css/style.css?v=static-build-1">
   </head>
   <body>
     <header class="site-island" data-site-island>
@@ -31,7 +30,7 @@
       </div>
     </header>
     <main id="top">
-      <section class="hero" aria-label="Creative developer portfolio introduction">
+      <section class="hero p-0" aria-label="Creative developer portfolio introduction">
         <img class="hero__background" src="./images/hero-bg.png" alt="" aria-hidden="true">
         <div class="hero__content container">
           <div class="hero__content-inner">
@@ -50,7 +49,7 @@
         </div>
         <img class="hero__portrait" src="./images/hero-portrait.png" alt="Portrait of Jithu">
       </section>
-      
+
       <section class="about d-none" aria-labelledby="about-title">
         <div class="container">
           <div class="about__eyebrow eyebrow">( ABOUT US )</div>
@@ -58,227 +57,244 @@
           <a class="about__button" href="#">MORE ABOUT US</a>
         </div>
       </section>
+
       <section class="projects" aria-labelledby="projects-title">
-        <div class="projects-topline eyebrow">( PROJECTS )</div>
-        <div class="projects-heading">
-          <h1 id="projects-title" class="section-title">SELECTED <span>WORK</span></h1>
-          <div class="projects-intro">
-            <p>A selection of digital experiences shaped through design, development and motion.</p>
+        <div class="container">
+          <div class="row projects__header">
+            <div class="col-12">
+              <p class="eyebrow">( PROJECTS )</p>
+              <div class="projects__heading">
+                <h2 id="projects-title" class="section-title">SELECTED <span>WORK</span></h2>
+                <p class="projects__description">A selection of digital experiences shaped through design, development and motion.</p>
+              </div>
+            </div>
+          </div>
+          <div class="row projects__grid" id="project-grid">
+            <a class="col-md-6 projects__card" href="#oryzo_ai" id="oryzo_ai" aria-label="View Oryzo AI project">
+              <div class="projects__card-image"><img class="projects__card-fallback" src="images/projects/oryzo_ai/home.webp" alt="Oryzo AI project preview" loading="lazy"></div>
+            </a>
+            <a class="col-md-6 projects__card" href="#of_the_oak" id="of_the_oak" aria-label="View Of The Oak project">
+              <div class="projects__card-image"><img class="projects__card-fallback" src="images/projects/of_the_oak/home.webp" alt="Of The Oak project preview" loading="lazy"></div>
+            </a>
+            <a class="col-md-6 projects__card" href="#devin_ai" id="devin_ai" aria-label="View Devin AI project">
+              <div class="projects__card-image"><img class="projects__card-fallback" src="images/projects/devin_ai/home.webp" alt="Devin AI project preview" loading="lazy"></div>
+            </a>
+            <a class="col-md-6 projects__card" href="#porsche_dream_machine" id="porsche_dream_machine" aria-label="View Porsche: Dream Machine project">
+              <div class="projects__card-image"><img class="projects__card-fallback" src="images/projects/porsche_dream_machine/home.webp" alt="Porsche: Dream Machine project preview" loading="lazy"></div>
+            </a>
+            <a class="col-md-6 projects__card" href="#synthetic_human" id="synthetic_human" aria-label="View Synthetic Human project">
+              <div class="projects__card-image"><img class="projects__card-fallback" src="images/projects/synthetic_human/home.webp" alt="Synthetic Human project preview" loading="lazy"></div>
+            </a>
+            <a class="col-md-6 projects__card" href="#ddd_2024" id="ddd_2024" aria-label="View DDD 2024 project">
+              <div class="projects__card-image"><img class="projects__card-fallback" src="images/projects/ddd_2024/home.webp" alt="DDD 2024 project preview" loading="lazy"></div>
+            </a>
+          </div>
+          <div class="row projects__actions">
+            <div class="col-12">
+              <a class="btn" href="#project-grid">
+                <span class="btn-label" data-button-label>View All Works</span>
+                <svg class="btn-shape" viewBox="0 0 285 165" preserveAspectRatio="none" aria-hidden="true">
+                <g transform="matrix(2 0 0 2 142.5 82.5)">
+                  <path d="M69,-0.001 C69,9.465 66.646,18.71 62.255,26.497 C62.255,26.497 32,27 -1.5,27 C-35,27 -62.255,26.497 -62.255,26.497 C-66.648,18.71 -69,9.467 -69,-0.001 C-69,-9.47 -66.648,-18.713 -62.255,-26.5 C-62.255,-26.5 -35,-26.5 -0.125,-26.5 C34.75,-26.5 62.255,-26.5 62.255,-26.5 C66.648,-18.713 69,-9.47 69,-0.001 Z"></path>
+                </g>
+              </svg>
+              </a>
+            </div>
           </div>
         </div>
-        <div class="project-grid" id="project-grid">
-          <a class="project-card" href="#oryzo_ai" id="oryzo_ai" aria-label="View Oryzo AI project">
-            <div class="project-media"><img class="project-image" src="images/projects/oryzo_ai/home.webp" alt="Oryzo AI project preview" loading="lazy" /></div>
-          </a>
-          <a class="project-card" href="#of_the_oak" id="of_the_oak" aria-label="View Of The Oak project">
-            <div class="project-media"><img class="project-image" src="images/projects/of_the_oak/home.webp" alt="Of The Oak project preview" loading="lazy" /></div>
-          </a>
-          <a class="project-card" href="#devin_ai" id="devin_ai" aria-label="View Devin AI project">
-            <div class="project-media"><img class="project-image" src="images/projects/devin_ai/home.webp" alt="Devin AI project preview" loading="lazy" /></div>
-          </a>
-          <a class="project-card" href="#porsche_dream_machine" id="porsche_dream_machine" aria-label="View Porsche: Dream Machine project">
-            <div class="project-media"><img class="project-image" src="images/projects/porsche_dream_machine/home.webp" alt="Porsche: Dream Machine project preview" loading="lazy" /></div>
-          </a>
-          <a class="project-card" href="#synthetic_human" id="synthetic_human" aria-label="View Synthetic Human project">
-            <div class="project-media"><img class="project-image" src="images/projects/synthetic_human/home.webp" alt="Synthetic Human project preview" loading="lazy" /></div>
-          </a>
-          <a class="project-card" href="#ddd_2024" id="ddd_2024" aria-label="View DDD 2024 project">
-            <div class="project-media"><img class="project-image" src="images/projects/ddd_2024/home.webp" alt="DDD 2024 project preview" loading="lazy" /></div>
-          </a>
-          <a class="project-card" href="#spaace" id="spaace" aria-label="View Spaace â€” NFT Marketplace project">
-            <div class="project-media"><img class="project-image" src="images/projects/spaace/home.webp" alt="Spaace â€” NFT Marketplace project preview" loading="lazy" /></div>
-          </a>
-          <a class="project-card" href="#choo_choo_world" id="choo_choo_world" aria-label="View Choo Choo World project">
-            <div class="project-media"><img class="project-image" src="images/projects/choo_choo_world/home.webp" alt="Choo Choo World project preview" loading="lazy" /></div>
-          </a>
-          <a class="project-card" href="#spatial_fusion" id="spatial_fusion" aria-label="View Meta: Spatial Fusion project">
-            <div class="project-media"><img class="project-image" src="images/projects/spatial_fusion/home.webp" alt="Meta: Spatial Fusion project preview" loading="lazy" /></div>
-          </a>
-          <a class="project-card" href="#soda_experience" id="soda_experience" aria-label="View Soda Experience project">
-            <div class="project-media"><img class="project-image" src="images/projects/soda_experience/home.webp" alt="Soda Experience project preview" loading="lazy" /></div>
-          </a>
-        </div>
-        <div class="projects__all">
-          <a class="btn btn-primary" href="#project-grid">View All Works</a>
-        </div>
       </section>
+
       <section class="services" aria-labelledby="services-title">
-        <div class="services__topline eyebrow">( SERVICES )</div>
-        <div class="services__header">
-          <h2 id="services-title" class="section-title">WHAT WE <span>CRAFT.</span></h2>
-          <div class="services__intro">
-            <p>We combine strategy, design and technology to create digital experiences that are clear, meaningful and built to last.</p>
+        <div class="container">
+          <div class="row services__header">
+            <div class="col-12">
+              <p class="eyebrow">( SERVICES )</p>
+              <div class="services__heading">
+                <h2 id="services-title" class="section-title">WHAT WE <span>CRAFT.</span></h2>
+                <p class="services__intro">We combine strategy, design and technology to create digital experiences that are clear, meaningful and built to last.</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="services__layout">
-          <div class="services__list" id="services-list">
-            <article class="service-item service-item--featured">
-              <span class="service-item__number">01</span>
-              <h3>UI UX DESIGN</h3>
-              <p class="service-item__description">Intuitive digital experiences shaped around real people, clear journeys and purposeful interaction.</p>
-              <img class="service-item__icon" src="images/icons/arrow-up-right.svg" alt="" aria-hidden="true" />
+          <div class="row services__list">
+            <article class="col-12 services__item services__item--featured" data-cursor-image="images/projects/oryzo_ai/home.webp">
+              <h3 class="services__title">UI UX DESIGN</h3>
+              <p class="services__description">Intuitive digital experiences shaped around real people, clear journeys and purposeful interaction.</p>
+              <img class="services__icon" src="images/icons/arrow-up-right.svg" alt="" aria-hidden="true" />
             </article>
-
-            <article class="service-item">
-              <span class="service-item__number">02</span>
-              <h3>WEB DEVELOPMENT</h3>
-              <p class="service-item__description">Fast, responsive websites built with clean code, thoughtful motion and reliable technology.</p>
-              <img class="service-item__icon" src="images/icons/arrow-up-right.svg" alt="" aria-hidden="true" />
+            <article class="col-12 services__item" data-cursor-image="images/projects/devin_ai/home.webp">
+              <h3 class="services__title">WEB DEVELOPMENT</h3>
+              <p class="services__description">Fast, responsive websites built with clean code, thoughtful motion and reliable technology.</p>
+              <img class="services__icon" src="images/icons/arrow-up-right.svg" alt="" aria-hidden="true" />
             </article>
-
-            <article class="service-item">
-              <span class="service-item__number">03</span>
-              <h3>SHOPIFY</h3>
-              <p class="service-item__description">Distinctive commerce experiences designed to simplify buying and help ambitious brands grow.</p>
-              <img class="service-item__icon" src="images/icons/arrow-up-right.svg" alt="" aria-hidden="true" />
+            <article class="col-12 services__item" data-cursor-image="images/projects/spaace/home.webp">
+              <h3 class="services__title">SHOPIFY</h3>
+              <p class="services__description">Distinctive commerce experiences designed to simplify buying and help ambitious brands grow.</p>
+              <img class="services__icon" src="images/icons/arrow-up-right.svg" alt="" aria-hidden="true" />
             </article>
           </div>
+          <img class="services__cursor-preview cursor-tracking-img swipeimage" src="images/projects/oryzo_ai/home.webp" alt="" aria-hidden="true">
         </div>
       </section>
+
       <section class="process" aria-labelledby="process-title">
-        <div class="process__sticky">
-          <div class="process__copy">
-            <div class="process__eyebrow-window">
-              <div class="eyebrow">HOW IT WORKS</div>
-              <div class="eyebrow">Where we have worked</div>
-            </div>
-            <div class="process-titles">
-              <h2 id="process-title" class="section-title">PROCESS<span>.</span></h2>
-              <h2 id="industries-title" class="section-title">Industries<span>.</span></h2>
-            </div>
-            <div>
-              <p>A clear, collaborative path from the first conversation to a polished digital experience.</p>
-              <p>Focused digital solutions shaped around the needs, challenges and opportunities of each industry.</p>
-            </div>
-          </div>
-          <div class="process__rail" aria-hidden="true">
-            <div class="process__curve"></div>
-            <span class="process__marker is-active"></span>
-          </div>
-          <div class="process__steps-window">
-            <ol class="process__steps">
-              <li class="is-active"><span class="process__number">01</span><span>Discovery</span></li>
-              <li><span class="process__number">02</span><span>Strategy</span></li>
-              <li><span class="process__number">03</span><span>Design</span></li>
-              <li><span class="process__number">04</span><span>Development</span></li>
-              <li><span class="process__number">05</span><span>Launch</span></li>
-            </ol>
-            <ol class="process__steps industries">
-              <li class="is-active">Fintech</li>
-              <li>Banking</li>
-              <li>Healthcare</li>
-              <li>SaaS</li>
-              <li>E-commerce</li>
-              <li>Retail</li>
-              <li>Hospitality</li>
-              <li>Real estate</li>
-              <li>Electronics</li>
-              <li>Education</li>
-            </ol>
-          </div>
-        </div>
-      </section>
-      <section class="contact-cta d-none" aria-labelledby="contact-cta-title">
-        <div class="contact-cta__content">
-          <div class="eyebrow contact-cta__eyebrow">( TAKE ACTION NOW )</div>
-          <h2 id="contact-cta-title">
-            <span class="contact-cta__title-accent">LETâ€™S BUILD</span>
-            <span class="contact-cta__title-main">SOMETHING <em>GREAT.</em></span>
-          </h2>
-          <p>Letâ€™s kickstart your project and bring your ideas to life together.</p>
-          <a class="contact-cta__button" href="mailto:hello@jithupk.com?subject=Project%20Enquiry">BOOK A CALL</a>
-        </div>
-      </section>
-      <section class="waitlist" aria-labelledby="waitlist-title">
-        <div class="waitlist__stage">
-          <div class="waitlist__circle waitlist__circle--red"></div>
-          <div class="waitlist__circle waitlist__circle--black"></div>
-          <div class="waitlist__circle waitlist__circle--white">
-            <div class="waitlist__content">
-              <div class="waitlist__portrait">
-                <img src="./images/hero.png" alt="Portrait of Jithu">
-                <div class="waitlist__metrics" aria-label="Selected results">
-                  <div class="waitlist__metric">
-                    <strong>8<span>+</span></strong>
-                    <p>Years shaping digital experiences</p>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 process__column process__column--copy">
+              <div class="process__sticky">
+                <div class="process__copy">
+                  <div class="process__eyebrow-window">
+                    <p class="eyebrow m-0">( HOW IT WORKS )</p>
+                    <p class="eyebrow m-0">Where we have worked</p>
                   </div>
-                  <div class="waitlist__metric">
-                    <strong>40<span>+</span></strong>
-                    <p>Projects designed and developed</p>
+                  <div class="process__titles">
+                    <h2 id="process-title" class="section-title">PROCESS<span>.</span></h2>
+                    <h2 id="industries-title" class="section-title">Industries<span>.</span></h2>
+                  </div>
+                  <div class="process__description">
+                    <p>A clear, collaborative path from the first conversation to a polished digital experience.</p>
+                    <p>Focused digital solutions shaped around the needs, challenges and opportunities of each industry.</p>
                   </div>
                 </div>
               </div>
-              <div class="waitlist__details">
-                <p class="waitlist__eyebrow"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i> About the designer</p>
-                <h2 id="waitlist-title">Design first.<br><span>Always.</span></h2>
-                <p class="waitlist__intro">I shape thoughtful brands and digital experiences by combining clear strategy, expressive design and purposeful technology.</p>
-                <div class="waitlist__actions">
-                  <a class="waitlist__action waitlist__action--primary" href="mailto:hello@jithupk.com?subject=Project%20Enquiry">Start a project <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-                  <a class="waitlist__action" href="#services-title">See services <i class="fa-solid fa-arrow-turn-up" aria-hidden="true"></i></a>
-                </div>
-                <a class="waitlist__feature" href="#projects-title">
-                  <img src="images/projects/ddd_2024/image3.webp" alt="Featured digital project">
-                  <span class="waitlist__feature-copy">
-                    <strong>Building memorable<br>digital experiences<br><em>from idea to impact</em></strong>
-                    <small>See selected work <i class="fa-solid fa-arrow-turn-up" aria-hidden="true"></i></small>
-                  </span>
-                </a>
-                <div class="waitlist__capabilities" aria-label="Capabilities">
-                  <span>Strategy</span><span>Design</span><span>Development</span><span>Motion</span>
-                </div>
+            </div>
+            <div class="process__rail" aria-hidden="true">
+              <div class="process__curve"></div>
+              <span class="process__marker is-active"></span>
+            </div>
+            <div class="col-md-6 process__column process__column--steps">
+              <div class="process__steps-window">
+                <ol class="process__steps">
+                  <li class="process__step is-active"><span class="process__number">01</span><span class="process__step-label">Discovery</span></li>
+                  <li class="process__step"><span class="process__number">02</span><span class="process__step-label">Strategy</span></li>
+                  <li class="process__step"><span class="process__number">03</span><span class="process__step-label">Design</span></li>
+                  <li class="process__step"><span class="process__number">04</span><span class="process__step-label">Development</span></li>
+                  <li class="process__step"><span class="process__number">05</span><span class="process__step-label">Launch</span></li>
+                </ol>
+                <ol class="process__steps process__steps--industries">
+                  <li class="process__step is-active"><span class="process__step-label">Fintech</span></li>
+                  <li class="process__step"><span class="process__step-label">Banking</span></li>
+                  <li class="process__step"><span class="process__step-label">Healthcare</span></li>
+                  <li class="process__step"><span class="process__step-label">SaaS</span></li>
+                  <li class="process__step"><span class="process__step-label">E-commerce</span></li>
+                  <li class="process__step"><span class="process__step-label">Retail</span></li>
+                  <li class="process__step"><span class="process__step-label">Hospitality</span></li>
+                  <li class="process__step"><span class="process__step-label">Real estate</span></li>
+                  <li class="process__step"><span class="process__step-label">Electronics</span></li>
+                  <li class="process__step"><span class="process__step-label">Education</span></li>
+                </ol>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <section class="parallax-circle-reveal p-0" aria-labelledby="parallax-circle-reveal-title">
+        <div class="parallax-circle-reveal__stage">
+          <div class="parallax-circle-reveal__circle parallax-circle-reveal__circle--red"></div>
+          <div class="parallax-circle-reveal__circle parallax-circle-reveal__circle--black"></div>
+          <div class="parallax-circle-reveal__circle parallax-circle-reveal__circle--white">
+            <div class="container p-0 h-100">
+              <div class="row h-100 m-0">
+                <div class="col-md-6 bg-white">
+                  <div class="glass-rain" aria-hidden="true"></div>
+                  <div class="parallax-circle-reveal__content">
+                    <p class="eyebrow">( About )</p>
+                    <h2 class="section-title">The mind<span>behind</span> it.</h2>
+                    <p class="parallax-circle-reveal__bio">I'm Jithu — a product and brand designer who believes the best design is the kind people don't notice. It just works, feels right, and earns trust before a single word is read.</p>
+                    <div class="approach">
+                      <span class="approach-label"></span>
+                      <div class="approach-body">
+                        <p class="approach-lines">
+                          Good Design earns <span>attention.</span><br>
+                          greate design earns <span>trust</span>
+                        </p>
+                        <ul class="approach-tags" aria-label="Core disciplines">
+                          <li>UI design</li>
+                          <li>Front-end</li>
+                          <li>Interaction</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="approach-cta">
+                    <!-- <p class="note">Have a project in mind or just want to say hi? <br> I&rsquo;d love to hear from you.</p> -->
+                     <a class="btn" href="#project-grid">
+                        <span class="btn-label" data-button-label>Let's talk</span>
+                          <svg class="btn-shape" viewBox="0 0 285 165" preserveAspectRatio="none" aria-hidden="true">
+                          <g transform="matrix(2 0 0 2 142.5 82.5)">
+                            <path d="M69,-0.001 C69,9.465 66.646,18.71 62.255,26.497 C62.255,26.497 32,27 -1.5,27 C-35,27 -62.255,26.497 -62.255,26.497 C-66.648,18.71 -69,9.467 -69,-0.001 C-69,-9.47 -66.648,-18.713 -62.255,-26.5 C-62.255,-26.5 -35,-26.5 -0.125,-26.5 C34.75,-26.5 62.255,-26.5 62.255,-26.5 C66.648,-18.713 69,-9.47 69,-0.001 Z"></path>
+                          </g>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 p-0 bg-red d-flex align-bottom">
+                  <img src="./images/about-portrait.png" alt="">
+                  <ul class="parallax-circle-reveal__socials social-links" aria-label="Social links">
+                    <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="faq" aria-labelledby="faq-title">
         <div class="container">
-          <header class="faq__header">
-            <p class="faq__eyebrow">FAQ <span aria-hidden="true"></span></p>
-            <h2 id="faq-title" class="section-title">HELP &amp; <span>ANSWERS.</span></h2>
-          </header>
-          <div class="faq__grid">
+          <div class="row">
+            <!-- <div class="col-12">
+              <p class="faq__eyebrow">FAQ <span aria-hidden="true"></span></p>
+              <h2 id="faq-title" class="section-title">HELP &amp; <span>ANSWERS.</span></h2>
+            </div> -->
+            <div class="col-md-6 faq__header">
+              <p class="faq__eyebrow">FAQ <span aria-hidden="true"></span></p>
+              <h2 id="faq-title" class="section-title">HELP &amp; <span>ANSWERS.</span></h2>
+              <p>Answers to common questions about our process, services, and how we work. <br>Still have any Question?</p>
+              <a class="btn" href="#project-grid">
+                <span class="btn-label" data-button-label>get in tocuh</span>
+                  <svg class="btn-shape" viewBox="0 0 285 165" preserveAspectRatio="none" aria-hidden="true">
+                  <g transform="matrix(2 0 0 2 142.5 82.5)">
+                    <path d="M69,-0.001 C69,9.465 66.646,18.71 62.255,26.497 C62.255,26.497 32,27 -1.5,27 C-35,27 -62.255,26.497 -62.255,26.497 C-66.648,18.71 -69,9.467 -69,-0.001 C-69,-9.47 -66.648,-18.713 -62.255,-26.5 C-62.255,-26.5 -35,-26.5 -0.125,-26.5 C34.75,-26.5 62.255,-26.5 62.255,-26.5 C66.648,-18.713 69,-9.47 69,-0.001 Z"></path>
+                  </g>
+                </svg>
+              </a>
+            </div>
+            <div class="col-md-6 faq__accordion">
+              <div class="faq__grid">
             <div class="faq__column">
-              <article class="faq__item is-open">
-                <h3><button class="faq__question" type="button" aria-expanded="true" aria-controls="faq-answer-1"><span>How long does a typical project take?</span><i class="fa-solid fa-minus" aria-hidden="true"></i></button></h3>
+              <article class="faq__item --first">
+                <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-1"><span>How long does a typical project take?</span><img src="images/icons/plus.svg" alt="" aria-hidden="true"></button></h3>
                 <div class="faq__answer" id="faq-answer-1">
                   <p>Smaller pages take 3–5 days. Full websites or applications usually take between 2–4 weeks, depending on complexity, features and feedback rounds.</p>
-                  <div class="faq__timing">
-                    <span><i class="fa-regular fa-clock" aria-hidden="true"></i><strong>3–5 days</strong><small>Small pages</small></span>
-                    <span><i class="fa-regular fa-calendar-days" aria-hidden="true"></i><strong>2–4 weeks</strong><small>Full websites</small></span>
-                    <span><i class="fa-solid fa-cubes" aria-hidden="true"></i><strong>Varies</strong><small>Complex apps</small></span>
-                  </div>
                 </div>
               </article>
               <article class="faq__item">
-                <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-2"><span>Do you handle development?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3>
-                <div class="faq__answer" id="faq-answer-2" hidden><p>Yes. I design and build responsive websites, interactive experiences and creative frontends from concept through launch.</p></div>
+                <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-2"><span>Do you handle development?</span><img src="images/icons/plus.svg" alt="" aria-hidden="true"></button></h3>
+                <div class="faq__answer" id="faq-answer-2"><p>Yes. I design and build responsive websites, interactive experiences and creative frontends from concept through launch.</p></div>
               </article>
               <article class="faq__item">
-                <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-3"><span>What do you need to get started?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3>
-                <div class="faq__answer" id="faq-answer-3" hidden><p>A short overview of your goals, audience, required features and preferred timeline is enough to begin the conversation.</p></div>
+                <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-3"><span>What do you need to get started?</span><img src="images/icons/plus.svg" alt="" aria-hidden="true"></button></h3>
+                <div class="faq__answer" id="faq-answer-3"><p>A short overview of your goals, audience, required features and preferred timeline is enough to begin the conversation.</p></div>
               </article>
             </div>
             <div class="faq__column">
               <article class="faq__item">
-                <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-4"><span>Can you work with an existing brand?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3>
-                <div class="faq__answer" id="faq-answer-4" hidden><p>Absolutely. I can extend an established visual system or refine it where needed while keeping the brand recognizable.</p></div>
+                <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-4"><span>Can you work with an existing brand?</span><img src="images/icons/plus.svg" alt="" aria-hidden="true"></button></h3>
+                <div class="faq__answer" id="faq-answer-4"><p>Absolutely. I can extend an established visual system or refine it where needed while keeping the brand recognizable.</p></div>
               </article>
               <article class="faq__item">
-                <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-5"><span>Do you offer ongoing support?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3>
-                <div class="faq__answer" id="faq-answer-5" hidden><p>Yes. Post-launch support, improvements and ongoing creative development can be arranged around your project’s needs.</p></div>
+                <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-5"><span>Do you offer ongoing support?</span><img src="images/icons/plus.svg" alt="" aria-hidden="true"></button></h3>
+                <div class="faq__answer" id="faq-answer-5"><p>Yes. Post-launch support, improvements and ongoing creative development can be arranged around your project’s needs.</p></div>
               </article>
               <article class="faq__item">
-                <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-6"><span>How do project payments work?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3>
-                <div class="faq__answer" id="faq-answer-6" hidden><p>Projects are usually split into clear milestone payments, with the schedule confirmed before work begins.</p></div>
+                <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-6"><span>How do project payments work?</span><img src="images/icons/plus.svg" alt="" aria-hidden="true"></button></h3>
+                <div class="faq__answer" id="faq-answer-6"><p>Projects are usually split into clear milestone payments, with the schedule confirmed before work begins.</p></div>
               </article>
             </div>
           </div>
-          <div class="faq__support">
-            <i class="fa-regular fa-circle-question" aria-hidden="true"></i>
-            <h3>Still got unanswered questions?</h3>
-            <p>Let’s talk through what you need.</p>
-            <a class="btn btn-primary" href="mailto:hello@jithupk.com?subject=Project%20Question">Contact me</a>
+            </div>
           </div>
         </div>
       </section>
@@ -297,9 +313,17 @@
           </div>
           <div class="row">
             <div class="contact-row">
-              <a class="btn btn-primary outline" href="mailto:hello@jithupk.com">
+              <!-- <a class="btb btn-outline red" href="mailto:hello@jithupk.com">
                 <span>hello@jithupk.com</span>
                 <i class="fa-solid fa-arrow-up-right" aria-hidden="true"></i>
+              </a> -->
+              <a class="btn hov-white" href="#project-grid">
+                <span class="btn-label" data-button-label>hello@jithupk.com</span>
+                  <svg class="btn-shape" viewBox="0 0 285 165" preserveAspectRatio="none" aria-hidden="true">
+                  <g transform="matrix(2 0 0 2 142.5 82.5)">
+                    <path d="M69,-0.001 C69,9.465 66.646,18.71 62.255,26.497 C62.255,26.497 32,27 -1.5,27 C-35,27 -62.255,26.497 -62.255,26.497 C-66.648,18.71 -69,9.467 -69,-0.001 C-69,-9.47 -66.648,-18.713 -62.255,-26.5 C-62.255,-26.5 -35,-26.5 -0.125,-26.5 C34.75,-26.5 62.255,-26.5 62.255,-26.5 C66.648,-18.713 69,-9.47 69,-0.001 Z"></path>
+                  </g>
+                </svg>
               </a>
               <ul class="social-links" aria-label="Social links">
                 <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
@@ -320,7 +344,8 @@
     <script src="js/vendor/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="./js/vendor/gsap/gsap.min.js"></script>
     <script src="js/vendor/gsap/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
     <script src="js/vendor/lenis/lenis.min.js"></script>
-    <script type="module" src="js/main.js?v=render-lifecycle-1"></script>
+    <script src="js/main.js?v=classic-loader-1"></script>
   </body>
 </html>

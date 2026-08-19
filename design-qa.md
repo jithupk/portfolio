@@ -1,88 +1,74 @@
-# Temporary Hero Design QA
+# Design QA — My Approach
 
-- Source visual truth: `https://ashfall.studio/`
-- Source desktop capture: `E:\Jithu_portfolio\audit\ashfall-source-desktop.png`
-- Implementation desktop capture: `E:\Jithu_portfolio\audit\hero-temp-local-1425x900.png`
-- Combined comparison: `E:\Jithu_portfolio\audit\hero-temp-comparison.png`
-- Implementation mobile capture: `E:\Jithu_portfolio\audit\hero-temp-local-mobile-390x844.png`
-- Desktop viewport: source and implementation normalized to approximately 1425 x 900 CSS pixels at device scale factor 1.
-- Mobile viewport: 390 x 844 CSS pixels at device scale factor 1.
-- State: initial loaded hero; desktop pointer response and primary anchor navigation also tested.
+- Source visual truth: `qa/approach-reference.png`
+- Implementation screenshots: `qa/approach-mobile.png`, `qa/approach-desktop.png`
+- Source pixels: 552 × 346
+- Mobile implementation pixels / CSS viewport: 390 × 844 at device scale 1
+- Desktop implementation pixels: 1261 × 1000; browser viewport override 1440 × 1000
+- State: `parallax-circle-reveal` final white layer visible; mobile static layout
+- Density normalization: visual proportions were compared at CSS scale; the reference is a cropped composition while the implementation screenshots include the surrounding section.
 
 ## Full-view comparison evidence
 
-The implementation preserves the reference hero's main design language: full-viewport monochrome media, compact three-zone utility navigation, restrained low-contrast UI, centered oversized sans-serif statement, bottom-center scroll cue, and lower-right media card. The portrait, copy, red accent, typography, and destination links intentionally use Jithu's local brand content rather than Ashfall assets.
+The implementation preserves the section's existing split portrait layout while integrating the reference hierarchy into the white content column. On mobile, the content flows as bio → approach statement → CTA → portrait without horizontal overflow (`scrollWidth: 390` at a `390px` viewport). Desktop retains the two-column reveal and the approach remains within the left column.
 
-## Focused comparison evidence
+## Focused-region comparison evidence
 
-The navigation, centered headline, image crop, and lower-right media card were readable in the normalized full-view comparison. A separate focused crop was not required. Mobile was checked independently at 390 x 844: title, contact control, portrait crop, and media card remain visible with no horizontal overflow.
+The focused approach region matches the source's defining surfaces: vertical “My Approach” label with red rule, three condensed uppercase statements, red “Move.” emphasis, compact discipline tags with red separators, and pale contour artwork concentrated behind the right side. The existing Phudu display face is used consistently with the site rather than introducing a mismatched font.
+
+## Required fidelity surfaces
+
+- Fonts and typography: Passed. Condensed display hierarchy, uppercase treatment, line height, red emphasis, and compact tag typography match the reference direction.
+- Spacing and layout rhythm: Passed. Bio-to-approach spacing, vertical label gutter, three-line rhythm, tag spacing, and CTA separation are balanced at mobile and desktop.
+- Colors and visual tokens: Passed. Existing black, white, and site red are used consistently; contour lines stay intentionally subtle.
+- Image quality and asset fidelity: Passed after replacing the first generated contour asset. The final project asset has a clean white background with delicate gray linework and no checker artifact.
+- Copy and content: Passed. Bio copy matches the supplied reference, and the approach statement/tags reproduce the requested content structure.
 
 ## Comparison history
 
-1. Initial implementation: GSAP transforms replaced the CSS centering transform, pushing the title to the right and clipping it. Result blocked.
-2. Fix: changed the content to inset-based automatic centering so GSAP can own runtime transforms without affecting layout. Post-fix captures show a centered, fully visible title on desktop and mobile. Result passed.
-
-## Fidelity surfaces
-
-- Fonts and typography: local Inter is used for the Ashfall-like neutral grotesk treatment; compact tracking and low-contrast hierarchy match the reference language. Copy is intentionally portfolio-specific.
-- Spacing and layout rhythm: full-screen media, top utility grid, centered statement, bottom scroll cue, and lower-right media card follow the reference proportions.
-- Colors and visual tokens: monochrome image treatment, charcoal shading, translucent white type, and a portfolio red accent are consistent and accessible over the media.
-- Image quality and asset fidelity: only existing local portrait and thumbnail assets are used. No Ashfall imagery is copied or hotlinked.
-- Copy and content: all visible text, links, email destination, and labels are customized for Jithu.
+1. Initial pass — blocked: generated contour artwork contained a visible checker pattern and was too faint in-browser.
+2. Fix: regenerated the contour artwork on a clean pure-white background, replaced the project asset, increased its size/visibility, and recaptured desktop and mobile.
+3. Final pass: no actionable P0, P1, or P2 differences remain. Mobile has no horizontal overflow, the contour asset loads, glass rain is hidden on mobile, and the browser console reports no errors.
 
 ## Interaction checks
 
-- Intro timeline loads without console errors.
-- Fine-pointer parallax changes both image and title transforms.
-- View Work navigates to `#projects-title`.
-- Brand link returns to `#top`.
-- Reduced-motion and touch fallbacks are present.
+- Primary CTA remains a valid mail link.
+- Mobile parallax remains disabled.
+- Mobile glass-rain decoration remains hidden.
+- No browser console errors were found.
 
-## Findings
-
-No actionable P0, P1, or P2 issues remain. The visual differences in subject imagery, copy, accent color, and exact typeface are intentional adaptations rather than cloning drift.
+Focused-region evidence was required because the source is a cropped design detail rather than a complete page viewport.
 
 final result: passed
 
-## Kern hover reveal QA — 2026-08-14
+## Static hosting and direct-file compatibility — 2026-08-19
 
-- Interaction reference: `https://kern-template.framer.website/`
-- Scope: hero pointer reveal only; the portfolio layout, content, and local imagery remain unchanged.
-- Replaced the former 2D blurred-circle approximation with the reference's half-resolution WebGL fluid structure: velocity and density splats, velocity advection, curl, divergence, a 25-pass pressure solve, pressure-gradient subtraction, density decay, and simplex-noise edge thresholding.
-- Matched the reference defaults used by its published component: `.08` splat radius, `.99` velocity dissipation, `2.4s` density return, `30` curl, `25` pressure iterations, `2.6` circle boost, and `.08` progress interpolation.
-- Compared live hover states at the same desktop viewport. The reveal now grows continuously at rest, stretches along cursor motion, retains an irregular liquid edge, and retracts through the density field rather than fading a painted canvas blob.
-- Local images and locally stored Three.js are used; no source asset is hotlinked.
-- JavaScript syntax checks pass and the tested hover state produces no browser console warnings or errors.
+- Replaced browser-side Less compilation with the generated `css/style.css` bundle.
+- Converted compiled absolute development asset URLs back to portable relative URLs.
+- Converted `js/main.js` into a classic-script-compatible entry. Lenis, navigation, FAQ, GSAP, and the remaining site interactions now run under `file://`.
+- HTTP/HTTPS dynamically imports the Three.js WebGL renderer; direct `file://` safely skips only that module graph, displays project card images, and suppresses the unavailable WebGL canvas.
+- Static-host verification: full page height `9089.39px`, hero `1280 × 720px`, WebGL canvas initialized, no runtime Less links, and no browser console errors.
+- Direct `file://` browser capture was unavailable because the controlled browser blocks local-file navigation. Source inspection confirms it no longer initiates either failing request shown in the supplied console screenshot.
 
 final result: passed
-# Waitlist Redesign QA — 2026-08-15
 
-- Source: `C:\Users\jithu\Downloads\ChatGPT Image Aug 15, 2026, 07_33_46 PM.png`
-- Verified state: final black waitlist reveal at desktop viewport
-- Composition: passed — split portrait/content panel, rounded frame, stat cards, headline, CTAs, feature card, capability row
-- Responsive behavior: passed — desktop height compaction and single-column mobile layout included
-- Interaction: passed — original circular scroll reveal retained; waitlist cursor trail removed; CTA links remain functional
-- Console: passed — no browser errors
-- Final result: passed
+## Telescope button interaction test — 2026-08-19
 
-# FAQ Section QA — 2026-08-15
+- Source visual truth: live `https://telescope.fyi/` Sign Up button, captured at desktop and `390 × 844` mobile.
+- Local implementation: `test.html`, verified at `http://127.0.0.1:4173/test.html`.
+- Source interaction evidence: lime-to-black fill transition uses `.4s cubic-bezier(.55, 0, .1, 1)`; the background path vertically overshoots, compresses, rebounds, and settles over approximately `520ms`; characters rise about `7px` in a staggered wave.
+- Local comparison: reproduced the measured path states, timing curve, fill/text color inversion, and per-character wave using only inline HTML, CSS, and JavaScript.
+- Responsive verification: `190 × 90px` button remains centered at `390 × 844` with `0px` horizontal overflow.
+- Browser console errors: none.
 
-- Source: `C:\Users\jithu\Downloads\ChatGPT Image Aug 15, 2026, 09_19_57 PM.png`
-- Verified state: desktop initial state with first question expanded
-- Composition: passed — editorial header, black and red title, asymmetric two-column cards, timing summary and centered support CTA
-- Interaction: passed — one item opens at a time, icon state and ARIA state update together, answers animate without page errors
-- Responsive behavior: passed — accordion collapses to one column and timing details stack on mobile
-- Console: passed — no browser errors
-- Final result: passed
+final result: passed
 
-# Hero Minimal QA — 2026-08-16
+## CTA reference refinement — 2026-08-19
 
-- Source: `C:\Users\jithu\Downloads\hero-sec.png`
-- Assets: `images/hero-bg.png`, `images/hero-portrait.png`
-- Verified state: initial desktop hero at a wide 16:9 viewport
-- Composition: passed — upper-left brand, full-width background title, foreground portrait and lower-right role match the reference hierarchy
-- Layering: passed — background, typography and transparent portrait are independent responsive layers
-- Geometry: passed — portrait is bottom anchored, title remains inside the viewport and horizontal overflow is zero
-- Responsive behavior: passed — portrait, type scale and crop adapt at tablet and mobile breakpoints
-- Console: passed — no browser errors
-- Final result: passed
+- Source visual truth: `codex-clipboard-32bc2482-5fcd-427b-96a7-7e71f90880a1.png`
+- Implemented the reference composition as a red rounded-rectangle mail CTA with a paper-plane lead icon, uppercase label, trailing arrow, dashed connector, and supporting message.
+- Desktop verification: CTA composition is `536 × 75px`; button is `330 × 62px`; supporting copy is `13px`; horizontal overflow is `0px` at `1440 × 1000`.
+- Mobile verification: CTA stacks cleanly; button is `366 × 58px`; horizontal overflow is `0px` at `390 × 844`.
+- Existing approach content and surrounding section layout were preserved.
+
+final result: passed

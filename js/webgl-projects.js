@@ -84,7 +84,10 @@ function loadTexture(loader, url) {
 }
 
 export async function initProjectWebGL(projects) {
-  if (!window.WebGLRenderingContext || matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+  if (
+    !window.WebGLRenderingContext ||
+    matchMedia('(prefers-reduced-motion: reduce)').matches
+  ) return null;
 
   const renderer = new THREE.WebGLRenderer({
     alpha: true,
@@ -106,6 +109,7 @@ export async function initProjectWebGL(projects) {
   const projectsSection = document.querySelector('.projects');
   let frameId = 0;
   let running = false;
+  let enabled = true;
 
   const pointer = {
     x: -1000,
@@ -128,7 +132,7 @@ export async function initProjectWebGL(projects) {
 
   await Promise.all(projects.map(async project => {
     const card = document.getElementById(project.slug);
-    const media = card?.querySelector('.project-media');
+    const media = card?.querySelector('.projects__card-image');
     if (!media) return;
 
     const [colorTexture, depthTexture] = await Promise.all([
@@ -268,7 +272,7 @@ export async function initProjectWebGL(projects) {
   }
 
   const start = () => {
-    if (running || document.hidden) return;
+    if (!enabled || running || document.hidden) return;
     running = true;
     frameId = requestAnimationFrame(render);
   };
@@ -277,6 +281,29 @@ export async function initProjectWebGL(projects) {
     running = false;
     if (frameId) cancelAnimationFrame(frameId);
     frameId = 0;
+  };
+
+  const activate = () => {
+    if (enabled && renderer.domElement.isConnected) return;
+
+    enabled = true;
+    if (!renderer.domElement.isConnected) {
+      document.body.prepend(renderer.domElement);
+    }
+    resize();
+    document.documentElement.classList.add('webgl-ready');
+
+    const rect = projectsSection?.getBoundingClientRect();
+    if (!projectsSection || (rect.bottom > -100 && rect.top < innerHeight + 100)) {
+      start();
+    }
+  };
+
+  const deactivate = () => {
+    enabled = false;
+    stop();
+    document.documentElement.classList.remove('webgl-ready');
+    renderer.domElement.remove();
   };
 
   renderer.domElement.addEventListener('webglcontextlost', () => {
@@ -302,7 +329,7 @@ export async function initProjectWebGL(projects) {
     else if (projectsSection?.getBoundingClientRect().bottom > -100 && projectsSection?.getBoundingClientRect().top < innerHeight + 100) start();
   });
 
-  return { renderer, scene, items, start, stop };
+  return { renderer, scene, items, start, stop, activate, deactivate };
 }
 
 
