@@ -1,8 +1,8 @@
 footer {
   position: relative;
   overflow: hidden;
-  color: #fff;
-  background: #050505;
+  color: @color-primary;
+  background: @surface-dark;
   padding: 100px 0 0;
 
   .row {
@@ -20,7 +20,7 @@ footer {
     overflow: hidden;
     width: 100%;
     display: block;
-    color: #fff;
+    color: @color-primary;
     text-decoration: none;
 
     &-art {
@@ -64,12 +64,12 @@ footer {
   .contact-row > .btn.outline {
     min-height: 48px;
     padding: 0 22px;
-    border: 2px solid #ef160f;
+    border: 2px solid @color-accent;
     border-radius: 999px;
     display: inline-flex;
     align-items: center;
     gap: 16px;
-    color: #ef160f;
+    color: @color-accent;
     background: transparent;
     font-size: clamp(15px, 1.15vw, 19px);
     font-weight: 400;
@@ -83,8 +83,8 @@ footer {
     }
 
     &:hover {
-      color: #ffffff;
-      background-color: #ef160f;
+      color: @color-primary;
+      background-color: @color-accent;
       transform: translateY(-2px);
 
       i {
@@ -93,7 +93,7 @@ footer {
     }
 
     &:focus-visible {
-      outline: 2px solid #ef160f;
+      outline: 2px solid @color-accent;
       outline-offset: 4px;
     }
   }
@@ -101,7 +101,7 @@ footer {
   .privacy-row {
     width: 100%;
     padding: 24px 10px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-top: 1px solid fade(@color-primary, 25%);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -109,7 +109,7 @@ footer {
     padding: 21px 0;
     p {
       margin: 0;
-      color: rgba(255, 255, 255, 0.58);
+      color: fade(@color-primary, 58%);
       font-size: 12px;
       font-weight: 400;
       line-height: 1.5;

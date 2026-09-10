@@ -10,7 +10,7 @@
     position: absolute;
     z-index: -1;
     inset: 0;
-    background: rgba(0, 0, 0, .32);
+    background: fade(@surface-dark, 32%);
     pointer-events: none;
   }
   &::after{
@@ -134,8 +134,8 @@
     height:calc(100% - 80px);
     object-fit: cover;
     object-position: top center;
-    transform: translateX(-50%);
-    // filter: brightness(.72) drop-shadow(0 18px 26px rgba(0, 0, 0, .26));
+    translate: -50% 0;
+    // filter: brightness(.72) drop-shadow(0 18px 26px fade(@surface-dark, 26%));
     filter: brightness(.72);
     pointer-events: none;
     user-select: none;

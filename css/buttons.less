@@ -11,7 +11,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: @color-primary;
   background: transparent;
   cursor: pointer;
   isolation: isolate;
@@ -54,18 +54,18 @@
     overflow: visible;
     pointer-events: none;
     path {
-      fill:#ef160f;
+      fill: @color-accent;
       transition: fill 0.4s cubic-bezier(0.55, 0, 0.1, 1);
     }
   }
 }
 
 .btn:is(:hover, :focus-visible) {
-  color: #fff;
+  color: @color-primary;
   outline: none;
 }
 .btn.hov-white:is(:hover, :focus-visible) {
-  color: #000000;
+  color: @surface-dark;
   outline: none;
 }
 .btn:is(:hover, :focus-visible) .btn-shape path {
@@ -73,7 +73,7 @@
   animation: telescope-blob-in 0.52s cubic-bezier(0.55, 0, 0.1, 1) both;
 }
 .btn.hov-white:is(:hover, :focus-visible) .btn-shape path {
-  fill: #ffffff;
+  fill: @color-primary;
   animation: telescope-blob-in 0.52s cubic-bezier(0.55, 0, 0.1, 1) both;
 }
 .btn:is(:hover, :focus-visible) .btn-char {

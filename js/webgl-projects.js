@@ -16,6 +16,7 @@ const fragmentShader = `
   uniform float uImageAspect;
   uniform float uHover;
   uniform float uZoom;
+  uniform float uRevealOpacity;
   uniform float uBlur;
   uniform vec2 uJump;
   uniform float uRadius;
@@ -67,7 +68,7 @@ const fragmentShader = `
     color += texture2D(uTexture, clamp(displacedUv - blurAxis * blurAmount, 0.001, 0.999)) * 0.18;
     color += texture2D(uTexture, clamp(displacedUv + blurNormal * blurAmount * 0.72, 0.001, 0.999)) * 0.18;
     color += texture2D(uTexture, clamp(displacedUv - blurNormal * blurAmount * 0.72, 0.001, 0.999)) * 0.18;
-    color.a *= roundedMask(vUv);
+    color.a *= roundedMask(vUv) * uRevealOpacity;
     gl_FragColor = color;
   }
 `;
@@ -148,6 +149,7 @@ export async function initProjectWebGL(projects) {
       uImageAspect: { value: colorTexture.image.width / colorTexture.image.height },
       uHover: { value: 0 },
       uZoom: { value: 0 },
+      uRevealOpacity: { value: 1 },
       uBlur: { value: 0 },
       uJump: { value: new THREE.Vector2() },
       uRadius: { value: 18 }
@@ -255,6 +257,9 @@ export async function initProjectWebGL(projects) {
       item.uniforms.uDirection.value.lerp(item.directionTarget, active ? 0.24 : 0.16);
       item.uniforms.uHover.value += (item.hoverTarget - item.uniforms.uHover.value) * (active ? 0.22 : 0.14);
       item.uniforms.uJump.value.lerp(item.jumpTarget, 0.2);
+
+      const revealOpacity = Number.parseFloat(item.media.dataset.revealOpacity ?? '1');
+      item.uniforms.uRevealOpacity.value = Number.isFinite(revealOpacity) ? revealOpacity : 1;
 
       const zoomTarget = active ? 1 : 0;
       item.zoomVelocity += (zoomTarget - item.uniforms.uZoom.value) * 0.16;

@@ -1,7 +1,275 @@
+gsap.registerPlugin(SplitText, ScrollTrigger);
+
+const preloader = document.querySelector('[data-preloader]');
+
+if (preloader) {
+  const preloaderBrand = preloader.querySelector('[data-preloader-brand]');
+  const targetIsland = document.querySelector('[data-site-island]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const brandText = preloaderBrand.textContent.trim();
+  let assetsReady = false;
+  let introComplete = reduceMotion;
+  let finished = false;
+
+  preloaderBrand.setAttribute('aria-label', brandText);
+  preloaderBrand.textContent = '';
+
+  const preloaderCharacters = [...brandText].map((character) => {
+    const span = document.createElement('span');
+    span.className = 'preloader__character';
+    span.setAttribute('aria-hidden', 'true');
+    span.textContent = character === ' ' ? '\u00a0' : character;
+    preloaderBrand.appendChild(span);
+    return span;
+  });
+
+  const announcePreloaderComplete = () => {
+    window.dispatchEvent(new CustomEvent('preloader:complete'));
+  };
+
+  const finishPreloader = () => {
+    if (finished || !introComplete || !assetsReady) return;
+    finished = true;
+
+    const removePreloader = () => {
+      document.documentElement.classList.remove('has-preloader');
+      if (targetIsland) gsap.set(targetIsland, { clearProps: 'opacity' });
+      preloader.remove();
+      announcePreloaderComplete();
+    };
+
+    if (reduceMotion) {
+      removePreloader();
+      return;
+    }
+
+    gsap.timeline({ onComplete: removePreloader })
+      .to(preloaderBrand, { autoAlpha: 0, duration: .18, ease: 'power1.out' })
+      .to(preloader, {
+        yPercent: -100,
+        duration: 1.05,
+        ease: 'power4.inOut',
+      }, '<.08');
+  };
+
+  if (reduceMotion) {
+    gsap.set(preloaderCharacters, { autoAlpha: 1, y: 0, rotation: 0, filter: 'blur(0px)' });
+  } else {
+    gsap.set(preloaderCharacters, {
+      autoAlpha: 0,
+      yPercent: 140,
+      rotation: 0,
+      transformOrigin: '50% 100%',
+    });
+
+    gsap.timeline({
+      onComplete: () => {
+        introComplete = true;
+        finishPreloader();
+      },
+    })
+      .to({}, { duration: .62 })
+      .to(preloaderCharacters, {
+        autoAlpha: 1,
+        yPercent: 0,
+        rotation: 0,
+        duration: .68,
+        stagger: .07,
+        ease: 'power4.out',
+      })
+      .to(preloaderBrand, { duration: .34 });
+  }
+
+  const criticalImages = [...document.querySelectorAll('.hero img')];
+
+  Promise.allSettled([
+    document.fonts.ready,
+    ...criticalImages.map((image) => image.complete
+      ? Promise.resolve()
+      : new Promise((resolve) => {
+        image.addEventListener('load', resolve, { once: true });
+        image.addEventListener('error', resolve, { once: true });
+      }))
+  ]).then(() => {
+    assetsReady = true;
+    finishPreloader();
+  });
+
+  window.setTimeout(() => {
+    assetsReady = true;
+    finishPreloader();
+  }, 5000);
+}
+
+const hero = document.querySelector('.hero');
+
+if (hero) {
+  const heroBackground = hero.querySelector('.hero__background');
+  const heroBio = hero.querySelector('.hero__bio');
+  const heroTitle = hero.querySelector('.hero__title-art');
+  const heroPortrait = hero.querySelector('.hero__portrait');
+  const heroRole = hero.querySelector('.hero__role');
+  const heroSocials = hero.querySelectorAll('.hero__socials li');
+  const reduceHeroMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let heroEntrancePlayed = false;
+  let heroParallaxInitialized = false;
+
+  const heroEntranceTargets = [
+    heroBackground,
+    heroBio,
+    heroTitle,
+    heroPortrait,
+    heroRole,
+    ...heroSocials,
+  ].filter(Boolean);
+
+  const revealHeroImmediately = () => {
+    gsap.set(heroEntranceTargets, { clearProps: 'all' });
+    if (heroTitle) gsap.set(heroTitle, { clipPath: 'inset(0 0% 0 0)' });
+  };
+
+  const initHeroParallax = () => {
+    if (
+      heroParallaxInitialized
+      || reduceHeroMotion
+      || typeof ScrollTrigger === 'undefined'
+      || !heroBackground
+      || !heroPortrait
+    ) return;
+
+    heroParallaxInitialized = true;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const heroParallaxMedia = gsap.matchMedia();
+
+    heroParallaxMedia.add('(min-width: 768px)', () => {
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: hero,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: .8,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      timeline
+        .to(heroPortrait, {
+          scale: 1.08,
+          yPercent: 2,
+          transformOrigin: '50% 100%',
+          ease: 'none',
+          duration: 1,
+        }, 0)
+        .to(heroBackground, {
+          yPercent: -5,
+          scale: 1.025,
+          transformOrigin: '50% 50%',
+          ease: 'none',
+          duration: 1,
+        }, 0)
+        .to(heroTitle, {
+          yPercent: -8,
+          ease: 'none',
+          duration: 1,
+        }, 0)
+        .to(heroRole, {
+          xPercent: -10,
+          yPercent: -12,
+          ease: 'none',
+          duration: 1,
+        }, 0)
+        .to([heroBio, ...heroSocials], {
+          autoAlpha: 0,
+          yPercent: -12,
+          ease: 'none',
+          duration: .3,
+        }, 0);
+
+      return () => {
+        timeline.scrollTrigger?.kill();
+        timeline.kill();
+        gsap.set(
+          [heroPortrait, heroBackground, heroTitle, heroRole, heroBio, ...heroSocials],
+          { clearProps: 'transform,opacity,visibility' }
+        );
+      };
+    });
+  };
+
+  const playHeroEntrance = () => {
+    if (heroEntrancePlayed) return;
+    heroEntrancePlayed = true;
+
+    if (reduceHeroMotion) {
+      revealHeroImmediately();
+      return;
+    }
+
+    const timeline = gsap.timeline({
+      defaults: { ease: 'power3.out' },
+      onComplete: () => {
+        revealHeroImmediately();
+        initHeroParallax();
+      },
+    });
+
+    timeline
+      .to(heroBackground, {
+        scale: 1,
+        duration: 1.5,
+        ease: 'power2.out',
+      }, 0)
+      .to(heroBio, {
+        autoAlpha: 1,
+        y: 0,
+        duration: .7,
+      }, .12)
+      .to(heroTitle, {
+        clipPath: 'inset(0 0% 0 0)',
+        duration: 1.05,
+        ease: 'power4.inOut',
+      }, .25)
+      .to(heroPortrait, {
+        autoAlpha: 1,
+        y: 0,
+        scale: 1,
+        duration: 1.15,
+        ease: 'power4.out',
+      }, .48)
+      .to(heroRole, {
+        autoAlpha: 1,
+        y: 0,
+        duration: .72,
+      }, .72)
+      .to(heroSocials, {
+        autoAlpha: 1,
+        y: 0,
+        duration: .5,
+        stagger: .09,
+      }, .88);
+  };
+
+  if (reduceHeroMotion) {
+    revealHeroImmediately();
+  } else {
+    gsap.set(heroBackground, { scale: 1.08, transformOrigin: '50% 50%' });
+    gsap.set(heroBio, { autoAlpha: 0, y: -20 });
+    gsap.set(heroTitle, { clipPath: 'inset(0 100% 0 0)' });
+    gsap.set(heroPortrait, { autoAlpha: 0, y: 90, scale: .97, transformOrigin: '50% 100%' });
+    gsap.set(heroRole, { autoAlpha: 0, y: 55 });
+    gsap.set(heroSocials, { autoAlpha: 0, y: 18 });
+
+    window.addEventListener('preloader:complete', playHeroEntrance, { once: true });
+
+    if (!preloader) playHeroEntrance();
+  }
+}
+
 const initProjectWebGL = location.protocol === 'file:'
   ? async () => null
   : async (projectData) => {
-    const webglModule = await import('./webgl-projects.js?v=render-lifecycle-1');
+    const webglModule = await import('./webgl-projects.js?v=fade-opacity-2');
     return webglModule.initProjectWebGL(projectData);
   };
 
@@ -17,7 +285,7 @@ if (typeof SplitText !== 'undefined') {
     document.querySelectorAll('h3').forEach((heading) => {
       const article = heading.closest('article');
 
-      if (!article || heading.closest('.faq')) return;
+      if (!article || heading.closest('.faq') || heading.classList.contains('services__title')) return;
 
       let splitText = null;
       let animation = null;
@@ -151,11 +419,14 @@ const servicesCursorPreview = document.querySelector('.services__cursor-preview'
 
 if (servicesList && servicesCursorPreview) {
   const servicesItems = [...servicesList.querySelectorAll('.services__item')];
+  const servicesCursorImages = [...servicesCursorPreview.querySelectorAll('[data-service-preview]')];
   let firstEnter = false;
+  let activeServicePreview = servicesCursorImages.find((image) => image.classList.contains('is-active'));
 
   gsap.set(servicesCursorPreview, {
     xPercent: -50,
     yPercent: -50,
+    scale: .9,
   });
 
   const previewX = gsap.quickTo(servicesCursorPreview, 'x', {
@@ -199,18 +470,59 @@ if (servicesList && servicesCursorPreview) {
 
     firstEnter = true;
     servicesPreviewFade.play();
+    gsap.to(servicesCursorPreview, {
+      scale: 1,
+      duration: .45,
+      ease: 'power3.out',
+      overwrite: 'auto',
+    });
     startServicesFollow();
     alignServicesPreview(event);
   });
 
-  servicesList.addEventListener('mouseleave', () => servicesPreviewFade.reverse());
+  servicesList.addEventListener('mouseleave', () => {
+    servicesPreviewFade.reverse();
+    gsap.to(servicesCursorPreview, {
+      scale: .9,
+      duration: .25,
+      ease: 'power2.out',
+      overwrite: 'auto',
+    });
+  });
 
   servicesItems.forEach((item) => {
     item.addEventListener('mouseenter', () => {
-      const nextImage = item.dataset.cursorImage;
-      if (nextImage && servicesCursorPreview.getAttribute('src') !== nextImage) {
-        servicesCursorPreview.setAttribute('src', nextImage);
-      }
+      const nextPreview = servicesCursorImages.find(
+        (image) => image.dataset.servicePreview === item.dataset.cursorPreview
+      );
+
+      if (!nextPreview || nextPreview === activeServicePreview) return;
+
+      const previousPreview = activeServicePreview;
+
+      gsap.killTweensOf([previousPreview, nextPreview]);
+      nextPreview.classList.add('is-active');
+      gsap.set(nextPreview, {
+        opacity: 0,
+        filter: 'blur(4px)',
+        scale: 1.21,
+      });
+
+      gsap.to(previousPreview, {
+        opacity: 0,
+        duration: .2,
+        ease: 'power1.out',
+        onComplete: () => previousPreview?.classList.remove('is-active'),
+      });
+      gsap.to(nextPreview, {
+        opacity: 1,
+        filter: 'blur(0px)',
+        scale: 1.02,
+        duration: .7,
+        ease: 'power3.out',
+      });
+
+      activeServicePreview = nextPreview;
     });
   });
 }
@@ -737,7 +1049,13 @@ if (glassRain && !window.matchMedia('(prefers-reduced-motion: reduce)').matches)
   new IntersectionObserver(([entry]) => {
     rainVisible = entry.isIntersecting;
 
-    if (rainVisible) startGlassRain();
+    if (rainVisible) {
+      if (parallaxCircleRevealSection?.dataset.aboutRevealReady !== 'true') {
+        parallaxCircleRevealSection.dataset.aboutRevealReady = 'true';
+        parallaxCircleRevealSection.dispatchEvent(new CustomEvent('about-reveal:ready'));
+      }
+      startGlassRain();
+    }
     else if (rainFrame) {
       cancelAnimationFrame(rainFrame);
       rainFrame = 0;
@@ -767,7 +1085,7 @@ if (parallaxCircleRevealButton) {
 
   parallaxCircleRevealButton.addEventListener('mouseenter', () => {
     gsap.killTweensOf(parallaxCircleRevealButtonCharacters);
-    gsap.to(parallaxCircleRevealButtonPath, { fill: '#ef160f', duration: .28, ease: 'power2.out', overwrite: 'auto' });
+    gsap.to(parallaxCircleRevealButtonPath, { fill: 'var(--color-accent)', duration: .28, ease: 'power2.out', overwrite: 'auto' });
     gsap.to(parallaxCircleRevealButtonCharacters, {
       yPercent: -100,
       duration: .48,
@@ -783,7 +1101,7 @@ if (parallaxCircleRevealButton) {
   });
 
   parallaxCircleRevealButton.addEventListener('mouseleave', () => {
-    gsap.to(parallaxCircleRevealButtonPath, { fill: '#050505', duration: .3, ease: 'power2.out', overwrite: 'auto' });
+    gsap.to(parallaxCircleRevealButtonPath, { fill: 'var(--surface-dark)', duration: .3, ease: 'power2.out', overwrite: 'auto' });
     gsap.to(parallaxCircleRevealButtonCharacters, {
       yPercent: 0,
       duration: .4,
@@ -990,7 +1308,7 @@ faqQuestions.forEach((question) => {
   });
 });
 
-// Footer headline — scroll-triggered entrance
+// Footer headline — pointer interaction
 const footerHeadline = document.querySelector('.footer-headline');
 const footerHeadlineArtwork = footerHeadline?.querySelector('.footer-headline-art');
 const footerHeadlineRed = footerHeadline?.querySelector('.footer-headline-image--red');
@@ -999,26 +1317,6 @@ if (footerHeadline && footerHeadlineArtwork) {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     gsap.set(footerHeadlineArtwork, { clearProps: 'all' });
   } else {
-    gsap.fromTo(
-      footerHeadlineArtwork,
-      {
-        yPercent: 110,
-        rotate: 2,
-        transformOrigin: 'left bottom',
-      },
-      {
-        yPercent: 0,
-        rotate: 0,
-        duration: 1.35,
-        ease: 'power4.out',
-        scrollTrigger: {
-          trigger: footerHeadline,
-          start: 'top 88%',
-          toggleActions: 'play none none reverse',
-        },
-      },
-    );
-
     if (window.matchMedia('(pointer: fine)').matches) {
       const magneticX = gsap.quickTo(footerHeadlineArtwork, 'x', {
         duration: 1.05,
@@ -1027,18 +1325,6 @@ if (footerHeadline && footerHeadlineArtwork) {
       const magneticY = gsap.quickTo(footerHeadlineArtwork, 'y', {
         duration: 1.05,
         ease: 'power2.out',
-      });
-      const elasticScaleX = gsap.quickTo(footerHeadlineArtwork, 'scaleX', {
-        duration: .9,
-        ease: 'elastic.out(1, .55)',
-      });
-      const elasticScaleY = gsap.quickTo(footerHeadlineArtwork, 'scaleY', {
-        duration: .9,
-        ease: 'elastic.out(1, .55)',
-      });
-      const elasticSkewX = gsap.quickTo(footerHeadlineArtwork, 'skewX', {
-        duration: .8,
-        ease: 'elastic.out(1, .6)',
       });
 
       footerHeadline.addEventListener('pointermove', (event) => {
@@ -1049,12 +1335,6 @@ if (footerHeadline && footerHeadlineArtwork) {
 
         magneticX(x * 30);
         magneticY(y * 18);
-        gsap.set(footerHeadlineArtwork, {
-          transformOrigin: `${(x + .5) * 100}% ${(y + .5) * 100}%`,
-        });
-        elasticScaleX(1 + Math.abs(x) * .024);
-        elasticScaleY(1 - Math.abs(y) * .014);
-        elasticSkewX(x * 1.8);
 
         if (footerHeadlineRed) {
           const revealX = event.clientX - artworkBounds.left;
@@ -1072,9 +1352,6 @@ if (footerHeadline && footerHeadlineArtwork) {
       footerHeadline.addEventListener('pointerleave', () => {
         magneticX(0);
         magneticY(0);
-        elasticScaleX(1);
-        elasticScaleY(1);
-        elasticSkewX(0);
 
         if (footerHeadlineRed) {
           gsap.to(footerHeadlineRed, {
@@ -1106,3 +1383,221 @@ if (footerHeadline && footerHeadlineArtwork) {
           label.appendChild(span);
         });
       });
+
+
+
+
+// gsap.registerPlugin(SplitText, ScrollTrigger);
+// console.clear();
+
+document.fonts.ready.then(() => {
+  const playIfTriggerIsVisible = (animation, trigger) => {
+    const checkVisibility = (restart = false) => {
+      requestAnimationFrame(() => {
+        const bounds = trigger.getBoundingClientRect();
+        const isVisible = bounds.top < window.innerHeight && bounds.bottom > 0;
+
+        if (!isVisible) return;
+
+        if (restart) {
+          animation.restart(true);
+        } else if (animation.progress() === 0) {
+          animation.play();
+        }
+      });
+    };
+
+    if (preloader?.isConnected) {
+      window.addEventListener('preloader:complete', () => checkVisibility(true), { once: true });
+    } else {
+      checkVisibility();
+    }
+  };
+
+  document.querySelectorAll("[data-settings]").forEach((element) => {
+    let settings;
+    try {
+      settings = JSON.parse(element.dataset.settings);
+    } catch (error) {
+      console.warn("Invalid data-settings:", element);
+      return;
+    }
+
+    const setupAnimation = (activeMode = null) => {
+      const triggerSelector = element.dataset.trigger;
+      const customTrigger = triggerSelector
+        ? element.closest(triggerSelector) ?? document.querySelector(triggerSelector)
+        : null;
+      const animationTrigger = customTrigger ?? element;
+      const sharedStart = settings.start ?? "top bottom-=100px";
+      const cleanupCallbacks = [];
+      const splitInstances = [];
+      const usesAboutReadyTrigger = activeMode === "md" && settings["trigger-mode"] === "about-ready";
+
+      const connectAnimation = (animation, start = sharedStart) => {
+        if (usesAboutReadyTrigger) {
+          const section = element.closest(".parallax-circle-reveal");
+          if (!section) return () => {};
+
+          let hasPlayed = false;
+          const playAnimation = () => {
+            if (hasPlayed) return;
+            hasPlayed = true;
+            animation.play(0);
+          };
+
+          section.addEventListener("about-reveal:ready", playAnimation);
+          if (section.dataset.aboutRevealReady === "true") playAnimation();
+
+          return () => section.removeEventListener("about-reveal:ready", playAnimation);
+        }
+
+        const scrollTrigger = ScrollTrigger.create({
+          trigger: animationTrigger,
+          start,
+          toggleActions: "play none none none",
+          animation,
+        });
+        playIfTriggerIsVisible(animation, animationTrigger);
+
+        return () => scrollTrigger.kill();
+      };
+
+      if (settings.animation === "lines") {
+        gsap.set(element, { opacity: 1 });
+        let disconnectAnimation = () => {};
+        const split = SplitText.create(element, {
+          type: "words,lines",
+          linesClass: "line",
+          autoSplit: true,
+          mask: "lines",
+          onSplit: (self) => {
+            disconnectAnimation();
+            const animation = gsap.from(self.words, {
+              yPercent: settings.yPercent ?? 50,
+              opacity: 0,
+              duration: settings.duration ?? 1.4,
+              delay: settings.delay ?? 0,
+              ease: settings.ease ?? "power2.out",
+              stagger: {
+                each: settings.stagger ?? 0.22,
+                from: "start"
+              },
+              paused: true
+            });
+            disconnectAnimation = connectAnimation(
+              animation,
+              customTrigger ? sharedStart : settings.start ?? "bottom bottom-=100px"
+            );
+            return animation;
+          }
+        });
+        splitInstances.push(split);
+        cleanupCallbacks.push(() => disconnectAnimation());
+      }
+
+      if (settings.animation === "fade") {
+        const direction = settings["fade-from"];
+        const duration = settings.duration ?? 1.2;
+        const ease = settings.ease ?? "power3.out";
+        const projectMedia = element.matches(".projects__card")
+          ? element.querySelector(".projects__card-image")
+          : null;
+        let x = 0;
+        let y = 0;
+        if (direction === "left") x = -40;
+        if (direction === "right") x = 40;
+        if (direction === "bottom") y = 40;
+
+        const animation = gsap.timeline({
+          paused: true,
+          delay: settings.delay ?? 0,
+        });
+
+        animation.fromTo(element, {
+          x,
+          y,
+          autoAlpha: 0,
+        }, {
+          x: 0,
+          y: 0,
+          autoAlpha: 1,
+          duration,
+          ease,
+          onComplete: () => gsap.set(element, { clearProps: "transform" }),
+        }, 0);
+
+        if (projectMedia) {
+          animation.fromTo(projectMedia, {
+            attr: { "data-reveal-opacity": 0 },
+          }, {
+            attr: { "data-reveal-opacity": 1 },
+            duration,
+            ease,
+          }, 0);
+        }
+
+        cleanupCallbacks.push(connectAnimation(animation));
+      }
+
+      if (settings.animation === "chars") {
+        let isInitialized = false;
+
+        const initCharsAnimation = () => {
+          if (isInitialized || !element.getClientRects().length) return false;
+          isInitialized = true;
+          const split = SplitText.create(element, {
+            type: "chars",
+            charsClass: "char"
+          });
+          splitInstances.push(split);
+          const animation = gsap.from(split.chars, {
+            x: settings.x ?? 150,
+            opacity: 0,
+            duration: settings.duration ?? 0.7,
+            delay: settings.delay ?? 0,
+            ease: settings.ease ?? "power4.out",
+            stagger: settings.stagger ?? 0.04,
+            paused: true
+          });
+          cleanupCallbacks.push(connectAnimation(animation));
+          return true;
+        };
+
+        if (!initCharsAnimation()) {
+          const visibilityObserver = new ResizeObserver(() => {
+            if (!initCharsAnimation()) return;
+            visibilityObserver.disconnect();
+            ScrollTrigger.refresh();
+          });
+          visibilityObserver.observe(element);
+          cleanupCallbacks.push(() => visibilityObserver.disconnect());
+        }
+      }
+
+      return () => {
+        cleanupCallbacks.forEach((cleanup) => cleanup());
+        splitInstances.forEach((split) => split.revert());
+        gsap.set(element, { clearProps: "transform,opacity,visibility" });
+      };
+    };
+
+    const activeModes = Array.isArray(settings.active)
+      ? settings.active
+      : settings.active ? [settings.active] : [];
+
+    if (activeModes.length) {
+      const animationMedia = gsap.matchMedia();
+
+      if (activeModes.includes("mob")) {
+        animationMedia.add("(max-width: 767px)", () => setupAnimation("mob"));
+      }
+
+      if (activeModes.includes("md")) {
+        animationMedia.add("(min-width: 768px)", () => setupAnimation("md"));
+      }
+    } else {
+      setupAnimation();
+    }
+  });
+});

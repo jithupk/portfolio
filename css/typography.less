@@ -85,8 +85,9 @@ p {
   font-size: 16px;
   line-height: 1.4;
 
-  .md({ font-size: 17px; });
-  .xl({ font-size: 18px; });
+  .md({
+    font-size: 18px;
+  });
 }
 
 a {
@@ -95,7 +96,7 @@ a {
   text-underline-offset: .18em;
 
   &:focus-visible {
-    outline: 2px solid #ef160f;
+    outline: 2px solid @color-accent;
     outline-offset: 4px;
   }
 }
@@ -119,21 +120,21 @@ i {
 
 mark {
   padding: .08em .22em;
-  color: #08080a;
-  background: rgba(239, 22, 15, .18);
+  color: @surface-dark;
+  background: fade(@color-accent, 18%);
 }
 
 del { opacity: .65; }
 
 ins {
-  text-decoration-color: #ef160f;
+  text-decoration-color: @color-accent;
   text-underline-offset: .18em;
 }
 
 blockquote {
   margin: 0 0 1.25em;
   padding-left: 1em;
-  border-left: 3px solid #ef160f;
+  border-left: 3px solid @color-accent;
   font-family: @font-family-header;
   font-size: 22px;
   letter-spacing: -.015em;
@@ -217,15 +218,15 @@ samp {
 code {
   padding: .12em .35em;
   border-radius: 4px;
-  background: rgba(8, 8, 10, .08);
+  background: fade(@surface-dark, 8%);
 }
 
 kbd {
   padding: .15em .4em;
-  border: 1px solid rgba(8, 8, 10, .2);
+  border: 1px solid fade(@surface-dark, 20%);
   border-bottom-width: 2px;
   border-radius: 4px;
-  background: #fff;
+  background: @surface-light;
 }
 
 pre {
@@ -235,7 +236,7 @@ pre {
   border-radius: 8px;
   font-size: 14px;
   line-height: 1.55;
-  background: rgba(8, 8, 10, .08);
+  background: fade(@surface-dark, 8%);
 
   code {
     padding: 0;
@@ -264,10 +265,10 @@ hr {
   height: 1px;
   margin: 2em 0;
   border: 0;
-  background: rgba(8, 8, 10, .18);
+  background: fade(@surface-dark, 18%);
 }
 
 ::selection {
-  color: #fff;
-  background: #ef160f;
+  color: @color-primary;
+  background: @color-accent;
 }

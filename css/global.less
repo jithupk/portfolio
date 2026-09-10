@@ -1,6 +1,11 @@
 /* ================================================================
    GLOBAL STYLES
    ================================================================ */
+:root {
+  --color-accent: @color-accent;
+  --surface-dark: @surface-dark;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -26,9 +31,8 @@ html {
 
 body {
   margin: 0;
-  color: #08080a;
-  background: #f1f1fb;
-  background: #fbe7e4;
+  color: @surface-dark;
+  background: @surface-light;
   font-family: @font-family-base;
   -webkit-font-smoothing: antialiased;
   // display: block !important;
@@ -89,7 +93,7 @@ section {
 .section-title{
   line-height: 1;
   span{
-    color: #ef160f;
+    color: @color-accent;
   } 
 }
 
@@ -155,7 +159,7 @@ button {
 
     &:hover,
     &:focus-visible {
-      color: #ef160f;
+      color: @color-accent;
     }
 
     &:focus-visible {

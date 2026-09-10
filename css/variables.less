@@ -61,9 +61,34 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("../fonts/InstrumentSerif-Italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
 @font-family-header: "Phudu", sans-serif;
 // @font-family-header: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 @font-family-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+// Color palette
+@color-primary: #faf9f6;
+@color-secondary: #0a0a0a;
+@color-accent: #f01e28;
+
+@white: @color-primary;
+@black: @surface-dark;
+
+@color-text-muted: #8a8988;
+
+@surface-light: @color-primary;
+@surface-dark: @color-secondary;
+@surface-accent: @color-accent;
+
+
+
 
 // @font-weight-regular: 400;
 // @font-weight-medium:  500;
@@ -80,9 +105,9 @@
 // @radius-full: 9999px;
 
 // Shadows (raw values â€” elevation tokens can reference these)
-// @shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-// @shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-// @shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+// @shadow-sm: 0 1px 2px fade(@surface-dark, 5%);
+// @shadow-md: 0 4px 6px fade(@surface-dark, 10%);
+// @shadow-lg: 0 10px 15px fade(@surface-dark, 10%);
 
 // Breakpoints mobiles first
 @bp-sm: 576px;

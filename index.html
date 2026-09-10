@@ -8,10 +8,29 @@
     <link rel="stylesheet" href="js/vendor/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./js/vendor/lenis/lenis.css">
     <link rel="stylesheet" href="./js/vendor/fontawesome/css/all.min.css">
-    <script>if (location.protocol === 'file:') document.documentElement.classList.add('is-file-preview');</script>
-    <link rel="stylesheet" href="css/style.css?v=static-build-1">
+    <style>
+      .hero { position: relative; height: 100svh; overflow: hidden; }
+      .hero__portrait {
+        position: absolute;
+        z-index: 2;
+        bottom: -1px;
+        left: 50%;
+        width: 100%;
+        height: calc(100% - 80px);
+        object-fit: cover;
+        object-position: top center;
+        translate: -50% 0;
+      }
+    </style>
+    <script>document.documentElement.classList.add('has-preloader'); if (location.protocol === 'file:') document.documentElement.classList.add('is-file-preview');</script>
+    <link rel="stylesheet/less" type="text/css" href="css/main.less?v=hero-stable-1" />
+    <!-- <link rel="stylesheet/less" type="text/css" href="css/footer.less?v=footer-red-reveal-1" /> -->
+    <script src="js/vendor/less/less.js"></script>
   </head>
   <body>
+    <div class="preloader" data-preloader role="status" aria-live="polite" aria-label="Loading portfolio">
+      <p class="preloader__brand" data-preloader-brand>JITHU®</p>
+    </div>
     <header class="site-island" data-site-island>
       <div class="site-island__shell">
         <div class="site-island__top">
@@ -50,48 +69,58 @@
         <img class="hero__portrait" src="./images/hero-portrait.png" alt="Portrait of Jithu">
       </section>
 
-      <section class="about d-none" aria-labelledby="about-title">
-        <div class="container">
-          <div class="about__eyebrow eyebrow">( ABOUT US )</div>
-          <h2 id="about-title"><span>WE UNDERSTAND YOUR GOALS AND SHAPE IDEAS INTO MEANINGFUL DIGITAL EXPERIENCES.</span> EVERY SOLUTION IS THOUGHTFULLY CRAFTED TO STRENGTHEN YOUR BRAND IDENTITY, ENGAGE YOUR AUDIENCE, AND SUPPORT LONG-TERM, SUSTAINABLE GROWTH.</h2>
-          <a class="about__button" href="#">MORE ABOUT US</a>
-        </div>
-      </section>
-
       <section class="projects" aria-labelledby="projects-title">
         <div class="container">
           <div class="row projects__header">
             <div class="col-12">
-              <p class="eyebrow">( PROJECTS )</p>
+              <p class="eyebrow" data-trigger=".projects__header" data-settings='{"animation":"chars","delay":0}'>( PROJECTS )</p>
               <div class="projects__heading">
-                <h2 id="projects-title" class="section-title">SELECTED <span>WORK</span></h2>
-                <p class="projects__description">A selection of digital experiences shaped through design, development and motion.</p>
+                <h2 id="projects-title " class="section-title" data-trigger=".projects__header" data-settings='{"animation":"lines","stagger":0.22,"delay":0.2}'>SELECTED <span>WORK</span></h2>
+                <p class="projects__description" data-trigger=".projects__header" data-settings='{"animation":"fade","fade-from":"bottom","duration":1.2,"delay":0.65,"ease":"power3.out"}'>A selection of digital experiences shaped through design, development and motion.</p>
               </div>
             </div>
           </div>
           <div class="row projects__grid" id="project-grid">
-            <a class="col-md-6 projects__card" href="#oryzo_ai" id="oryzo_ai" aria-label="View Oryzo AI project">
-              <div class="projects__card-image"><img class="projects__card-fallback" src="images/projects/oryzo_ai/home.webp" alt="Oryzo AI project preview" loading="lazy"></div>
+            <a class="col-md-6 projects__card" href="#oryzo_ai" id="oryzo_ai" aria-label="View Oryzo AI project" data-settings='{"animation":"fade","fade-from":"bottom","duration":1.2,"delay":0,"ease":"power3.out"}'>
+              <div class="projects__card-image">
+                <div class="projects__card-meta"><span class="projects__card-title">Oryzo AI</span><span class="projects__card-tag">AI experience</span></div>
+                <img class="projects__card-fallback" src="images/projects/oryzo_ai/home.webp" alt="Oryzo AI project preview" loading="lazy">
+              </div>
             </a>
-            <a class="col-md-6 projects__card" href="#of_the_oak" id="of_the_oak" aria-label="View Of The Oak project">
-              <div class="projects__card-image"><img class="projects__card-fallback" src="images/projects/of_the_oak/home.webp" alt="Of The Oak project preview" loading="lazy"></div>
+            <a class="col-md-6 projects__card" href="#of_the_oak" id="of_the_oak" aria-label="View Of The Oak project" data-settings='{"animation":"fade","fade-from":"bottom","duration":1.2,"delay":0.12,"ease":"power3.out"}'>
+              <div class="projects__card-image">
+                <div class="projects__card-meta"><span class="projects__card-title">Of The Oak</span><span class="projects__card-tag">Digital experience</span></div>
+                <img class="projects__card-fallback" src="images/projects/of_the_oak/home.webp" alt="Of The Oak project preview" loading="lazy">
+              </div>
             </a>
-            <a class="col-md-6 projects__card" href="#devin_ai" id="devin_ai" aria-label="View Devin AI project">
-              <div class="projects__card-image"><img class="projects__card-fallback" src="images/projects/devin_ai/home.webp" alt="Devin AI project preview" loading="lazy"></div>
+            <a class="col-md-6 projects__card" href="#devin_ai" id="devin_ai" aria-label="View Devin AI project" data-settings='{"animation":"fade","fade-from":"bottom","duration":1.2,"delay":0.08,"ease":"power3.out"}'>
+              <div class="projects__card-image">
+                <div class="projects__card-meta"><span class="projects__card-title">Devin AI</span><span class="projects__card-tag">AI product</span></div>
+                <img class="projects__card-fallback" src="images/projects/devin_ai/home.webp" alt="Devin AI project preview" loading="lazy">
+              </div>
             </a>
-            <a class="col-md-6 projects__card" href="#porsche_dream_machine" id="porsche_dream_machine" aria-label="View Porsche: Dream Machine project">
-              <div class="projects__card-image"><img class="projects__card-fallback" src="images/projects/porsche_dream_machine/home.webp" alt="Porsche: Dream Machine project preview" loading="lazy"></div>
+            <a class="col-md-6 projects__card" href="#porsche_dream_machine" id="porsche_dream_machine" aria-label="View Porsche: Dream Machine project" data-settings='{"animation":"fade","fade-from":"bottom","duration":1.2,"delay":0.2,"ease":"power3.out"}'>
+              <div class="projects__card-image">
+                <div class="projects__card-meta"><span class="projects__card-title">Porsche Dream Machine</span><span class="projects__card-tag">Interactive</span></div>
+                <img class="projects__card-fallback" src="images/projects/porsche_dream_machine/home.webp" alt="Porsche: Dream Machine project preview" loading="lazy">
+              </div>
             </a>
-            <a class="col-md-6 projects__card" href="#synthetic_human" id="synthetic_human" aria-label="View Synthetic Human project">
-              <div class="projects__card-image"><img class="projects__card-fallback" src="images/projects/synthetic_human/home.webp" alt="Synthetic Human project preview" loading="lazy"></div>
+            <a class="col-md-6 projects__card" href="#synthetic_human" id="synthetic_human" aria-label="View Synthetic Human project" data-settings='{"animation":"fade","fade-from":"bottom","duration":1.2,"delay":0.08,"ease":"power3.out"}'>
+              <div class="projects__card-image">
+                <div class="projects__card-meta"><span class="projects__card-title">Synthetic Human</span><span class="projects__card-tag">Experimental</span></div>
+                <img class="projects__card-fallback" src="images/projects/synthetic_human/home.webp" alt="Synthetic Human project preview" loading="lazy">
+              </div>
             </a>
-            <a class="col-md-6 projects__card" href="#ddd_2024" id="ddd_2024" aria-label="View DDD 2024 project">
-              <div class="projects__card-image"><img class="projects__card-fallback" src="images/projects/ddd_2024/home.webp" alt="DDD 2024 project preview" loading="lazy"></div>
+            <a class="col-md-6 projects__card" href="#ddd_2024" id="ddd_2024" aria-label="View DDD 2024 project" data-settings='{"animation":"fade","fade-from":"bottom","duration":1.2,"delay":0.2,"ease":"power3.out"}'>
+              <div class="projects__card-image">
+                <div class="projects__card-meta"><span class="projects__card-title">DDD 2024</span><span class="projects__card-tag">Digital event</span></div>
+                <img class="projects__card-fallback" src="images/projects/ddd_2024/home.webp" alt="DDD 2024 project preview" loading="lazy">
+              </div>
             </a>
           </div>
           <div class="row projects__actions">
             <div class="col-12">
-              <a class="btn" href="#project-grid">
+              <a class="btn" href="#project-grid" data-settings='{"animation":"fade","fade-from":"bottom"}'>
                 <span class="btn-label" data-button-label>View All Works</span>
                 <svg class="btn-shape" viewBox="0 0 285 165" preserveAspectRatio="none" aria-hidden="true">
                 <g transform="matrix(2 0 0 2 142.5 82.5)">
@@ -108,34 +137,40 @@
         <div class="container">
           <div class="row services__header">
             <div class="col-12">
-              <p class="eyebrow">( SERVICES )</p>
+              <p class="eyebrow" data-trigger=".services__header" data-settings='{"animation":"chars","delay":0}'>( SERVICES )</p>
               <div class="services__heading">
-                <h2 id="services-title" class="section-title">WHAT WE <span>CRAFT.</span></h2>
-                <p class="services__intro">We combine strategy, design and technology to create digital experiences that are clear, meaningful and built to last.</p>
+                <h2 id="services-title" class="section-title" data-trigger=".services__header" data-settings='{"animation":"lines","stagger":0.22,"delay":0.2}'>WHAT WE <span>CRAFT.</span></h2>
+                <p class="services__intro" data-trigger=".services__header" data-settings='{"animation":"fade","fade-from":"bottom","duration":1.2,"delay":0.65,"ease":"power3.out"}'>We combine strategy, design and technology to create digital experiences that are clear, meaningful and built to last.</p>
               </div>
             </div>
           </div>
           <div class="row services__list">
-            <article class="col-12 services__item services__item--featured" data-cursor-image="images/projects/oryzo_ai/home.webp">
-              <h3 class="services__title">UI UX DESIGN</h3>
-              <p class="services__description">Intuitive digital experiences shaped around real people, clear journeys and purposeful interaction.</p>
+            <article class="col-12 services__item" data-cursor-preview="branding" data-settings='{"animation":"fade","fade-from":"left","duration":0.8,"delay":0,"ease":"power3.out","active":"md"}'>
+              <img class="services__mobile-image" src="images/services/branding.png" alt="Branding service preview" loading="lazy" data-settings='{"animation":"fade","fade-from":"bottom","active":"mob"}' />
+              <h3 class="services__title" data-settings='{"animation":"fade","fade-from":"bottom","active":"mob"}'>BRANDING</h3>
+              <p class="services__description" data-settings='{"animation":"fade","fade-from":"bottom","active":"mob"}'>Distinctive commerce experiences designed to simplify buying and help ambitious brands grow.</p>
               <img class="services__icon" src="images/icons/arrow-up-right.svg" alt="" aria-hidden="true" />
             </article>
-            <article class="col-12 services__item" data-cursor-image="images/projects/devin_ai/home.webp">
-              <h3 class="services__title">WEB DEVELOPMENT</h3>
-              <p class="services__description">Fast, responsive websites built with clean code, thoughtful motion and reliable technology.</p>
+            <article class="col-12 services__item services__item--featured" data-cursor-preview="design" data-settings='{"animation":"fade","fade-from":"left","duration":0.8,"delay":0.12,"ease":"power3.out","active":"md"}'>
+              <img class="services__mobile-image" src="images/services/desgin.png" alt="UI UX design service preview" loading="lazy" data-settings='{"animation":"fade","fade-from":"bottom","active":"mob"}' />
+              <h3 class="services__title" data-settings='{"animation":"fade","fade-from":"bottom","active":"mob"}'>UI UX DESIGN</h3>
+              <p class="services__description" data-settings='{"animation":"fade","fade-from":"bottom","active":"mob"}'>Intuitive digital experiences shaped around real people, clear journeys and purposeful interaction.</p>
               <img class="services__icon" src="images/icons/arrow-up-right.svg" alt="" aria-hidden="true" />
             </article>
-            <article class="col-12 services__item" data-cursor-image="images/projects/spaace/home.webp">
-              <h3 class="services__title">SHOPIFY</h3>
-              <p class="services__description">Distinctive commerce experiences designed to simplify buying and help ambitious brands grow.</p>
+            <article class="col-12 services__item" data-cursor-preview="development" data-settings='{"animation":"fade","fade-from":"left","duration":0.8,"delay":0.24,"ease":"power3.out","active":"md"}'>
+              <img class="services__mobile-image" src="images/services/dev.png" alt="Web development service preview" loading="lazy" data-settings='{"animation":"fade","fade-from":"bottom","active":"mob"}' />
+              <h3 class="services__title" data-settings='{"animation":"fade","fade-from":"bottom","active":"mob"}'>WEB DEVELOPMENT</h3>
+              <p class="services__description" data-settings='{"animation":"fade","fade-from":"bottom","active":"mob"}'>Fast, responsive websites built with clean code, thoughtful motion and reliable technology.</p>
               <img class="services__icon" src="images/icons/arrow-up-right.svg" alt="" aria-hidden="true" />
             </article>
           </div>
-          <img class="services__cursor-preview cursor-tracking-img swipeimage" src="images/projects/oryzo_ai/home.webp" alt="" aria-hidden="true">
+          <div class="services__cursor-preview cursor-tracking-img swipeimage" aria-hidden="true">
+            <img class="services__cursor-image is-active" data-service-preview="branding" src="images/services/branding.png" alt="" />
+            <img class="services__cursor-image" data-service-preview="design" src="images/services/desgin.png" alt="" />
+            <img class="services__cursor-image" data-service-preview="development" src="images/services/dev.png" alt="" />
+          </div>
         </div>
       </section>
-
       <section class="process" aria-labelledby="process-title">
         <div class="container">
           <div class="row">
@@ -143,15 +178,15 @@
               <div class="process__sticky">
                 <div class="process__copy">
                   <div class="process__eyebrow-window">
-                    <p class="eyebrow m-0">( HOW IT WORKS )</p>
+                    <p class="eyebrow m-0" data-trigger=".process__copy" data-settings='{"animation":"chars","delay":0}'>( HOW IT WORKS )</p>
                     <p class="eyebrow m-0">Where we have worked</p>
                   </div>
                   <div class="process__titles">
-                    <h2 id="process-title" class="section-title">PROCESS<span>.</span></h2>
+                    <h2 id="process-title" class="section-title" data-trigger=".process__copy" data-settings='{"animation":"lines","stagger":0.22,"delay":0.2}'>PROCESS<span>.</span></h2>
                     <h2 id="industries-title" class="section-title">Industries<span>.</span></h2>
                   </div>
                   <div class="process__description">
-                    <p>A clear, collaborative path from the first conversation to a polished digital experience.</p>
+                    <p data-trigger=".process__copy" data-settings='{"animation":"fade","fade-from":"bottom","duration":1.2,"delay":0.65,"ease":"power3.out"}'>A clear, collaborative path from the first conversation to a polished digital experience.</p>
                     <p>Focused digital solutions shaped around the needs, challenges and opportunities of each industry.</p>
                   </div>
                 </div>
@@ -164,11 +199,11 @@
             <div class="col-md-6 process__column process__column--steps">
               <div class="process__steps-window">
                 <ol class="process__steps">
-                  <li class="process__step is-active"><span class="process__number">01</span><span class="process__step-label">Discovery</span></li>
-                  <li class="process__step"><span class="process__number">02</span><span class="process__step-label">Strategy</span></li>
-                  <li class="process__step"><span class="process__number">03</span><span class="process__step-label">Design</span></li>
-                  <li class="process__step"><span class="process__number">04</span><span class="process__step-label">Development</span></li>
-                  <li class="process__step"><span class="process__number">05</span><span class="process__step-label">Launch</span></li>
+                  <li class="process__step is-active" data-settings='{"animation":"fade","fade-from":"left","duration":0.8,"delay":0,"ease":"power3.out","active":"mob"}'><span class="process__number">01</span><span class="process__step-label">Discovery</span></li>
+                  <li class="process__step" data-settings='{"animation":"fade","fade-from":"left","duration":0.8,"delay":0.12,"ease":"power3.out","active":"mob"}'><span class="process__number">02</span><span class="process__step-label">Strategy</span></li>
+                  <li class="process__step" data-settings='{"animation":"fade","fade-from":"left","duration":0.8,"delay":0.24,"ease":"power3.out","active":"mob"}'><span class="process__number">03</span><span class="process__step-label">Design</span></li>
+                  <li class="process__step" data-settings='{"animation":"fade","fade-from":"left","duration":0.8,"delay":0.36,"ease":"power3.out","active":"mob"}'><span class="process__number">04</span><span class="process__step-label">Development</span></li>
+                  <li class="process__step" data-settings='{"animation":"fade","fade-from":"left","duration":0.8,"delay":0.48,"ease":"power3.out","active":"mob"}'><span class="process__number">05</span><span class="process__step-label">Launch</span></li>
                 </ol>
                 <ol class="process__steps process__steps--industries">
                   <li class="process__step is-active"><span class="process__step-label">Fintech</span></li>
@@ -197,9 +232,9 @@
                 <div class="col-md-6 bg-white">
                   <div class="glass-rain" aria-hidden="true"></div>
                   <div class="parallax-circle-reveal__content">
-                    <p class="eyebrow">( About )</p>
-                    <h2 class="section-title">The mind<span>behind</span> it.</h2>
-                    <p class="parallax-circle-reveal__bio">I'm Jithu — a product and brand designer who believes the best design is the kind people don't notice. It just works, feels right, and earns trust before a single word is read.</p>
+                    <p class="eyebrow" data-settings='{"animation":"chars","delay":0,"active":["mob","md"],"trigger-mode":"about-ready"}'>( About )</p>
+                    <h2 class="section-title" data-settings='{"animation":"lines","stagger":0.22,"delay":0.2,"active":["mob","md"],"trigger-mode":"about-ready"}'>The mind<span>behind</span> it.</h2>
+                    <p class="parallax-circle-reveal__bio" data-settings='{"animation":"fade","fade-from":"bottom","duration":1.2,"delay":0.65,"ease":"power3.out","active":["mob","md"],"trigger-mode":"about-ready"}'>I'm Jithu — a product and brand designer who believes the best design is the kind people don't notice. It just works, feels right, and earns trust before a single word is read.</p>
                     <div class="approach">
                       <span class="approach-label"></span>
                       <div class="approach-body">
@@ -214,7 +249,7 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="approach-cta">
+                    <div class="approach-cta" data-settings='{"animation":"fade","fade-from":"bottom","active":["mob","md"],"trigger-mode":"about-ready"}'>
                     <!-- <p class="note">Have a project in mind or just want to say hi? <br> I&rsquo;d love to hear from you.</p> -->
                      <a class="btn" href="#project-grid">
                         <span class="btn-label" data-button-label>Let's talk</span>
@@ -244,15 +279,11 @@
       <section class="faq" aria-labelledby="faq-title">
         <div class="container">
           <div class="row">
-            <!-- <div class="col-12">
-              <p class="faq__eyebrow">FAQ <span aria-hidden="true"></span></p>
-              <h2 id="faq-title" class="section-title">HELP &amp; <span>ANSWERS.</span></h2>
-            </div> -->
             <div class="col-md-6 faq__header">
-              <p class="faq__eyebrow">FAQ <span aria-hidden="true"></span></p>
-              <h2 id="faq-title" class="section-title">HELP &amp; <span>ANSWERS.</span></h2>
-              <p>Answers to common questions about our process, services, and how we work. <br>Still have any Question?</p>
-              <a class="btn" href="#project-grid">
+              <p class="eyebrow" data-trigger=".faq__header" data-settings='{"animation":"chars","delay":0}'>( FAQ )</p>
+              <h2 id="faq-title" class="section-title" data-trigger=".faq__header" data-settings='{"animation":"lines","stagger":0.22,"delay":0.2}'>HELP &amp; <span>ANSWERS.</span></h2>
+              <p data-trigger=".faq__header" data-settings='{"animation":"fade","fade-from":"left","duration":1.2,"delay":0.65,"ease":"power3.out"}'>Answers to common questions about our process, services, and how we work. Still have any Question?</p>
+              <a class="btn" href="#project-grid" data-settings='{"animation":"fade","fade-from":"bottom"}'>
                 <span class="btn-label" data-button-label>get in tocuh</span>
                   <svg class="btn-shape" viewBox="0 0 285 165" preserveAspectRatio="none" aria-hidden="true">
                   <g transform="matrix(2 0 0 2 142.5 82.5)">
@@ -264,31 +295,31 @@
             <div class="col-md-6 faq__accordion">
               <div class="faq__grid">
             <div class="faq__column">
-              <article class="faq__item --first">
+              <article class="faq__item --first"  data-settings='{"animation":"fade","fade-from":"left","duration":0.8,"delay":0,"ease":"power3.out"}'>
                 <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-1"><span>How long does a typical project take?</span><img src="images/icons/plus.svg" alt="" aria-hidden="true"></button></h3>
                 <div class="faq__answer" id="faq-answer-1">
                   <p>Smaller pages take 3–5 days. Full websites or applications usually take between 2–4 weeks, depending on complexity, features and feedback rounds.</p>
                 </div>
               </article>
-              <article class="faq__item">
+              <article class="faq__item"  data-settings='{"animation":"fade","fade-from":"left","duration":0.8,"delay":0.12,"ease":"power3.out"}'>
                 <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-2"><span>Do you handle development?</span><img src="images/icons/plus.svg" alt="" aria-hidden="true"></button></h3>
                 <div class="faq__answer" id="faq-answer-2"><p>Yes. I design and build responsive websites, interactive experiences and creative frontends from concept through launch.</p></div>
               </article>
-              <article class="faq__item">
+              <article class="faq__item"  data-settings='{"animation":"fade","fade-from":"left","duration":0.8,"delay":0.24,"ease":"power3.out"}'>
                 <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-3"><span>What do you need to get started?</span><img src="images/icons/plus.svg" alt="" aria-hidden="true"></button></h3>
                 <div class="faq__answer" id="faq-answer-3"><p>A short overview of your goals, audience, required features and preferred timeline is enough to begin the conversation.</p></div>
               </article>
             </div>
             <div class="faq__column">
-              <article class="faq__item">
+              <article class="faq__item"  data-settings='{"animation":"fade","fade-from":"left","duration":0.8,"delay":0.36,"ease":"power3.out"}'>
                 <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-4"><span>Can you work with an existing brand?</span><img src="images/icons/plus.svg" alt="" aria-hidden="true"></button></h3>
                 <div class="faq__answer" id="faq-answer-4"><p>Absolutely. I can extend an established visual system or refine it where needed while keeping the brand recognizable.</p></div>
               </article>
-              <article class="faq__item">
+              <article class="faq__item"  data-settings='{"animation":"fade","fade-from":"left","duration":0.8,"delay":0.48,"ease":"power3.out"}'>
                 <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-5"><span>Do you offer ongoing support?</span><img src="images/icons/plus.svg" alt="" aria-hidden="true"></button></h3>
                 <div class="faq__answer" id="faq-answer-5"><p>Yes. Post-launch support, improvements and ongoing creative development can be arranged around your project’s needs.</p></div>
               </article>
-              <article class="faq__item">
+              <article class="faq__item"  data-settings='{"animation":"fade","fade-from":"left","duration":0.8,"delay":0.6,"ease":"power3.out"}'>
                 <h3><button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-answer-6"><span>How do project payments work?</span><img src="images/icons/plus.svg" alt="" aria-hidden="true"></button></h3>
                 <div class="faq__answer" id="faq-answer-6"><p>Projects are usually split into clear milestone payments, with the schedule confirmed before work begins.</p></div>
               </article>
@@ -304,7 +335,7 @@
       <div class="container">
         <div class="footer-panel">
           <div class="row">
-            <a class="footer-headline" href="mailto:hello@jithupk.com" aria-label="Get in touch with Jithu">
+            <a class="footer-headline" href="mailto:hello@jithupk.com" aria-label="Get in touch with Jithu" data-settings='{"animation":"fade","fade-from":"bottom"}'>
               <span class="footer-headline-art">
                 <img class="footer-headline-image" src="./images/gtn.svg" alt="Get in touch">
                 <img class="footer-headline-image footer-headline-image--red" src="./images/gtn.svg" alt="" aria-hidden="true">
@@ -317,7 +348,7 @@
                 <span>hello@jithupk.com</span>
                 <i class="fa-solid fa-arrow-up-right" aria-hidden="true"></i>
               </a> -->
-              <a class="btn hov-white" href="#project-grid">
+              <a class="btn hov-white" href="#project-grid" data-settings='{"animation":"fade","fade-from":"bottom"}'>
                 <span class="btn-label" data-button-label>hello@jithupk.com</span>
                   <svg class="btn-shape" viewBox="0 0 285 165" preserveAspectRatio="none" aria-hidden="true">
                   <g transform="matrix(2 0 0 2 142.5 82.5)">
@@ -326,9 +357,9 @@
                 </svg>
               </a>
               <ul class="social-links" aria-label="Social links">
-                <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
-                <li><a href="#" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
-                <li><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+                <li data-trigger=".contact-row" data-settings='{"animation":"fade","fade-from":"bottom","delay":0}'><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+                <li data-trigger=".contact-row" data-settings='{"animation":"fade","fade-from":"bottom","delay":0.12}'><a href="#" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
+                <li data-trigger=".contact-row" data-settings='{"animation":"fade","fade-from":"bottom","delay":0.24}'><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
               </ul>
             </div>
           </div>
@@ -346,6 +377,6 @@
     <script src="js/vendor/gsap/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
     <script src="js/vendor/lenis/lenis.min.js"></script>
-    <script src="js/main.js?v=classic-loader-1"></script>
+    <script src="js/main.js?v=footer-hover-2"></script>
   </body>
 </html>
